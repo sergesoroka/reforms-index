@@ -18,6 +18,7 @@ const ExpertCart: FC<ExpertInfo> = ({ id, name, company, img }) => {
       {!isShown ? (
         <div className={styles.cartWrap}>
           <Image
+          // @ts-ignore
             src={img}
             alt={name}
             width={140}
@@ -32,6 +33,7 @@ const ExpertCart: FC<ExpertInfo> = ({ id, name, company, img }) => {
         <div className={styles.cartWrapExtended} onClick={showFullCart}>
           <div className={styles.cartNameExtended}>
             <Image
+            // @ts-ignore
               src={img}
               alt={name}
               width={80}
