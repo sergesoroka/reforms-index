@@ -9,10 +9,10 @@ const Table = () => {
   const handleSorting = (sortField: string, sortOrder: string) => {
     if (sortField) {
       const sorted = [...tableData].sort((a, b) => {
-        // @ts-ignore
-        if (a[sortField] === null) return 1;
-        if (b[sortField] === null) return -1;
-        if (a[sortField] === null && b[sortField] === null) return 0;
+       
+        // if (a[sortField] === null) return 1;
+        // if (b[sortField] === null) return -1;
+        // if (a[sortField] === null && b[sortField] === null) return 0;
         return (
           a[sortField].toString().localeCompare(b[sortField].toString(), "en", {
             numeric: true,

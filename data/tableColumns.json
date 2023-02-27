@@ -2,7 +2,7 @@
   { "accessor": "issue", "label": "Випуск", "sortable": true },
   { "accessor": "date", "label": "Дата", "sortable": true },
   { "accessor": "number", "label": "Номер", "sortable": true },
-  { "accessor": "name", "label": "Коротка назва", "sortable": true },
+  { "accessor": "name", "label": "Коротка назва", "sortable": false },
   { "accessor": "rating", "label": "Загальна\nоцінка", "sortable": true },
   { "accessor": "arrangment", "label": "Урядування", "sortable": true },
   { "accessor": "finance", "label": "Державні фінанси", "sortable": true },
