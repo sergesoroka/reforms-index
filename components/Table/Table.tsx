@@ -25,6 +25,7 @@ const Table = () => {
   return (
     <>
       <table style={{ width: "100%", textAlign: "left" }}>
+        {/* @ts-ignore */}
         <TableHead handleSorting={handleSorting} />
         <TableBody tableData={tableData} />
       </table>
