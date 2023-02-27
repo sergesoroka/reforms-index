@@ -1,0 +1,90 @@
+.expertsCartsWrap {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 1rem 2rem;
+  cursor: pointer;
+}
+
+.cartWrap {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+.cartWrapExtended {
+  margin: 1rem 0;
+  width: 12rem;
+}
+
+.cartNameExtended {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expertNameExtended {
+  text-align: left;
+  line-height: 1.2rem;
+  margin: 1rem 0;
+  width: 50%;
+}
+
+.expertCompanyExtended {
+  text-align: left;
+  width: 12rem;
+  margin: 1rem 0;
+  color: var(--primary-color);
+  line-height: 1.2rem;
+}
+
+.disc {
+  font-size: 0.76rem;
+  line-height: 1.2rem;
+  color: var(--light-grey-color);
+  margin: 1rem 0;
+}
+
+.role {
+  font-size: 0.7rem;
+  line-height: 1.2rem;
+  color: var(--body-text-color);
+}
+
+.roleName {
+  line-height: 1.2rem;
+  color: var(--light-grey-color);
+}
+.comments {
+  color: var(--primary-color);
+}
+.expertImg {
+  border-radius: 100%;
+}
+
+.expertName,
+.expertCompany {
+  color: var(--body-text-color);
+  width: 4rem;
+  text-align: center;
+  margin: 1rem 0;
+  line-height: 1.4rem;
+}
+
+.expertCompany {
+  width: 6rem;
+  color: var(--primary-color);
+}
+
+@media (max-width: 380px) {
+  .expertsCartsWrap {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 0;
+  }
+  .cartWrap {
+    margin: 0;
+  }
+}

@@ -1,0 +1,19 @@
+.switcher {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.switcher li {
+  list-style: none;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.langMenuActiveItem {
+  color: var(--primary-color);
+}
+
+.langMenuItem {
+  color: var(--light-grey-color)
+}

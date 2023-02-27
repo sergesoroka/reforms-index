@@ -1,0 +1,14 @@
+[
+  { "accessor": "issue", "label": "Випуск", "sortable": true },
+  { "accessor": "date", "label": "Дата", "sortable": true },
+  { "accessor": "number", "label": "Номер", "sortable": true },
+  { "accessor": "name", "label": "Коротка назва", "sortable": true },
+  { "accessor": "rating", "label": "Загальна\nоцінка", "sortable": true },
+  { "accessor": "arrangment", "label": "Урядування", "sortable": true },
+  { "accessor": "finance", "label": "Державні фінанси", "sortable": true },
+  { "accessor": "money", "label": "Монетарна система", "sortable": true },
+  { "accessor": "business", "label": "Бізнес середовище", "sortable": true },
+  { "accessor": "energy", "label": "Енергетика", "sortable": true },
+  { "accessor": "people", "label": "Людський капітал", "sortable": true },
+  { "accessor": "subtheme", "label": "Піднапрямок", "sortable": false }
+]

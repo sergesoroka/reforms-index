@@ -1,0 +1,7 @@
+.header {
+  color: var(--body-text-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: self-start;
+  padding: 1rem 2rem;
+}

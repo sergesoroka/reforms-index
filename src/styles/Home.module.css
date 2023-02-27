@@ -1,9 +1,10 @@
 .main {
-  display: flex;
+  color: var(--body-text-color);
+  /* display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
+  justify-content: center;
+  align-items: flex-start; */
+  padding: 2rem;
   min-height: 100vh;
 }
 

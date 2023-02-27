@@ -1,0 +1,19 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.navbar li {
+  color: var(--grey-color);
+  list-style: none;
+  margin: 0.5rem;
+}
+
+.navActiveItem {
+  color: var(--primary-color);
+}
+
+.navItem {
+  color: var(--light-grey-color)
+}
