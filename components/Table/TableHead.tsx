@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import columns from "../../data/tableColumns.json";
 import Arrow from "../icons/table_arrow.svg";
 
+// @ts-ignore
 const TableHead: FC = ({ handleSorting }) => {
   const [sortField, setSortField] = useState("");
   const [order, setOrder] = useState("asc");
