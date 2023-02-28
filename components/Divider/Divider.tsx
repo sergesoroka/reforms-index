@@ -7,13 +7,13 @@ const Divider: FC<divider> = ({ mode }) => {
     height: "4px",
     backgroundColor: "#E64E27",
     borderWidth: 0,
-    margin: "1rem 0",
+    margin: "1rem 0 0 0",
   };
   const commonDivider = {
     height: "1px",
     backgroundColor: "#E5E5E5",
     borderWidth: 0,
-    margin: "1rem 0",
+    margin: "1rem 0 0 0",
   };
   return <hr style={mode === 'first' ? mainDivider : commonDivider}></hr>;
 };

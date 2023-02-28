@@ -1,4 +1,4 @@
-import rows from "./../../data/tableRows.json";
+import styles from './Table.module.css'
 import columns from "./../../data/tableColumns.json";
 
 const TableBody = ({tableData}) => {
@@ -8,7 +8,7 @@ const TableBody = ({tableData}) => {
         <tr key={i}>
           {columns.map(({ accessor }) => {
             const tData = row[accessor] ? row[accessor] : "——";
-            return <td key={accessor}>{tData}</td>;
+            return <td key={accessor} className={styles.tableBodyCell}>{tData}</td>;
           })}
         </tr>
       ))}

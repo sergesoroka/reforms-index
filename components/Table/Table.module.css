@@ -1,0 +1,21 @@
+.tableBodyCell,
+.tableHeadCell,
+.tableHeadCellActive {
+  padding: 0.6rem;
+}
+
+.tableHeadCell, .tableHeadCellActive {
+  border-bottom: 1px solid #ededed;
+  cursor: pointer;
+  font-weight: 100;
+  font-size: 0.7rem;
+}
+
+.tableHeadCellActive {
+  color: var(--primary-color);
+  
+}
+
+.tableHeadCell:hover {
+  background-color: #f1f1f1;
+}

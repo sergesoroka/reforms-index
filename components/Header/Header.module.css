@@ -1,5 +1,6 @@
 .header {
   color: var(--body-text-color);
+  font-size: .86rem;
   display: flex;
   justify-content: space-between;
   align-items: self-start;

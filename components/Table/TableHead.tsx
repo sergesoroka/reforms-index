@@ -1,6 +1,9 @@
 import { FC, useState } from "react";
 import columns from "../../data/tableColumns.json";
 import Arrow from "../icons/table_arrow.svg";
+import ArrowActive from "../icons/table_arrow_red.svg";
+import ArrowActiveReverse from '../icons/table_arrow_red_reverse.svg'
+import styles from "./Table.module.css";
 
 // @ts-ignore
 const TableHead: FC = ({ handleSorting }) => {
@@ -22,12 +25,11 @@ const TableHead: FC = ({ handleSorting }) => {
           <th
             key={accessor}
             onClick={sortable ? () => handleSortingChange(accessor) : null}
-            style={{
-              padding: "0.4rem 1rem",
-              borderTop: "1px solid #ededed",
-              fontWeight: "100",
-              fontSize: "0.7rem",
-            }}
+            className={
+              sortField === accessor
+                ? styles.tableHeadCellActive
+                : styles.tableHeadCell
+            }
           >
             <div
               style={{
@@ -38,7 +40,13 @@ const TableHead: FC = ({ handleSorting }) => {
               }}
             >
               <p>{label}</p>
-              {accessor !== "subtheme" && <Arrow />}
+              {accessor !== "subtheme" && accessor !== "name" ? (
+                sortField === accessor ? (
+                  (order === "asc" ? <ArrowActive /> : <ArrowActiveReverse />)
+                ) : (
+                  <Arrow />
+                )
+              ) : null}
             </div>
           </th>
         ))}
