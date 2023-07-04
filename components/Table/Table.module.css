@@ -3,6 +3,9 @@
 .tableHeadCellActive {
   padding: 0.6rem;
 }
+.tableBodyCell {
+  font-size: .8rem;
+}
 
 .tableHeadCell, .tableHeadCellActive {
   border-bottom: 1px solid #ededed;

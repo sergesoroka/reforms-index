@@ -2,25 +2,47 @@ import ExpertCart from "./ExpertCart";
 import styles from "./Experts.module.css";
 
 const expertInfo = [
-  { id: 1, name: "Ростислав Аверчук", company: "Вокс Україна", img: 'https://voxukraine.org/wp-content/uploads/2021/02/avrchuk.jpg' },
+  {
+    id: 1,
+    name: "Ростислав Аверчук",
+    company: "Вокс Україна",
+    img: "https://voxukraine.org/wp-content/uploads/2021/02/avrchuk.jpg",
+  },
   {
     id: 2,
     name: "Олександра Бетлій",
-    company: "Інститут економічних досліджень та політичних консультацій", img: 'https://voxukraine.org/wp-content/uploads/2020/12/Betlij-e1610639574308.jpg'
+    company: "Інститут економічних досліджень та політичних консультацій",
+    img: "https://voxukraine.org/wp-content/uploads/2020/12/Betlij-e1610639574308.jpg",
   },
-  { id: 3, name: "Вадим Бізяєв ", company: "Київська школа економіки", img: 'https://kse.ua/wp-content/uploads/2019/05/vadim-1.jpg' },
-  { id: 4, name: "Ростислав Аверчук", company: "Вокс Україна", img: 'https://voxukraine.org/wp-content/uploads/2021/02/avrchuk.jpg' },
+  {
+    id: 3,
+    name: "Вадим Бізяєв ",
+    company: "Київська школа економіки",
+    img: "https://kse.ua/wp-content/uploads/2019/05/vadim-1.jpg",
+  },
+  {
+    id: 4,
+    name: "Ростислав Аверчук",
+    company: "Вокс Україна",
+    img: "https://voxukraine.org/wp-content/uploads/2021/02/avrchuk.jpg",
+  },
   {
     id: 5,
     name: "Олександра Бетлій",
-    company: "Інститут економічних досліджень та політичних консультацій", img: 'https://voxukraine.org/wp-content/uploads/2020/12/Betlij-e1610639574308.jpg'
+    company: "Інститут економічних досліджень та політичних консультацій",
+    img: "https://voxukraine.org/wp-content/uploads/2020/12/Betlij-e1610639574308.jpg",
   },
-  { id: 6, name: "Вадим Бізяєв ", company: "Київська школа економіки", img: 'https://kse.ua/wp-content/uploads/2019/05/vadim-1.jpg' },
+  {
+    id: 6,
+    name: "Вадим Бізяєв ",
+    company: "Київська школа економіки",
+    img: "https://kse.ua/wp-content/uploads/2019/05/vadim-1.jpg",
+  },
 ];
 function Experts() {
   return (
     <div>
-      <div>Experts</div>
+      <h2 className="text-xl mb-8">Experts</h2>
       <div className={styles.expertsCartsWrap}>
         {expertInfo.map((expert) => (
           <ExpertCart

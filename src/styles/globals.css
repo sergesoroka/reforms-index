@@ -1,12 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
 
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --primary-color: #E64E27;
+  --primary-color: #e64e27;
   --body-text-color: #1f1f1f;
   --grey-color: #636363;
-  --light-grey-color: #8D8D8D;
+  --light-grey-color: #8d8d8d;
 }
 
 * {
@@ -22,7 +27,7 @@ body {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 0.7rem;
 }
 

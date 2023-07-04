@@ -1,7 +1,6 @@
 .switcher {
   display: flex;
   justify-content: space-between;
-  
 }
 
 .switcher li {
@@ -12,11 +11,10 @@
 
 .langMenuActiveItem {
   color: var(--primary-color);
-  font-size: .86rem;
+  font-size: 1rem;
 }
 
 .langMenuItem {
   color: var(--light-grey-color);
-  font-size: .86rem;
-
+  font-size: 1rem;
 }

@@ -13,8 +13,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1>Methodology</h1>
-        <h2>Defining reforms</h2>
+        <h2 className="text-xl mb-8">Methodology</h2>
+        <h3>Defining reforms</h3>
         <Divider mode="main" />
         <p>
           For the purposes of this index, a reform (anti-reform) is considered

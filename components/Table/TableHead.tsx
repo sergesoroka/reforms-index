@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import columns from "../../data/tableColumns.json";
 import Arrow from "../icons/table_arrow.svg";
 import ArrowActive from "../icons/table_arrow_red.svg";
-import ArrowActiveReverse from '../icons/table_arrow_red_reverse.svg'
+import ArrowActiveReverse from "../icons/table_arrow_red_reverse.svg";
 import styles from "./Table.module.css";
 
 // @ts-ignore
@@ -42,7 +42,11 @@ const TableHead: FC = ({ handleSorting }) => {
               <p>{label}</p>
               {accessor !== "subtheme" && accessor !== "name" ? (
                 sortField === accessor ? (
-                  (order === "asc" ? <ArrowActive /> : <ArrowActiveReverse />)
+                  order === "asc" ? (
+                    <ArrowActive />
+                  ) : (
+                    <ArrowActiveReverse />
+                  )
                 ) : (
                   <Arrow />
                 )

@@ -4,11 +4,10 @@ import Navbar from "./Navbar/Navbar";
 import Link from "next/link";
 
 const Header = () => {
- 
   return (
     <header className={styles.header}>
       <Link href="/" passHref>
-        <div className={styles.logo}>
+        <div className="text-xl leading-6">
           Iндекс
           <br />
           реформ
