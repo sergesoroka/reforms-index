@@ -30,6 +30,7 @@ export default function Laws() {
           single={false}
           openable={true}
           open={openChart}
+          // @ts-ignore
           setOpen={setOpenChart}
         />
         {
@@ -50,6 +51,7 @@ export default function Laws() {
           single={false}
           openable={true}
           open={openInitiators}
+          // @ts-ignore
           setOpen={setOpenInitiators}
         />
         <AnimatePresence>
@@ -69,6 +71,7 @@ export default function Laws() {
           single={false}
           openable={true}
           open={openActs}
+          // @ts-ignore
           setOpen={setOpenActs}
         />
         {openActs && <div>Acts</div>}
