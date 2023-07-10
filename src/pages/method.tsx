@@ -14,8 +14,8 @@ export default function Home() {
 
       <main className={styles.main}>
         <h2 className="text-xl mb-8">Methodology</h2>
-        <h3>Defining reforms</h3>
-        <Divider mode="main" />
+
+        <Divider heading="Defining reforms" />
         <p>
           For the purposes of this index, a reform (anti-reform) is considered
           to be a normative act which changes the behavior of economic agents

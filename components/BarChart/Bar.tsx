@@ -47,7 +47,7 @@ function Bar({
         className="w-8 bg-[#A10142]"
         style={{ height: `${goverment}px` }}
       />
-      <p className="mt-2 font-medium text-sm text-gray-500">{month}</p>
+      <p className="mt-2 font-medium text-sm text-gray-600">{month}</p>
     </div>
   );
 }

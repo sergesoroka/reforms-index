@@ -1,13 +1,14 @@
 .navbar {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
 .navbar li {
   color: var(--grey-color);
   list-style: none;
-  margin: 0.5rem;
+  margin: 0.5rem 1rem 0.5rem 0;
 }
 
 .navActiveItem {

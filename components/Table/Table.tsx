@@ -9,8 +9,6 @@ const Table = () => {
   const [tableData, setTableData] = useState(rows);
   const [category, setCategory] = useState("all");
   const [filtered, setFiltered] = useState([]);
-  
-  
 
   const handleSorting = (sortField: string, sortOrder: string) => {
     if (sortField) {
@@ -30,23 +28,21 @@ const Table = () => {
 
   const handleFilters = (filters) => {
     // setFiltered(filters)
-    const catSelected =  []
+    const catSelected = [];
     tableData.map((item) => {
       if (filters.includes(item.subtheme)) {
-          catSelected.push(item)
+        catSelected.push(item);
       }
-      setTableData(catSelected)
-      console.log('Filters', filters);
-    })
-   
-    
+      setTableData(catSelected);
+      console.log("Filters", filters);
+    });
   };
 
   return (
     <>
       {/* @ts-ignore */}
       <TableCategories handleFilters={handleFilters} />
-      <Divider mode="first" />
+      <Divider single={true} />
       <table style={{ width: "100%", textAlign: "left" }}>
         {/* @ts-ignore */}
         <TableHead handleSorting={handleSorting} />

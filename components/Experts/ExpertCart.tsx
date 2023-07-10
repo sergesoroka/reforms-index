@@ -16,24 +16,24 @@ const ExpertCart: FC<ExpertInfo> = ({ id, name, company, img }) => {
   return (
     <div onClick={showFullCart}>
       {!isShown ? (
-        <div className={styles.cartWrap}>
+        <div className="w-[192px] flex flex-col items-center">
           <Image
-          // @ts-ignore
+            // @ts-ignore
             src={img}
             alt={name}
             width={140}
             height={140}
-            className={styles.expertImg}
+            className="rounded-full h-[140px]"
           />
-          <p className={styles.expertName}>{name}</p>
+          <p className="text-sm text-gray-700 my-8">{name}</p>
           <hr style={{ width: "100%" }} />
-          <p className={styles.expertCompany}>{company}</p>
+          <p className="text-sm text-red-500 my-8 text-center">{company}</p>
         </div>
       ) : (
         <div className={styles.cartWrapExtended} onClick={showFullCart}>
           <div className={styles.cartNameExtended}>
             <Image
-            // @ts-ignore
+              // @ts-ignore
               src={img}
               alt={name}
               width={80}
@@ -44,8 +44,12 @@ const ExpertCart: FC<ExpertInfo> = ({ id, name, company, img }) => {
           </div>
           <hr style={{ width: "100%", margin: "1rem 0" }} />
           <p className={styles.expertCompanyExtended}>{company}</p>
-          <p className={styles.role}><span className={styles.roleName}>Посада:</span> Член редколегії</p>
-          <p className={styles.role}><span className={styles.roleName}>Спеціалізація:</span> Урядування</p>
+          <p className={styles.role}>
+            <span className={styles.roleName}>Посада:</span> Член редколегії
+          </p>
+          <p className={styles.role}>
+            <span className={styles.roleName}>Спеціалізація:</span> Урядування
+          </p>
           <p className={styles.disc}>
             Гостьовий редактор «Вокс Україна», випускник бакалаврської програми
             «Філософія, політика, економіка» Оксфордського університету.

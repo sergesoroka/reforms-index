@@ -1,9 +1,19 @@
 import Head from "next/head";
-import BarChart from "../../components/BarChart/BarChart";
-import StackedBarChart from "components/BarChart/StackedBarChart";
-import styles from "@/styles/Home.module.css";
+import { useState } from "react";
 
-export default function Home() {
+import BarChart from "../../components/BarChart/BarChart";
+import styles from "@/styles/Home.module.css";
+import Initiators from "components/Initiators/Initiators";
+import Divider from "components/Divider/Divider";
+import { AnimatePresence, motion } from "framer-motion";
+
+export default function Laws() {
+  const [initiatorName, setInitiatorName] = useState("all");
+
+  const [openChart, setOpenChart] = useState(true);
+  const [openInitiators, setOpenInitiators] = useState(true);
+  const [openActs, setOpenActs] = useState(true);
+
   return (
     <>
       <Head>
@@ -14,8 +24,54 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <BarChart />
-        {/* <StackedBarChart /> */}
+        <h2 className="text-xl">Военні закони</h2>
+        <Divider
+          heading="Дата ухвалення та категорії"
+          single={false}
+          openable={true}
+          open={openChart}
+          setOpen={setOpenChart}
+        />
+        {
+          <AnimatePresence>
+            {openChart && (
+              <motion.div
+                initial={{ y: -300, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <BarChart />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        }
+        <Divider
+          heading="Ініціатори"
+          single={false}
+          openable={true}
+          open={openInitiators}
+          setOpen={setOpenInitiators}
+        />
+        <AnimatePresence>
+          {openInitiators && (
+            <motion.div
+              initial={{ y: -30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -30, opacity: 0 }}
+            >
+              <Initiators setInitiatorName={setInitiatorName} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+        {/* {openInitiators && <Initiators setInitiatorName={setInitiatorName} />} */}
+        <Divider
+          heading="Нормативні акти"
+          single={false}
+          openable={true}
+          open={openActs}
+          setOpen={setOpenActs}
+        />
+        {openActs && <div>Acts</div>}
       </main>
     </>
   );

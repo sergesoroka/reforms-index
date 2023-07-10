@@ -1,5 +1,6 @@
 import Bar from "./Bar";
 import { AnimatePresence, motion } from "framer-motion";
+import Divider from "components/Divider/Divider";
 
 const barChartData = [
   {
@@ -95,16 +96,12 @@ const renderLabels = labels.map((item, i) => (
 function BarChart() {
   return (
     <>
-      <h2 className="text-xl mb-8">Военні закони</h2>
-      <h3 className="text-sm text-gray-600 mb-1 underline decoration-red-600 decoration-4 underline-offset-8">
-        Дата ухвалення, категорії та ініціатори
-      </h3>
-
-      <hr className="mt-1" />
-      <div className="flex gap-6 my-8 justify-center items-center">
+      <div className="flex gap-6 mb-10 justify-center items-center flex-wrap">
         {renderLabels}
       </div>
-      <div className="flex justify-center items-end">{renderBarChart}</div>
+      <div className="flex justify-center items-end gap-4">
+        {renderBarChart}
+      </div>
     </>
   );
 }

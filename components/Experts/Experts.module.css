@@ -7,13 +7,13 @@
   cursor: pointer;
 }
 
-.cartWrap {
+/* .cartWrap {
   margin: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-}
+} */
 .cartWrapExtended {
   margin: 1rem 0;
   width: 12rem;
@@ -60,9 +60,9 @@
 .comments {
   color: var(--primary-color);
 }
-.expertImg {
+/* .expertImg {
   border-radius: 100%;
-}
+} */
 
 .expertName,
 .expertCompany {

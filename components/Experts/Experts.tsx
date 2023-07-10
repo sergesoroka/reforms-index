@@ -1,3 +1,4 @@
+import Divider from "components/Divider/Divider";
 import ExpertCart from "./ExpertCart";
 import styles from "./Experts.module.css";
 
@@ -42,8 +43,8 @@ const expertInfo = [
 function Experts() {
   return (
     <div>
-      <h2 className="text-xl mb-8">Experts</h2>
-      <div className={styles.expertsCartsWrap}>
+      <Divider heading="Наші експерти" single={false} />
+      <div className="flex gap-8 flex-wrap justify-between">
         {expertInfo.map((expert) => (
           <ExpertCart
             name={expert.name}
