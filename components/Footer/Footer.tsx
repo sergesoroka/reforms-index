@@ -9,7 +9,7 @@ const Footer = () => {
       <Divider single={true} />
       <div className={styles.footerWrap}>
         <div className={styles.infoFooter}>
-          <p className={styles.logoFooter}>Iндекс реформ</p>
+          <p className="text-sm text-red-500">Iндекс реформ</p>
           <p className={styles.copyright}>
             Всі права захищені © 2023 VoxUkraine
           </p>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import BarChart from "../../components/BarChart/BarChart";
 import styles from "@/styles/Home.module.css";
 import Initiators from "components/Initiators/Initiators";
+import NormativeActs from "components/NormativeActs/NormativeActs";
 import Divider from "components/Divider/Divider";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -11,8 +12,8 @@ export default function Laws() {
   const [initiatorName, setInitiatorName] = useState("all");
 
   const [openChart, setOpenChart] = useState(true);
-  const [openInitiators, setOpenInitiators] = useState(true);
-  const [openActs, setOpenActs] = useState(true);
+  const [openInitiators, setOpenInitiators] = useState(false);
+  const [openActs, setOpenActs] = useState(false);
 
   return (
     <>
@@ -74,7 +75,17 @@ export default function Laws() {
           // @ts-ignore
           setOpen={setOpenActs}
         />
-        {openActs && <div>Acts</div>}
+        <AnimatePresence>
+          {openActs && (
+            <motion.div
+              initial={{ y: -30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <NormativeActs />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
     </>
   );

@@ -27,24 +27,24 @@ function Bar({
   return (
     <div className="flex flex-col justify-center items-center w-12 mx-2">
       <motion.div
-        className="w-8 bg-[#FEE08B]"
+        className="w-6 bg-[#FEE08B]"
         style={{ height: `${energy}px` }}
       />
 
       <motion.div
-        className="w-8  bg-[#FDAE61]"
+        className="w-6  bg-[#FDAE61]"
         style={{ height: `${business}px` }}
       />
       <motion.div
-        className="w-8 bg-[#F46D43]"
+        className="w-6 bg-[#F46D43]"
         style={{ height: `${monetary}px` }}
       />
       <motion.div
-        className="w-8 bg-[#D53E4F]"
+        className="w-6 bg-[#D53E4F]"
         style={{ height: `${finances}px` }}
       />
       <motion.div
-        className="w-8 bg-[#A10142]"
+        className="w-6 bg-[#A10142]"
         style={{ height: `${goverment}px` }}
       />
       <p className="mt-2 font-medium text-sm text-gray-600">{month}</p>

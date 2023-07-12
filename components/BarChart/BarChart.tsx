@@ -39,6 +39,78 @@ const barChartData = [
     business: 31,
     energy: 21,
   },
+  {
+    id: 5,
+    month: "Травень",
+    goverment: 25,
+    finances: 41,
+    monetary: 14,
+    business: 21,
+    energy: 22,
+  },
+  {
+    id: 6,
+    month: "Червень",
+    goverment: 15,
+    finances: 51,
+    monetary: 68,
+    business: 32,
+    energy: 12,
+  },
+  {
+    id: 7,
+    month: "Липень",
+    goverment: 23,
+    finances: 42,
+    monetary: 27,
+    business: 24,
+    energy: 42,
+  },
+  {
+    id: 8,
+    month: "Серпень",
+    goverment: 33,
+    finances: 41,
+    monetary: 23,
+    business: 31,
+    energy: 21,
+  },
+  {
+    id: 9,
+    month: "Вересень",
+    goverment: 25,
+    finances: 41,
+    monetary: 14,
+    business: 21,
+    energy: 22,
+  },
+  {
+    id: 10,
+    month: "Жовтень",
+    goverment: 15,
+    finances: 51,
+    monetary: 68,
+    business: 32,
+    energy: 12,
+  },
+  {
+    id: 11,
+    month: "Листопад",
+    goverment: 23,
+    finances: 42,
+    monetary: 27,
+    business: 24,
+    energy: 42,
+  },
+  {
+    id: 12,
+    month: "Грудень",
+    goverment: 33,
+    finances: 41,
+    monetary: 23,
+    business: 31,
+    energy: 21,
+  },
 ];
 
 const labels = [
@@ -99,7 +171,7 @@ function BarChart() {
       <div className="flex gap-6 mb-10 justify-center items-center flex-wrap">
         {renderLabels}
       </div>
-      <div className="flex justify-center items-end gap-4">
+      <div className="flex flex-wrap justify-center items-end gap-4">
         {renderBarChart}
       </div>
     </>
