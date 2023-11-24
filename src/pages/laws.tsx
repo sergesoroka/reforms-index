@@ -38,9 +38,10 @@ export default function Laws() {
           <AnimatePresence>
             {openChart && (
               <motion.div
-                initial={{ y: -300, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ opacity: 0 }}
+              layout
+              initial={{ y: -30, opacity: 0, height: 0 }}
+              animate={{ y: 0, opacity: 1, height: 'auto' }}
+              exit={{ y: -30, opacity: 0, height: 0 }}
               >
                 <BarChart />
               </motion.div>
@@ -58,9 +59,10 @@ export default function Laws() {
         <AnimatePresence>
           {openInitiators && (
             <motion.div
-              initial={{ y: -30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -30, opacity: 0 }}
+              layout
+              initial={{ y: -30, opacity: 0, height: 0 }}
+              animate={{ y: 0, opacity: 1, height: 'auto' }}
+              exit={{ y: -30, opacity: 0, height: 0 }}
             >
               <Initiators setInitiatorName={setInitiatorName} />
             </motion.div>
@@ -78,9 +80,10 @@ export default function Laws() {
         <AnimatePresence>
           {openActs && (
             <motion.div
-              initial={{ y: -30, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ opacity: 0 }}
+            layout
+            initial={{ y: -30, opacity: 0, height: 0 }}
+            animate={{ y: 0, opacity: 1, height: 'auto' }}
+            exit={{ y: -30, opacity: 0, height: 0 }}
             >
               <NormativeActs />
             </motion.div>

@@ -157,7 +157,7 @@ const renderLabels = labels.map((item, i) => (
   <motion.div
     key={i}
     initial={{ opacity: 0 }}
-    animate={{ opacity: 1, transition: { delay: i * 0.2 } }}
+    animate={{ opacity: 1, transition: { delay: i * 0.05 } }}
     className="flex items-center gap-2 text-sm"
   >
     <div className={`w-4 h-4 bg-[${item.color}]`} />

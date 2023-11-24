@@ -125,7 +125,7 @@ const Navbar = () => {
             />
           )}
         </li>
-        <li>
+        {/* <li>
           <Link
             href="/laws"
             passHref
@@ -143,7 +143,7 @@ const Navbar = () => {
               className="h-1 w-full bg-red-600"
             />
           )}
-        </li>
+        </li> */}
       </ul>
     </>
   );

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 import rows from "./../../data/tableRows.json";
@@ -27,16 +27,27 @@ const Table = () => {
   };
 
   const handleFilters = (filters) => {
-    // setFiltered(filters)
-    const catSelected = [];
-    tableData.map((item) => {
-      if (filters.includes(item.subtheme)) {
-        catSelected.push(item);
-      }
-      setTableData(catSelected);
-      console.log("Filters", filters);
-    });
+    setFiltered(filters)
+    
   };
+
+  console.log(filtered);
+// @ts-ignore
+  useEffect(() => {
+    if(filtered.length < 1) {
+      setTableData(rows)
+    }
+    const catSelected = [];
+    console.log('effect');
+    tableData.map((item) => {
+  
+      if ( filtered.includes(item.subtheme)) {
+        catSelected.push(item);
+        setTableData(catSelected);
+      }
+    })
+  }, [filtered])
+  
 
   return (
     <>
