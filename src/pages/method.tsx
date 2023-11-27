@@ -12,8 +12,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h2 className="text-xl mb-8">Methodology</h2>
+      <main className={styles.mainAbout}>
+        <h2 className="text-xl mb-8">Методологія</h2>
 
         <Divider heading="Defining reforms" />
         <p>

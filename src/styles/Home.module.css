@@ -8,6 +8,19 @@
   min-height: 100vh;
 }
 
+.mainAbout {
+  font-size: 1rem;
+  color: var(--body-text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  min-height: 100vh;
+  margin: 0 auto;
+  width: 75%;
+}
+
 .description {
   display: inherit;
   justify-content: inherit;
@@ -98,7 +111,7 @@
 
 .center::before,
 .center::after {
-  content: '';
+  content: "";
   left: 50%;
   position: absolute;
   filter: blur(45px);
@@ -126,7 +139,7 @@
 
 .thirteen::before,
 .thirteen::after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
 }
