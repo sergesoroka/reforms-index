@@ -18,7 +18,6 @@ export default function About() {
           <Divider heading="Індекс моніторингу реформ" openable={false} />
           <p>
             <span style={{ fontWeight: "400" }}>
-              {" "}
               – це аналітичний інструмент, призначений надати кількісну оцінку
               прогресу економічних реформ в Україні. Він базується на оцінці
               експертами змін у регуляторному середовищі, які можна вважати
@@ -49,7 +48,6 @@ export default function About() {
               <span style={{ fontWeight: "400" }}>професор політології</span>
             </a>
             <span style={{ fontWeight: "400" }}>
-              {" "}
               в Ратгерському університеті США
             </span>
             <span style={{ fontWeight: "400" }}>
@@ -94,9 +92,9 @@ export default function About() {
               <span style={{ fontWeight: "400" }}> Інше в урядуванні</span>
             </li>
           </ul>
-          <p>
-            <h3 className="mt-6 font-bold">І2. Державні фінанси:</h3>
-          </p>
+
+          <h3 className="mt-6 font-bold">І2. Державні фінанси:</h3>
+
           <ul>
             <li>
               <span style={{ fontWeight: "400" }}> Податкова система</span>
@@ -106,26 +104,23 @@ export default function About() {
             </li>
             <li>
               <span style={{ fontWeight: "400" }}>
-                {" "}
                 Ефективність державних видатків
               </span>
             </li>
             <li>
               <span style={{ fontWeight: "400" }}>
-                {" "}
                 Управління державним боргом
               </span>
             </li>
             <li>
               <span style={{ fontWeight: "400" }}>
-                {" "}
                 Інше в державних фінансах
               </span>
             </li>
           </ul>
-          <p>
-            <h3 className="mt-6 font-bold">І3. Монетарна система:</h3>
-          </p>
+
+          <h3 className="mt-6 font-bold">І3. Монетарна система:</h3>
+
           <ul>
             <li>
               <span style={{ fontWeight: "400" }}> Валютне регулювання</span>
@@ -145,9 +140,9 @@ export default function About() {
               </span>
             </li>
           </ul>
-          <p>
-            <h3 className="mt-6 font-bold">І4. Бізнес середовище:</h3>
-          </p>
+
+          <h3 className="mt-6 font-bold">І4. Бізнес середовище:</h3>
+
           <ul>
             <li>
               <span style={{ fontWeight: "400" }}> Регулювання бізнесу</span>
@@ -159,10 +154,7 @@ export default function About() {
               <span style={{ fontWeight: "400" }}> Зовнішня торгівля</span>
             </li>
             <li>
-              <span style={{ fontWeight: "400" }}>
-                {" "}
-                Корпоративне управління
-              </span>
+              <span style={{ fontWeight: "400" }}>Корпоративне управління</span>
             </li>
             <li>
               <span style={{ fontWeight: "400" }}> Права власності</span>
@@ -173,9 +165,9 @@ export default function About() {
               </span>
             </li>
           </ul>
-          <p>
-            <h3 className="mt-6 font-bold">І5. Енергетика</h3>
-          </p>
+
+          <h3 className="mt-6 font-bold">І5. Енергетика</h3>
+
           <ul>
             <li>
               <span style={{ fontWeight: "400" }}>
@@ -183,9 +175,9 @@ export default function About() {
               </span>
             </li>
           </ul>
-          <p>
-            <h3 className="mt-6 font-bold">І6. Людський капітал:</h3>
-          </p>
+
+          <h3 className="mt-6 font-bold">І6. Людський капітал:</h3>
+
           <ul>
             <li>
               <span style={{ fontWeight: "400" }}> Освіта</span>
@@ -209,13 +201,10 @@ export default function About() {
             </li>
           </ul>
           <p className="mt-8 text-[13px]">
-            <em>
-              *Нотатка: Структура Індексу може змінюватись за результатами{" "}
-              <a href="https://reforms.voxukraine.org/wordpress/wp-content/uploads/2022/06/Audit-protocol_2016-2022.pdf">
-                щорічного аудиту
-              </a>
-              . &nbsp;
-            </em>
+            *Нотатка: Структура Індексу може змінюватись за результатами{" "}
+            <a href="https://reforms.voxukraine.org/wordpress/wp-content/uploads/2022/06/Audit-protocol_2016-2022.pdf">
+              щорічного аудиту.
+            </a>
           </p>
         </div>
       </main>
