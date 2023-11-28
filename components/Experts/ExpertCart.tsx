@@ -7,16 +7,29 @@ type ExpertInfo = {
   name: string;
   company: string;
   img?: string;
+  position?: string;
+  info?: string;
+  specialization?: string;
 };
 
-const ExpertCart: FC<ExpertInfo> = ({ id, name, company, img }) => {
-  const [isShown, setIsShown] = useState(false);
+const ExpertCart: FC<ExpertInfo> = ({
+  id,
+  name,
+  company,
+  img,
+  position,
+  info,
+  specialization,
+}) => {
+  const [isShown, setIsShown] = useState(true);
 
   const showFullCart = () => setIsShown(!isShown);
   return (
-    <div onClick={showFullCart}>
+    <div
+    // onClick={showFullCart}
+    >
       {!isShown ? (
-        <div className="w-[192px] flex flex-col items-center">
+        <div className="w-[192px] flex flex-col items-center poiter">
           <Image
             // @ts-ignore
             src={img}
@@ -30,7 +43,10 @@ const ExpertCart: FC<ExpertInfo> = ({ id, name, company, img }) => {
           <p className="text-sm text-red-500 my-8 text-center">{company}</p>
         </div>
       ) : (
-        <div className={styles.cartWrapExtended} onClick={showFullCart}>
+        <div
+          className={styles.cartWrapExtended}
+          // onClick={showFullCart}
+        >
           <div className={styles.cartNameExtended}>
             <Image
               // @ts-ignore
@@ -45,17 +61,17 @@ const ExpertCart: FC<ExpertInfo> = ({ id, name, company, img }) => {
           <hr style={{ width: "100%", margin: "1rem 0" }} />
           <p className={styles.expertCompanyExtended}>{company}</p>
           <p className={styles.role}>
-            <span className={styles.roleName}>Посада:</span> Член редколегії
+            <span className={styles.roleName}>Посада:</span> {position}
           </p>
           <p className={styles.role}>
-            <span className={styles.roleName}>Спеціалізація:</span> Урядування
+            <span className={styles.roleName}>Спеціалізація:</span>{" "}
+            {specialization}
           </p>
-          <p className={styles.disc}>
-            Гостьовий редактор «Вокс Україна», випускник бакалаврської програми
-            «Філософія, політика, економіка» Оксфордського університету.
-          </p>
+          <p
+            className={styles.disc}
+            dangerouslySetInnerHTML={{ __html: info }}
+          />
           <hr style={{ width: "100%", margin: "1rem 0" }} />
-          <p className={styles.comments}>Коментари</p>
         </div>
       )}
     </div>

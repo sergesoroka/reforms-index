@@ -13,7 +13,7 @@
   color: var(--body-text-color);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   padding: 2rem;
   min-height: 100vh;

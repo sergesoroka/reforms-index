@@ -7,20 +7,17 @@ const nextConfig = {
     localeDetection: false,
   },
   images: {
-    domains: ['voxukraine.org', 'kse.ua'],
+    domains: ["vox-imore.ra-devs.tech", "voxukraine.org", "kse.ua"],
   },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
-      use: ['@svgr/webpack'],
-    })
+      use: ["@svgr/webpack"],
+    });
 
-    return config
+    return config;
   },
 };
-
-
-
 
 module.exports = nextConfig;

@@ -6,12 +6,28 @@ type divider = {
   single?: boolean;
   openable?: boolean;
   open?: boolean;
+  gray?: boolean;
   setOpen?: (open: boolean) => {};
 };
 
-const Divider: FC<divider> = ({ heading, single, openable, open, setOpen }) => {
+const Divider: FC<divider> = ({
+  heading,
+  single,
+  gray,
+  openable,
+  open,
+  setOpen,
+}) => {
   return (
     <>
+      {gray && (
+        <>
+          <h3 className="text-lg select-none mt-12 ml-1  text-gray-600 mb-1">
+            {heading}
+          </h3>
+          <div className="h-[1px] mt-1 mb-10 w-full bg-gray-200" />
+        </>
+      )}
       {single && <div className="h-1 mt-3 mb-10 w-full bg-red-600" />}
       {openable && (
         <>
@@ -27,16 +43,17 @@ const Divider: FC<divider> = ({ heading, single, openable, open, setOpen }) => {
           <hr className="mt-2 mb-10" />
         </>
       )}
-      {!openable && (
-        <>
-          <div className="flex justify-start items-baseline gap-4 cursor-pointer">
-            <h3 className="text-base select-none mt-10 mb-6 text-gray-600  underline decoration-red-600 decoration-4 underline-offset-[14px]">
-              {heading}
-            </h3>
-          </div>
-          {/* <hr className="mt-2 mb-10" /> */}
-        </>
-      )}
+      {!openable ||
+        (!gray && (
+          <>
+            <div className="flex justify-start items-baseline gap-4 cursor-pointer">
+              <h3 className="text-base select-none mt-10 mb-6 text-gray-600  underline decoration-red-600 decoration-4 underline-offset-[14px]">
+                {heading}
+              </h3>
+            </div>
+            {/* <hr className="mt-2 mb-10" /> */}
+          </>
+        ))}
     </>
   );
 };

@@ -1,5 +1,10 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
+import Divider from "components/Divider/Divider";
+import HomeBarChart from "components/HomePageComps/HomeBarChart";
+import HomeExperts from "components/HomePageComps/HomeExperts";
+import HomePosts from "components/HomePageComps/HomePosts";
+import HomPartners from "components/HomePageComps/HomPartners";
 
 export default function Home() {
   return (
@@ -11,7 +16,31 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>Home page</main>
+      <main className={styles.mainAbout}>
+        <Divider heading="Індекс" gray={true} openable={false} single={false} />
+        <HomeBarChart />
+        <Divider
+          heading="Наші експерти"
+          gray={true}
+          openable={false}
+          single={false}
+        />
+        <HomeExperts />
+        <Divider
+          heading="Індекс реформ Вокс Україна"
+          gray={true}
+          openable={false}
+          single={false}
+        />
+        <HomePosts />
+        <Divider
+          heading="Наші партнери"
+          gray={true}
+          openable={false}
+          single={false}
+        />
+        <HomPartners />
+      </main>
     </>
   );
 }
