@@ -19,7 +19,7 @@ function Experts() {
   return (
     <div>
       <Divider heading="Наші експерти" single={false} />
-      <div className="grid grid-cols-4 gap-6">
+      <div className="lg:grid grid-cols-4 gap-6">
         {data &&
           data.data.map((expert) => (
             <ExpertCart

@@ -35,29 +35,17 @@ function HomePosts() {
                 height={144}
               />
             </div>
-            {/* <div
-              style={{ position: "relative", width: "256px", height: "144px" }}
-            >
-              <Image
-                src={post.post_img}
-                alt="Picture of the author"
-                sizes="256px"
-                fill
-                style={{
-                  objectFit: "contain",
-                }}
-              />
-            </div> */}
+
             <div className="w-[87px] h-[4px] bg-red-600 mt-9 mb-6" />
             <h2>{post.post_title}</h2>
-            <p className="mt-9 text-red-600">{post.author_name}</p>
+            <p className="mt-9 mb-6 text-red-600">{post.author_name}</p>
           </Link>
         </div>
       );
     });
 
   return (
-    <div className="flex w-full gap-12 items-start justify-center mt-6">
+    <div className="lg:flex w-full gap-12 items-start justify-center mt-6">
       {postsRender}
     </div>
   );

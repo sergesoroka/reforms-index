@@ -17,7 +17,7 @@ function HomPartners() {
     data &&
     data.data.map((partner, i) => {
       return (
-        <div key={i}>
+        <div key={i} className="mb-4">
           <Link href={partner.link}>
             <Image
               // @ts-ignore
@@ -32,7 +32,7 @@ function HomPartners() {
       );
     });
   return (
-    <div className="flex w-full gap-6 justify-between items-center mt-6">
+    <div className="lg:flex w-full gap-6 justify-between items-center mt-6">
       {partnersRender}
     </div>
   );
