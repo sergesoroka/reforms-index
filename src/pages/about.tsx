@@ -1,8 +1,29 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Divider from "components/Divider/Divider";
+import useSWR from "swr";
+import { fetcher } from "lib/fetcher";
 
 export default function About() {
+  const { data, error } = useSWR(
+    `https://vox-imore.ra-devs.tech/api/pages?lang=ua`,
+    fetcher,
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
+  );
+  const aboutRender =
+    data &&
+    data.data.map((about, i) => {
+      return (
+        <div key={i} className="mb-4">
+          <h2 className="text-xl mb-8">{about.title}</h2>
+          <p dangerouslySetInnerHTML={{ __html: about.content }} />
+        </div>
+      );
+    });
   return (
     <>
       <Head>
@@ -12,8 +33,9 @@ export default function About() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.mainAbout}>
-        <h2 className="text-xl mb-8">Про індекс</h2>
+      <main className={styles.mainAboutPage}>
+        {aboutRender}
+        {/* <h2 className="text-xl mb-8">Про індекс</h2>
         <div className="entry-content">
           <Divider heading="Індекс моніторингу реформ" openable={false} />
           <p>
@@ -206,7 +228,7 @@ export default function About() {
               щорічного аудиту.
             </a>
           </p>
-        </div>
+        </div> */}
       </main>
     </>
   );

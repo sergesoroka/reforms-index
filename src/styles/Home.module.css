@@ -20,6 +20,22 @@
   margin: 0 auto;
   width: 75%;
 }
+.mainAboutPage {
+  font-size: 1rem;
+  color: var(--body-text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2rem;
+  min-height: 100vh;
+  margin: 0 auto;
+  width: 75%;
+}
+
+.mainAboutPage p {
+  margin: 1rem 0;
+}
 
 .description {
   display: inherit;
