@@ -44,7 +44,7 @@
 }
 
 .disc {
-  font-size: 0.76rem;
+  font-size: 0.82rem;
   font-weight: 400;
   line-height: 1.2rem;
   color: var(--body-text-color);
@@ -52,9 +52,10 @@
 }
 
 .role {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   line-height: 1.2rem;
-  color: var(--body-text-color);
+  color: #535353;
+  font-weight: 600;
 }
 
 .roleName {

@@ -53,7 +53,8 @@
 .mainAboutPage table {
   width: 100%;
 }
-.mainAboutPage ul {
+.mainAboutPage ul,
+.mainAboutPage li strong {
   margin-top: 1rem;
 }
 .mainAboutPage ul li {
