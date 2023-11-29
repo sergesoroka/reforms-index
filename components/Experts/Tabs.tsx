@@ -19,8 +19,8 @@ function TabsComp({ status, setStatus }) {
         key={stat.id}
         className={
           status == stat.title
-            ? "underline decoration-red-600 decoration-4 underline-offset-[14px]"
-            : "cursor-pointer"
+            ? "underline decoration-red-600 decoration-4 underline-offset-[14px] text-gray-600"
+            : "cursor-pointer text-gray-400"
         }
         onClick={() => setStatus(stat.title)}
       >

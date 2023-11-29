@@ -35,8 +35,30 @@
 
 .mainAboutPage p {
   margin: 1rem 0;
+  color: var(--grey-color);
 }
 
+.mainAboutPage h3 {
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+.mainAboutPage h4 {
+  margin-top: 1.6rem;
+  color: #838383;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  font-size: 0.96rem;
+}
+.mainAboutPage table {
+  width: 100%;
+}
+.mainAboutPage ul {
+  margin-top: 1rem;
+}
+.mainAboutPage ul li {
+  margin-left: 1.3rem;
+}
 .description {
   display: inherit;
   justify-content: inherit;

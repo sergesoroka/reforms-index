@@ -18,7 +18,7 @@ function HomPartners() {
     data.data.map((partner, i) => {
       return (
         <div key={i} className="mb-4">
-          <Link href={partner.link}>
+          <Link href={partner.link} passHref target="_blank">
             <Image
               // @ts-ignore
               src={partner.logo}

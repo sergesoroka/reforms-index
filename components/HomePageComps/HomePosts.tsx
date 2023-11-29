@@ -18,7 +18,7 @@ function HomePosts() {
     data.data.map((post, i) => {
       return (
         <div key={i} className="w-[256px]">
-          <Link href={post.post_url}>
+          <Link href={post.post_url} passHref target="_blank">
             <div
               style={{
                 position: "relative",
