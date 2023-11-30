@@ -29,7 +29,7 @@ const ExpertCart: FC<ExpertInfo> = ({
     // onClick={showFullCart}
     >
       {!isShown ? (
-        <div className="w-[192px] flex flex-col items-center poiter">
+        <div className="w-[240px] flex flex-col items-center poiter">
           <Image
             // @ts-ignore
             src={img}

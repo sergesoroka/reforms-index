@@ -2,9 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
+import Spiner from "components/Spiner";
 
 function HomePosts() {
-  const { data, error } = useSWR(
+  const { data, error, isLoading } = useSWR(
     `https://vox-imore.ra-devs.tech/api/posts?lang=ua`,
     fetcher,
     {
@@ -13,6 +14,8 @@ function HomePosts() {
       revalidateOnReconnect: false,
     }
   );
+
+  if (isLoading) return <Spiner />;
   const postsRender =
     data &&
     data.data.map((post, i) => {

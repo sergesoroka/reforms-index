@@ -3,6 +3,7 @@ import { useState } from "react";
 import Divider from "components/Divider/Divider";
 import ExpertCart from "./ExpertCart";
 import styles from "./Experts.module.css";
+import Spiner from "components/Spiner";
 
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
@@ -10,7 +11,7 @@ import TabsComp from "./Tabs";
 
 function Experts() {
   const [status, setStatus] = useState("Редколегія");
-  const { data, error } = useSWR(
+  const { data, error, isLoading } = useSWR(
     `https://vox-imore.ra-devs.tech/api/experts?lang=ua&per_page=10`,
     fetcher,
     {
@@ -20,11 +21,13 @@ function Experts() {
     }
   );
 
+  if (isLoading) return <Spiner />;
+
   return (
     <div className="wrap">
       <Divider heading="Наші експерти" single={false} />
       <TabsComp status={status} setStatus={setStatus} />
-      <div className="lg:grid grid-cols-4 gap-8 mt-8">
+      <div className="lg:grid grid-cols-3 gap-8 mt-8">
         {data &&
           data.data.map((expert) => {
             if (expert.status == status) {
