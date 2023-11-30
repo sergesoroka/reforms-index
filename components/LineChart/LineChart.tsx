@@ -2,10 +2,14 @@
 import {
   LineChart,
   Line,
+  Bar,
+  BarChart,
+  Legend,
   CartesianGrid,
   XAxis,
   YAxis,
   Tooltip,
+  ResponsiveContainer,
 } from "recharts";
 const data = [
   { name: "2015", rating: 5.0, pv: 2100, amt: 5200 },
@@ -27,6 +31,7 @@ export default function LineChartComp() {
       height={300}
       data={data}
       margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+      style={{ width: "100%", height: "100%" }}
     >
       <Line type="monotone" dataKey="rating" stroke="#FFBC00" />
       <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />

@@ -78,6 +78,11 @@
 .mainAboutPage table tr > td {
   padding: 0.4rem 0;
 }
+
+.mainAbout > div > div.recharts-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+}
 .description {
   display: inherit;
   justify-content: inherit;
