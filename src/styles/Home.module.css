@@ -305,6 +305,13 @@
     background-clip: padding-box;
     backdrop-filter: blur(24px);
   }
+  .mainAboutPage table {
+    margin: 0.2rem 0;
+    padding: 0.2rem 0;
+  }
+  .mainAboutPage table tr > td {
+    padding: 0.1rem 0;
+  }
 
   .description div {
     align-items: flex-end;
