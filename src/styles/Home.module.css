@@ -23,7 +23,7 @@
 .mainAboutPage {
   font-size: 1rem;
   color: var(--body-text-color);
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -37,6 +37,9 @@
   margin: 1rem 0;
   color: var(--grey-color);
 }
+.mainAboutPage h2 {
+  font-size: 1.6rem;
+}
 
 .mainAboutPage h3 {
   margin-top: 2rem;
@@ -44,9 +47,9 @@
 }
 
 .mainAboutPage h4 {
-  margin-top: 1.6rem;
+  margin-top: 1.2rem;
   color: #838383;
-  text-transform: uppercase;
+
   letter-spacing: 0.2px;
   font-size: 0.96rem;
 }
@@ -253,7 +256,8 @@
     max-width: 320px;
     text-align: center;
   }
-  .mainAbout {
+  .mainAbout,
+  .mainAboutPage {
     width: 100%;
   }
 
@@ -312,7 +316,14 @@
   .mainAboutPage table tr > td {
     padding: 0.1rem 0;
   }
+  .mainAboutPage a {
+    color: #e64e27;
+  }
 
+  .mainAboutPage h6 {
+    font-size: 0.8rem;
+    margin: 1rem;
+  }
   .description div {
     align-items: flex-end;
     pointer-events: none;
