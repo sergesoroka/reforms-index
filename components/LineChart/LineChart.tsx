@@ -11,33 +11,37 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-const data = [
-  { name: "2015", rating: 5.0, pv: 2100, amt: 5200 },
-  { name: "2016", rating: 1.2, pv: 2100, amt: 3200 },
-  { name: "2014", rating: 4.1, pv: 2400, amt: 2400 },
-  { name: "2017", rating: 5.0, pv: 2100, amt: 1200 },
-  { name: "2018", rating: 4.2, pv: 2100, amt: 800 },
-  { name: "2019", rating: -1.1, pv: 2400, amt: 2400 },
-  { name: "2020", rating: 4.1, pv: 2100, amt: 5200 },
-  { name: "2021", rating: -2.0, pv: 2100, amt: 3200 },
-  { name: "2022", rating: 2.2, pv: 2100, amt: 1200 },
-  { name: "2023", rating: 4.0, pv: 2100, amt: 800 },
-];
+
+import { lineChartData } from "./data";
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip bg-white p-4">
+        <p className="label">{`Round: ${label}`}</p>
+        <p className="label">{`Total: ${payload[0].value}`}</p>
+        {/* <p className="desc">Anything you want can be displayed here.</p> */}
+      </div>
+    );
+  }
+
+  return null;
+};
 
 export default function LineChartComp() {
   return (
     <LineChart
       width={1000}
       height={300}
-      data={data}
+      data={lineChartData}
       margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
       style={{ width: "100%", height: "100%" }}
     >
-      <Line type="monotone" dataKey="rating" stroke="#FFBC00" />
+      <Line type="monotone" dataKey="total" stroke="#e64e27" />
       <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-      <XAxis dataKey="name" style={{ fontSize: "0.8rem" }} />
-      <YAxis dataKey="rating" style={{ fontSize: "0.8rem" }} />
-      <Tooltip />
+      <XAxis dataKey="id_round" style={{ fontSize: "0.8rem" }} />
+      <YAxis dataKey="total" style={{ fontSize: "0.8rem" }} />
+      <Tooltip content={<CustomTooltip />} />
     </LineChart>
   );
 }
