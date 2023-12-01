@@ -20,7 +20,7 @@ function HomePosts() {
     data &&
     data.data.map((post, i) => {
       return (
-        <div key={i} className="w-[256px]">
+        <div key={i} className="w-[256px] text-grey-600">
           <Link href={post.post_url} passHref target="_blank">
             <div
               style={{
@@ -40,7 +40,7 @@ function HomePosts() {
             </div>
 
             <div className="w-[87px] h-[4px] bg-red-600 mt-9 mb-6" />
-            <h2>{post.post_title}</h2>
+            <h3 className="text-grey-600">{post.post_title}</h3>
             <p className="mt-9 mb-6 text-red-600">{post.author_name}</p>
           </Link>
         </div>

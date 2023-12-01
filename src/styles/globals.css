@@ -38,11 +38,17 @@ a {
 
 h1 {
   font-size: 1.6rem;
+  color: #4b4b4b;
 }
 
 h2 {
   margin-top: 2rem;
   font-size: 1.2rem;
+  color: #4b4b4b;
+}
+
+h3 {
+  color: #4b4b4b;
 }
 
 h6 {
@@ -55,7 +61,7 @@ g.recharts-cartesian-axis-ticks > g:nth-child(odd) {
 }
 
 g.recharts-cartesian-axis-ticks > g > text {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 @media (prefers-color-scheme: dark) {
