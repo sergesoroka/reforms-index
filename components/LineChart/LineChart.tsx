@@ -50,13 +50,13 @@ export default function LineChartComp() {
       <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
       <XAxis
         dataKey="year"
-        style={{ fontSize: "0.8rem" }}
+        // style={{ fontSize: "1rem" }}
         // tickFormatter={formatYAxis}
         // type="number"
         // ticks={[2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]}
         // domain={[2015, 2023]}
       />
-      <YAxis dataKey="total" style={{ fontSize: "0.8rem" }} />
+      <YAxis dataKey="total" style={{ fontSize: "26px" }} />
       <Tooltip content={<CustomTooltip />} />
     </LineChart>
   );

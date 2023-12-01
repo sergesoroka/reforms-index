@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import styles from "@/styles/Home.module.css";
 import Divider from "components/Divider/Divider";
 import HomeBarChart from "components/HomePageComps/HomeBarChart";
@@ -19,6 +20,11 @@ export default function Home() {
       <main className={styles.mainAbout}>
         <Divider heading="Індекс" gray={true} openable={false} single={false} />
         <HomeBarChart />
+        <div className="my-0 mx-auto pt-4">
+          <Link href="/" className="hover:text-red-600 text-[14px]">
+            Інтерактивний графік
+          </Link>
+        </div>
         <Divider
           heading="Наші експерти"
           gray={true}
