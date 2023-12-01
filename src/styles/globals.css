@@ -36,6 +36,10 @@ a {
   text-decoration: none;
 }
 
+g.recharts-cartesian-axis-ticks > g:nth-child(odd) {
+  display: none;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
