@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <Link href="/" passHref>
-        <div className="text-xl font-medium leading-5">
+        <div className="text-xl font-medium leading-5 text-gray-600">
           Iндекс
           <br />
           реформ

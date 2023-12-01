@@ -37,9 +37,9 @@
   margin: 1rem 0;
   color: var(--grey-color);
 }
-.mainAboutPage h2 {
+/* .mainAboutPage h2 {
   font-size: 1.6rem;
-}
+} */
 
 .mainAboutPage h3 {
   margin-top: 2rem;
@@ -322,12 +322,13 @@
   .mainAboutPage table tr > td {
     padding: 0.1rem 0;
   }
-  .mainAboutPage a {
-    color: #e64e27;
+  .mainAboutPage a,
+  .mainAboutPage h6 a > i {
+    color: #e64e27 !important;
   }
 
   .mainAboutPage h6 {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     margin: 1rem;
   }
   .description div {

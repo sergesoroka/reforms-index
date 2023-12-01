@@ -19,7 +19,7 @@ export default function Method() {
       if (page.id == 2) {
         return (
           <div key={i} className="mb-4">
-            <h2 className="text-xl mb-8">{page.title}</h2>
+            <h1 className="mb-8">{page.title}</h1>
             <p dangerouslySetInnerHTML={{ __html: page.content }} />
           </div>
         );

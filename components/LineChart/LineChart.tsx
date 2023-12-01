@@ -56,7 +56,7 @@ export default function LineChartComp() {
         // ticks={[2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]}
         // domain={[2015, 2023]}
       />
-      <YAxis dataKey="total" style={{ fontSize: "26px" }} />
+      <YAxis dataKey="total" />
       <Tooltip content={<CustomTooltip />} />
     </LineChart>
   );
