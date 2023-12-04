@@ -3,10 +3,14 @@ import Link from "next/link";
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
 import Spiner from "components/Spiner";
+import { useRouter } from "next/router";
 
 function HomePosts() {
+  const router = useRouter();
+  const { locale } = router;
+
   const { data, error, isLoading } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/posts?lang=ua`,
+    `https://vox-imore.ra-devs.tech/api/posts?lang=${locale}`,
     fetcher,
     {
       revalidateIfStale: false,

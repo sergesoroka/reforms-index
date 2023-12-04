@@ -2,10 +2,13 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
+import { useRouter } from "next/router";
 
 export default function Method() {
+  const router = useRouter();
+  const { locale } = router;
   const { data, error } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/pages?lang=ua`,
+    `https://vox-imore.ra-devs.tech/api/pages?lang=${locale}`,
     fetcher,
     {
       revalidateIfStale: false,

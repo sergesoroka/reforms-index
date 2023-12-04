@@ -8,11 +8,14 @@ import Spiner from "components/Spiner";
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
 import TabsComp from "./Tabs";
+import { useRouter } from "next/router";
 
 function Experts() {
+  const router = useRouter();
+  const { locale } = router;
   const [status, setStatus] = useState("Редколегія");
   const { data, error, isLoading } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/experts?lang=ua&per_page=10`,
+    `https://vox-imore.ra-devs.tech/api/experts?lang=${locale}&per_page=10`,
     fetcher,
     {
       revalidateIfStale: false,
