@@ -6,6 +6,7 @@ import HomeBarChart from "components/HomePageComps/HomeBarChart";
 import HomeExperts from "components/HomePageComps/HomeExperts";
 import HomePosts from "components/HomePageComps/HomePosts";
 import HomPartners from "components/HomePageComps/HomPartners";
+import HomeText from "components/HomePageComps/HomeText";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <main className={styles.mainAbout}>
         <Divider heading="Індекс" gray={true} openable={false} single={false} />
         <HomeBarChart />
+        <HomeText />
         <div className="my-0 mx-auto pt-4">
           <Link href="/" className="hover:text-red-600 text-[14px]">
             Інтерактивний графік
@@ -39,13 +41,13 @@ export default function Home() {
           single={false}
         />
         <HomePosts />
-        <Divider
+        {/* <Divider
           heading="Наші партнери"
           gray={true}
           openable={false}
           single={false}
         />
-        <HomPartners />
+        <HomPartners /> */}
       </main>
     </>
   );
