@@ -10,7 +10,7 @@ function HomeBarChart() {
       {/* <Image
         // @ts-ignore
         src={chart}
-        alt=""
+        alt="heert"
         width={1175}
         height={480}
       /> */}
