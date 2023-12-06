@@ -15,7 +15,7 @@ function Experts() {
   const { locale } = router;
   const [status, setStatus] = useState("Редколегія");
   const { data, error, isLoading } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/experts?lang=${locale}&per_page=10`,
+    `https://vox-imore.ra-devs.tech/api/experts?lang=${locale}&per_page=100`,
     fetcher,
     {
       revalidateIfStale: false,
