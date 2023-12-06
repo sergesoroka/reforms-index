@@ -1,7 +1,9 @@
 import React, { FC, useState } from "react";
 import Image from "next/image";
 import styles from "./Experts.module.css";
+import Link from "next/link";
 
+import ArrowRight from "components/IconsComponents/ArrowRight";
 type ExpertInfo = {
   id: number;
   name: string;
@@ -66,6 +68,8 @@ const ExpertCart: FC<ExpertInfo> = ({
             className={styles.disc}
             dangerouslySetInnerHTML={{ __html: info }}
           />
+          <Link href="#">Коментари</Link>
+          <ArrowRight />
           <hr style={{ width: "100%", margin: "1rem 0" }} />
         </div>
       )}

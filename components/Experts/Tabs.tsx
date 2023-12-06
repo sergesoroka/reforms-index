@@ -18,11 +18,11 @@ function TabsComp({ status, setStatus }) {
       <li
         key={stat.id}
         className={
-          status == stat.title
+          status == stat.id
             ? "underline decoration-red-600 decoration-4 underline-offset-[14px] text-gray-600"
             : "cursor-pointer text-gray-400"
         }
-        onClick={() => setStatus(stat.title)}
+        onClick={() => setStatus(stat.id)}
       >
         {stat.title}
       </li>
