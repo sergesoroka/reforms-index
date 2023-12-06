@@ -21,15 +21,13 @@ const ExpertCart: FC<ExpertInfo> = ({
   info,
   specialization,
 }) => {
-  const [isShown, setIsShown] = useState(true);
+  const [isShown, setIsShown] = useState(false);
 
   const showFullCart = () => setIsShown(!isShown);
   return (
-    <div
-    // onClick={showFullCart}
-    >
+    <div onClick={showFullCart}>
       {!isShown ? (
-        <div className="w-[240px] flex flex-col items-center poiter">
+        <div className="flex flex-col items-center poiter">
           <Image
             // @ts-ignore
             src={img}
@@ -43,10 +41,7 @@ const ExpertCart: FC<ExpertInfo> = ({
           <p className="text-sm text-red-500 my-8 text-center">{company}</p>
         </div>
       ) : (
-        <div
-          className={styles.cartWrapExtended}
-          // onClick={showFullCart}
-        >
+        <div className={styles.cartWrapExtended} onClick={showFullCart}>
           <div className={styles.cartNameExtended}>
             <Image
               // @ts-ignore

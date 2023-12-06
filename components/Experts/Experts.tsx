@@ -30,7 +30,7 @@ function Experts() {
     <div className="wrap">
       <Divider heading="Наші експерти" single={false} />
       <TabsComp status={status} setStatus={setStatus} />
-      <div className="lg:grid grid-cols-3 gap-8 mt-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8">
         {data &&
           data.data.map((expert) => {
             if (expert.status == status) {
