@@ -38,9 +38,9 @@ const ExpertCart: FC<ExpertInfo> = ({
             height={140}
             className="rounded-full h-[140px]"
           />
-          <p className="text-sm text-gray-700 my-8">{name}</p>
-          <hr style={{ width: "100%" }} />
-          <p className="text-sm text-red-500 my-8 text-center">{company}</p>
+          <p className="text-[16px] text-gray-700 mt-4 mb-2">{name}</p>
+          {/* <hr style={{ width: "100%" }} /> */}
+          <p className="text-sm text-red-500 my-2 text-center">{company}</p>
         </div>
       ) : (
         <div className={styles.cartWrapExtended} onClick={showFullCart}>
@@ -67,9 +67,13 @@ const ExpertCart: FC<ExpertInfo> = ({
           <p
             className={styles.disc}
             dangerouslySetInnerHTML={{ __html: info }}
-          />
-          <Link href="#">Коментари</Link>
-          <ArrowRight />
+          />{" "}
+          <Link href={`expert/${id}`}>
+            <div className="flex items-center gap-2 text-sm">
+              <p>Повний профіль</p>
+              <ArrowRight />
+            </div>
+          </Link>
           <hr style={{ width: "100%", margin: "1rem 0" }} />
         </div>
       )}
