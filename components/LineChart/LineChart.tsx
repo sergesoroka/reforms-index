@@ -7,16 +7,11 @@ import {
   YAxis,
   Tooltip,
 } from "recharts";
+import { useRouter } from "next/router";
 import { format, parse, parseISO } from "date-fns";
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
 
-// https://vox-imore.ra-devs.tech/api/rounds/stats
-
-// const xmas95 = new Date("1995-12-25T23:15:30");
-// const fullYear = xmas95.getFullYear();
-
-// console.log(fullYear); // 1995
 import { dataWithYear } from "./dataYear";
 
 export default function LineChartComp() {
@@ -29,6 +24,11 @@ export default function LineChartComp() {
       revalidateOnReconnect: false,
     }
   );
+  const router = useRouter();
+  const { locale, pathname } = router;
+
+  const indexLabel =
+    locale == "en" ? "Index" : locale == "ru" ? "Индекс" : "Індекс";
 
   const formattedData =
     data &&
@@ -46,8 +46,8 @@ export default function LineChartComp() {
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip bg-white p-4">
-          <p className="label text-[12px] text-gray-700 font-bold mb-1">{`Round: #${payload[0].payload.number}`}</p>
-          <p className="label text-[12px] mb-2 text-gray-600">{`Оцінка: ${payload[0].payload.mark}`}</p>
+          <p className="label text-[12px] text-gray-700 font-bold mb-1">{`Round: ${payload[0].payload.number}`}</p>
+          <p className="label text-[12px] mb-2 text-gray-600">{`${indexLabel}: ${payload[0].payload.mark}`}</p>
           <hr />
           <p className="label text-[11px] mt-2">{`${payload[0].payload.date_end}`}</p>
         </div>

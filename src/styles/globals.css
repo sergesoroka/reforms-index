@@ -57,12 +57,15 @@ h6 {
   font-size: 0.8rem;
 }
 
-g.recharts-cartesian-axis-ticks > g:nth-child(odd) {
+g.recharts-xAxis
+  > g.recharts-cartesian-axis-ticks
+  > g:not(:nth-child(3n + 2))
+  text {
   display: none;
 }
 
 g.recharts-cartesian-axis-ticks > g > text {
-  font-size: 20px;
+  font-size: 12px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -74,6 +77,6 @@ g.recharts-cartesian-axis-ticks > g > text {
 /* Mobile */
 @media (max-width: 700px) {
   g.recharts-cartesian-axis-ticks > g > text {
-    font-size: 30px;
+    font-size: 26px;
   }
 }
