@@ -87,25 +87,7 @@ const Navbar = () => {
             />
           )}
         </li>
-        <li>
-          <Link
-            href="/data"
-            passHref
-            className={
-              pathname === "/data" ? styles.navActiveItem : styles.navItem
-            }
-          >
-            {dataLabel}
-          </Link>
-          {pathname === "/data" && (
-            <motion.div
-              variants={variants}
-              initial="hidden"
-              animate="visible"
-              className="h-1 w-full bg-red-600"
-            />
-          )}
-        </li>
+
         <li>
           <Link
             href="/experts"
@@ -117,6 +99,36 @@ const Navbar = () => {
             {expertsLabel}
           </Link>
           {pathname === "/experts" && (
+            <motion.div
+              variants={variants}
+              initial="hidden"
+              animate="visible"
+              className="h-1 w-full bg-red-600"
+            />
+          )}
+        </li>
+        <li>
+          <div className={styles.dropdown}>
+            <button className={styles.dropbtn}>{dataLabel}</button>
+            <div className={styles.dropdownContent}>
+              <Link
+                href="https://reforms.voxukraine.org/list_ex2_ukr.php"
+                passHref
+                target="_blank"
+              >
+                Інтерактивна таблиця
+              </Link>
+              <Link
+                href="https://reforms.voxukraine.org/list_rounds_ukr.php"
+                passHref
+                target="_blank"
+              >
+                Всі оцінки
+              </Link>
+            </div>
+          </div>
+
+          {pathname === "/data" && (
             <motion.div
               variants={variants}
               initial="hidden"
