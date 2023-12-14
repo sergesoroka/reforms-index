@@ -23,9 +23,9 @@ export default function Home() {
         <HomeBarChart />
         <HomeText />
         <div className="my-0 mx-auto pt-4">
-          <Link href="/" className="hover:text-red-600 text-[14px]">
+          {/* <Link href="/" className="hover:text-red-600 text-[14px]">
             Інтерактивний графік
-          </Link>
+          </Link> */}
         </div>
         <Divider
           heading="Наші експерти"
