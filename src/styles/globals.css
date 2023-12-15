@@ -67,7 +67,9 @@ g.recharts-xAxis
 g.recharts-cartesian-axis-ticks > g > text {
   font-size: 12px;
 }
-
+.recharts-cartesian-grid-horizontal > line:nth-child(3) {
+  stroke: rgb(0, 62, 155);
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
