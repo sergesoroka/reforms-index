@@ -30,6 +30,9 @@ export default function LineChartComp() {
   const indexLabel =
     locale == "en" ? "Index" : locale == "ru" ? "Индекс" : "Індекс";
 
+  const roundLabel =
+    locale == "en" ? "Round" : locale == "ru" ? "Раунд" : "Раунд";
+
   const formattedData =
     data &&
     data.data.map((item) => {
@@ -46,7 +49,7 @@ export default function LineChartComp() {
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip bg-white p-4">
-          <p className="label text-[12px] text-gray-700 font-bold mb-1">{`Round: ${payload[0].payload.number}`}</p>
+          <p className="label text-[12px] text-gray-700 font-bold mb-1">{`${roundLabel}: ${payload[0].payload.number}`}</p>
           <p className="label text-[12px] mb-2 text-gray-600">{`${indexLabel}: ${payload[0].payload.mark}`}</p>
           <hr />
           <p className="label text-[11px] mt-2">{`${payload[0].payload.date_end}`}</p>
