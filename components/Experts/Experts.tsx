@@ -35,6 +35,7 @@ function Experts() {
             return (
               <ExpertCart
                 name={expert.name}
+                status={status}
                 id={expert.id}
                 company={expert.work}
                 img={expert.avatar}

@@ -12,6 +12,7 @@ type ExpertInfo = {
   position?: string;
   info?: string;
   specialization?: string;
+  status?: number;
 };
 
 const ExpertCart: FC<ExpertInfo> = ({
@@ -20,6 +21,7 @@ const ExpertCart: FC<ExpertInfo> = ({
   company,
   img,
   position,
+  status,
   info,
   specialization,
 }) => {
@@ -57,24 +59,28 @@ const ExpertCart: FC<ExpertInfo> = ({
           </div>
           <hr style={{ width: "100%", margin: "1rem 0" }} />
           <p className={styles.expertCompanyExtended}>{company}</p>
-          <p className={styles.role}>
-            <span className={styles.roleName}>Посада:</span> {position}
-          </p>
-          <p className={styles.role}>
-            <span className={styles.roleName}>Спеціалізація:</span>{" "}
-            {specialization}
-          </p>
-          <p
+          {position && (
+            <p className={styles.role}>
+              <span className={styles.roleName}>Посада:</span> {position}
+            </p>
+          )}
+          {specialization && status != 1 && (
+            <p className={styles.role}>
+              <span className={styles.roleName}>Спеціалізація:</span>{" "}
+              {specialization}
+            </p>
+          )}
+          {/* <p
             className={styles.disc}
             dangerouslySetInnerHTML={{ __html: info }}
-          />{" "}
+          /> */}
           <Link href={`expert/${id}`}>
-            <div className="flex items-center gap-2 text-sm">
+            {/* <div className="flex items-center gap-2 text-sm">
               <p>Повний профіль</p>
               <ArrowRight />
-            </div>
+            </div> */}
           </Link>
-          <hr style={{ width: "100%", margin: "1rem 0" }} />
+          {/* <hr style={{ width: "100%", margin: "1rem 0" }} /> */}
         </div>
       )}
     </div>
