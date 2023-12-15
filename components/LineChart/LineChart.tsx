@@ -65,13 +65,13 @@ export default function LineChartComp() {
       width={1000}
       height={300}
       data={formattedData}
-      margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
+      margin={{ top: 0, right: 20, bottom: 5, left: 0 }}
       style={{ width: "100%", height: "100%" }}
     >
       <Line type="monotone" dataKey="mark" stroke="#e64e27" />
       <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
       <XAxis dataKey="year" />
-      <YAxis dataKey="mark" />
+      <YAxis dataKey="mark" type="number" domain={[-1, 5]} />
       <Tooltip content={<CustomTooltip />} />
     </LineChart>
   );
