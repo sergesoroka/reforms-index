@@ -71,7 +71,7 @@ export default function LineChartComp() {
       <Line type="monotone" dataKey="mark" stroke="#e64e27" />
       <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
       <XAxis dataKey="year" />
-      <YAxis dataKey="mark" type="number" domain={[-1, 5]} />
+      <YAxis dataKey="mark" type="number" domain={[-2, 5]} />
       <Tooltip content={<CustomTooltip />} />
     </LineChart>
   );
