@@ -57,19 +57,17 @@ h6 {
   font-size: 0.8rem;
 }
 
-g.recharts-xAxis
-  > g.recharts-cartesian-axis-ticks
-  > g:not(:nth-child(3n + 2))
-  text {
+g.recharts-xAxis > g.recharts-cartesian-axis-ticks > g > text {
   display: none;
 }
 
 g.recharts-cartesian-axis-ticks > g > text {
   font-size: 12px;
+  transform: translateX(-60);
 }
-.recharts-cartesian-grid-horizontal > line:nth-child(3) {
+/* .recharts-cartesian-grid-horizontal > line:nth-child(3) {
   stroke: rgb(0, 62, 155);
-}
+} */
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -79,6 +77,6 @@ g.recharts-cartesian-axis-ticks > g > text {
 /* Mobile */
 @media (max-width: 700px) {
   g.recharts-cartesian-axis-ticks > g > text {
-    font-size: 26px;
+    font-size: 14px;
   }
 }

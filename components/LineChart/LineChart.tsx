@@ -5,6 +5,7 @@ import {
   CartesianGrid,
   XAxis,
   YAxis,
+  ReferenceLine,
   Tooltip,
 } from "recharts";
 import { useRouter } from "next/router";
@@ -69,9 +70,20 @@ export default function LineChartComp() {
       style={{ width: "100%", height: "100%" }}
     >
       <Line type="monotone" dataKey="mark" stroke="#e64e27" />
-      <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-      <XAxis dataKey="year" />
-      <YAxis dataKey="mark" type="number" domain={[-2, 5]} />
+      <CartesianGrid stroke="#ccc" strokeDasharray="5 2" vertical={false} />
+      <ReferenceLine y={4000} label="Max" stroke="red" strokeDasharray="3 3" />
+      <XAxis dataKey="year" tickCount={12} tickLine={false} />
+      <YAxis
+        dataKey="mark"
+        type="number"
+        domain={([dataMin, dataMax]) => [
+          Math.round(dataMin) - 1,
+          Math.round(dataMax),
+        ]}
+        axisLine={false}
+        tickLine={false}
+        tickCount={7}
+      />
       <Tooltip content={<CustomTooltip />} />
     </LineChart>
   );

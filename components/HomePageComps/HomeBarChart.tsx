@@ -2,18 +2,13 @@ import Image from "next/image";
 
 import chart from "../../public/chart.png";
 import LineChartComp from "components/LineChart/LineChart";
+import AreaChartComp from "components/LineChart/AreaChart";
 
 function HomeBarChart() {
   return (
-    <div>
-      <LineChartComp />
-      {/* <Image
-        // @ts-ignore
-        src={chart}
-        alt="heert"
-        width={1175}
-        height={480}
-      /> */}
+    <div className="flex flex-col gap-16">
+      <AreaChartComp />
+      {/* <LineChartComp /> */}
     </div>
   );
 }
