@@ -57,6 +57,10 @@ h6 {
   font-size: 0.8rem;
 }
 
+.recharts-wrapper {
+  max-width: 100% !important;
+}
+
 g.recharts-xAxis > g.recharts-cartesian-axis-ticks > g > text {
   display: none;
 }
