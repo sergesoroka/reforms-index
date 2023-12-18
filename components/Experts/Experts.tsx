@@ -4,7 +4,6 @@ import { useState } from "react";
 import Divider from "components/Divider/Divider";
 import ExpertCart from "./ExpertCart";
 import Spiner from "components/Spiner";
-import EpertsDesc from "./EpertsDesc";
 
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";

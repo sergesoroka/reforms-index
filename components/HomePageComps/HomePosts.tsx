@@ -24,22 +24,25 @@ function HomePosts() {
     data &&
     data.data.map((post, i) => {
       return (
-        <div key={i} className="w-[256px] text-grey-600">
+        <div key={i} className="lg:w-[256px]  w-full h-auto text-grey-600">
           <Link href={post.post_url} passHref target="_blank">
             <div
-              style={{
-                position: "relative",
-                width: "256px",
-                height: "144px",
-                overflow: "hidden",
-              }}
+              className="w-full h-auto lg:w-[256px] lg:h-[144px] overflow-hidden"
+              // style={{
+              //   position: "relative",
+              //   width: "256px",
+              //   height: "144px",
+              //   overflow: "hidden",
+              // }}
             >
               <Image
                 // @ts-ignore
                 src={post.post_img}
                 alt={post.link}
-                width={256}
-                height={144}
+                width="0"
+                height="0"
+                sizes="100vw"
+                className="w-full h-auto"
               />
             </div>
 

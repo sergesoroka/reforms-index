@@ -2,7 +2,7 @@ import React from "react";
 
 export default function HomeText() {
   return (
-    <p className="mx-20 my-6 text-sm text-gray-500">
+    <p className="lg:mx-20 mx-4 my-6 text-sm text-gray-500">
       Кількісно оцінюємо прогрес змін. Це дозволяє порівняти просування реформ
       за різними напрямками, зусилля урядів та депутатів з модернізації України.
       Щодва тижні понад 40 українських експертів оцінюють реформаторські
