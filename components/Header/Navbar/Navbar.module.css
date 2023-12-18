@@ -12,12 +12,12 @@
 }
 
 .navActiveItem {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
   font-size: 1rem !important;
 }
 
 .navItem {
-  color: var(--light-grey-color);
+  color: var(--light-grey-color) !important;
   font-size: 1rem;
 }
 

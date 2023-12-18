@@ -32,8 +32,9 @@ body {
   font-size: 0.7rem;
 }
 
-a {
-  color: #e64e27;
+a,
+a > span {
+  color: #e64e27 !important;
   text-decoration: none;
 }
 

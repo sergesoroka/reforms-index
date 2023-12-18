@@ -1,8 +1,10 @@
+// @ts-nocheck
 "use client";
 import { useState } from "react";
 import Divider from "components/Divider/Divider";
 import ExpertCart from "./ExpertCart";
 import Spiner from "components/Spiner";
+import EpertsDesc from "./EpertsDesc";
 
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
@@ -23,12 +25,53 @@ function Experts() {
     }
   );
 
+  const { data: dataDesc } = useSWR(
+    `https://vox-imore.ra-devs.tech/api/pages?lang=${locale}`,
+    fetcher,
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
+  );
+
   if (isLoading) return <Spiner />;
 
   return (
     <div className="wrap">
       <Divider heading="Наші експерти" single={false} />
       <TabsComp status={status} setStatus={setStatus} />
+      {dataDesc &&
+        dataDesc.data.map((item) => {
+          if (status == 1 && item.id == 5) {
+            return (
+              <p
+                key={item.id}
+                className="my-10 text-sm text-gray-500"
+                dangerouslySetInnerHTML={{ __html: item.content }}
+              />
+            );
+          }
+          if (status == 2 && item.id == 6) {
+            return (
+              <p
+                key={item.id}
+                className="my-10 text-sm text-gray-500"
+                dangerouslySetInnerHTML={{ __html: item.content }}
+              />
+            );
+          }
+          if (status == 3 && item.id == 8) {
+            return (
+              <p
+                key={item.id}
+                className="my-10 text-sm text-gray-500"
+                dangerouslySetInnerHTML={{ __html: item.content }}
+              />
+            );
+          }
+        })}
+
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8">
         {data &&
           data.data.map((expert) => {
