@@ -54,6 +54,8 @@ export default function AreaChartComp() {
       };
     });
 
+  const formmatedDate = (str) =>
+    str.replace(/\-/g, ".").replace(/^0/, "").replace(".0", ".");
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
@@ -62,8 +64,15 @@ export default function AreaChartComp() {
           <p className="label text-[12px] mb-2 text-gray-600">{`${indexLabel}: ${payload[0].payload.mark}`}</p>
           {/* <hr /> */}
           <p className="label text-[11px] mt-2">
-            {`${payload[0].payload.date_start}`} &ndash;{" "}
-            {`${payload[0].payload.date_end}`}
+            {`${
+              payload[0].payload.date_start &&
+              formmatedDate(payload[0].payload.date_start.substring(0, 5))
+            }`}
+            &ndash;
+            {`${
+              payload[0].payload.date_start &&
+              formmatedDate(payload[0].payload.date_end)
+            }`}
           </p>
         </div>
       );
