@@ -54,8 +54,50 @@ export default function AreaChartComp() {
       };
     });
 
-  const formmatedDate = (str) =>
-    str.replace(/\-/g, ".").replace(/^0/, "").replace(".0", ".");
+  // const formmatedDate = (str) =>
+  //   str.replace(/\-/g, ".").replace(/^0/, "").replace(".0", ".");
+
+  const formattedPeriod = (startDate, endDate) => {
+    let startDay = startDate && startDate.substring(0, 2);
+    let endDay = endDate && endDate.substring(0, 2);
+
+    let startMonth = startDate && startDate.substring(3, 5);
+    let endMonth = endDate && endDate.substring(3, 5);
+
+    let startYear = startDate && startDate.substring(6, 10);
+    let endYear = endDate && endDate.substring(6, 10);
+
+    if (startDay != endDate && startMonth != endMonth && startYear != endYear) {
+      return (
+        <div>
+          <span>
+            {startDay.replace(/^0/, "")}.{startMonth}.{startYear}
+            &nbsp;&ndash;&nbsp;{endDay.replace(/^0/, "")}.{endMonth}.{endYear}
+          </span>
+        </div>
+      );
+    }
+    if (startDay != endDate && startMonth != endMonth && startYear == endYear) {
+      return (
+        <div>
+          <span>
+            {startDay.replace(/^0/, "")}.{startMonth}
+            &nbsp;&ndash;&nbsp;{endDay.replace(/^0/, "")}.{endMonth}.{endYear}
+          </span>
+        </div>
+      );
+    }
+    if (startDay != endDate && startMonth == endMonth && startYear == endYear) {
+      return (
+        <div>
+          <span>
+            {startDay.replace(/^0/, "")}
+            &nbsp;&ndash;&nbsp;{endDay.replace(/^0/, "")}.{endMonth}.{endYear}
+          </span>
+        </div>
+      );
+    }
+  };
 
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
@@ -65,15 +107,10 @@ export default function AreaChartComp() {
           <p className="label text-[12px] mb-2 text-gray-600">{`${indexLabel}: ${payload[0].payload.mark}`}</p>
           <hr />
           <p className="label text-[11px] mt-2">
-            {`${
-              payload[0].payload.date_start &&
-              formmatedDate(payload[0].payload.date_start.substring(0, 5))
-            }`}
-            &ndash;
-            {`${
-              payload[0].payload.date_start &&
-              formmatedDate(payload[0].payload.date_end)
-            }`}
+            {formattedPeriod(
+              payload[0].payload.date_start,
+              payload[0].payload.date_end
+            )}
           </p>
         </div>
       );
