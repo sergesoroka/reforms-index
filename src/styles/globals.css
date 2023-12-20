@@ -60,6 +60,10 @@ h6 {
 ol > li {
   list-style-type: decimal !important;
 }
+ol > li > i {
+  display: block !important;
+  text-align: center !important;
+}
 
 .recharts-wrapper {
   max-width: 100% !important;
