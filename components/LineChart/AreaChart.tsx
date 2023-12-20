@@ -56,13 +56,14 @@ export default function AreaChartComp() {
 
   const formmatedDate = (str) =>
     str.replace(/\-/g, ".").replace(/^0/, "").replace(".0", ".");
+
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip bg-white p-4">
           <p className="label text-[12px] text-gray-700 font-bold mb-1">{`${roundLabel}: ${payload[0].payload.number}`}</p>
           <p className="label text-[12px] mb-2 text-gray-600">{`${indexLabel}: ${payload[0].payload.mark}`}</p>
-          {/* <hr /> */}
+          <hr />
           <p className="label text-[11px] mt-2">
             {`${
               payload[0].payload.date_start &&
@@ -115,7 +116,7 @@ export default function AreaChartComp() {
           <CartesianGrid vertical={false} opacity={0.4} />
         </AreaChart>
       </ResponsiveContainer>
-      <div className="flex items-center justify-evenly ml-10 mt-[-26px] text-[14px]">
+      <div className="flex items-center justify-between ml-10 mt-[-26px] px-8 lg:text-[14px] text-[12px]">
         {uniqYears.map((item, i) => (
           <p key={i}>{item}</p>
         ))}

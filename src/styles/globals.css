@@ -57,6 +57,9 @@ h6 {
   margin-top: 1rem;
   font-size: 0.8rem;
 }
+ol > li {
+  list-style-type: decimal !important;
+}
 
 .recharts-wrapper {
   max-width: 100% !important;
