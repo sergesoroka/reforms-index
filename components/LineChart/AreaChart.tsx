@@ -150,7 +150,7 @@ export default function AreaChartComp() {
             tickCount={7}
           />
           <Tooltip content={<CustomTooltip />} />
-          <CartesianGrid vertical={false} opacity={0.4} />
+          <CartesianGrid opacity={0.4} />
         </AreaChart>
       </ResponsiveContainer>
       <div className="flex items-center justify-between ml-10 mt-[-26px] px-8 lg:text-[14px] text-[12px]">
