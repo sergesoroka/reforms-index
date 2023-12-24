@@ -38,7 +38,7 @@ function HomePosts() {
               <Image
                 // @ts-ignore
                 src={post.post_img}
-                alt={post.link}
+                alt="posts"
                 width="0"
                 height="0"
                 sizes="100vw"

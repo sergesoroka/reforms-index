@@ -1,19 +1,16 @@
 // @ts-nocheck
+import { fetcher } from "lib/fetcher";
+import { useRouter } from "next/router";
 import {
-  LineChart,
-  Line,
   CartesianGrid,
-  XAxis,
-  YAxis,
+  Line,
+  LineChart,
   ReferenceLine,
   Tooltip,
+  XAxis,
+  YAxis,
 } from "recharts";
-import { useRouter } from "next/router";
-import { format, parse, parseISO } from "date-fns";
 import useSWR from "swr";
-import { fetcher } from "lib/fetcher";
-
-import { dataWithYear } from "./dataYear";
 
 export default function LineChartComp() {
   const { data, error } = useSWR(

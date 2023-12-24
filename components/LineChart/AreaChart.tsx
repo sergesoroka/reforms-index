@@ -53,6 +53,7 @@ export default function AreaChartComp() {
         year: item.date_end.toString().substring(6),
       };
     });
+  console.log("Data: ", data);
 
   // const formmatedDate = (str) =>
   //   str.replace(/\-/g, ".").replace(/^0/, "").replace(".0", ".");
@@ -69,32 +70,26 @@ export default function AreaChartComp() {
 
     if (startDay != endDate && startMonth != endMonth && startYear != endYear) {
       return (
-        <div>
-          <span>
-            {startDay.replace(/^0/, "")}.{startMonth}.{startYear}
-            &nbsp;&ndash;&nbsp;{endDay.replace(/^0/, "")}.{endMonth}.{endYear}
-          </span>
-        </div>
+        <span>
+          {startDay.replace(/^0/, "")}.{startMonth}.{startYear}
+          &nbsp;&ndash;&nbsp;{endDay.replace(/^0/, "")}.{endMonth}.{endYear}
+        </span>
       );
     }
     if (startDay != endDate && startMonth != endMonth && startYear == endYear) {
       return (
-        <div>
-          <span>
-            {startDay.replace(/^0/, "")}.{startMonth}
-            &nbsp;&ndash;&nbsp;{endDay.replace(/^0/, "")}.{endMonth}.{endYear}
-          </span>
-        </div>
+        <span>
+          {startDay.replace(/^0/, "")}.{startMonth}
+          &nbsp;&ndash;&nbsp;{endDay.replace(/^0/, "")}.{endMonth}.{endYear}
+        </span>
       );
     }
     if (startDay != endDate && startMonth == endMonth && startYear == endYear) {
       return (
-        <div>
-          <span>
-            {startDay.replace(/^0/, "")}
-            &nbsp;&ndash;&nbsp;{endDay.replace(/^0/, "")}.{endMonth}.{endYear}
-          </span>
-        </div>
+        <span>
+          {startDay.replace(/^0/, "")}
+          &nbsp;&ndash;&nbsp;{endDay.replace(/^0/, "")}.{endMonth}.{endYear}
+        </span>
       );
     }
   };
@@ -116,8 +111,26 @@ export default function AreaChartComp() {
       );
     }
   };
+
+  const CustomizedAxisTick = ({ x, y, stroke, payload }) => {
+    return (
+      <g transform={`translate(${x + 30},${y})`}>
+        <text
+          x={0}
+          y={0}
+          dy={16}
+          textAnchor="end"
+          fill="#666"
+          font-size="smaller"
+          transform="translateX(-100px)"
+        >
+          {payload.value.substring(6, 10)}
+        </text>
+      </g>
+    );
+  };
   return (
-    <div>
+    <div className="font-small">
       <ResponsiveContainer width="100%" height={400}>
         <AreaChart
           data={formattedData}
@@ -132,11 +145,10 @@ export default function AreaChartComp() {
             fill="#e64e27"
           />
           <XAxis
-            dataKey="year"
-            tickLine={false}
-            // tickFormatter={(str) => {
-            //   return str.substring(6);
-            // }}
+            dataKey="date_end"
+            interval={25}
+            tickCount={7}
+            tick={<CustomizedAxisTick />}
           />
           <YAxis
             dataKey="mark"
@@ -148,15 +160,16 @@ export default function AreaChartComp() {
             axisLine={false}
             tickLine={false}
             tickCount={7}
+            fontSize={"smaller"}
           />
           <Tooltip content={<CustomTooltip />} />
           <CartesianGrid opacity={0.4} />
         </AreaChart>
       </ResponsiveContainer>
-      <div className="flex items-center justify-between ml-10 mt-[-26px] px-8 lg:text-[14px] text-[12px]">
-        {uniqYears.map((item, i) => (
+      <div className="flex items-center justify-between ml-10 mt-[6px] px-8 lg:text-[14px] text-[12px]">
+        {/* {uniqYears.map((item, i) => (
           <p key={i}>{item}</p>
-        ))}
+        ))} */}
       </div>
     </div>
   );
