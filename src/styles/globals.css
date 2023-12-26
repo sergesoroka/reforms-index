@@ -65,6 +65,7 @@ h6 {
 }
 ol > li {
   list-style-type: decimal !important;
+  margin-left: 2rem;
 }
 ol > li > i {
   display: block !important;
