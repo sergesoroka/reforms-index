@@ -66,6 +66,10 @@ ol > li > i {
   text-align: center !important;
 }
 
+ol {
+  list-style: decimal !important;
+}
+
 .recharts-wrapper {
   max-width: 100% !important;
 }
@@ -81,6 +85,7 @@ g.recharts-cartesian-axis-ticks > g > text {
 .recharts-cartesian-grid-horizontal > line:nth-child(4) {
   stroke: #e64e27;
 }
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
