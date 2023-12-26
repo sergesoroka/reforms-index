@@ -62,6 +62,7 @@
 }
 .mainAboutPage ul li {
   margin-left: 1.3rem;
+  list-style: disc;
 }
 
 .mainAboutPage figure {
