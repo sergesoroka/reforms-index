@@ -69,6 +69,9 @@ ol > li > i {
 ol {
   list-style: decimal !important;
 }
+ol {
+  list-style: decimal !important;
+}
 
 .recharts-wrapper {
   max-width: 100% !important;
