@@ -111,8 +111,18 @@ export default function AreaChartComp() {
   };
 
   const CustomizedAxisTick = ({ x, y, stroke, payload }) => {
+      let years={}
+      years[1]=2015;
+      years[26]=2016;
+      years[51]=2017;
+      years[76]=2018;
+      years[101]=2019;
+      years[125]=2020;
+      years[150]=2021;
+      years[175]=2022;
+      years[202]=2023;
     return (
-      <g transform={`translate(${x + 30},${y})`}>
+      <g transform={`translate(${x+30},${y})`}>
         <text
           x={0}
           y={0}
@@ -122,7 +132,7 @@ export default function AreaChartComp() {
           font-size="smaller"
           transform="translateX(-100px)"
         >
-          {payload.value.substring(6, 10)}
+          { years[payload.value]}
         </text>
       </g>
     );
@@ -143,10 +153,9 @@ export default function AreaChartComp() {
             fill="#e64e27"
           />
           <XAxis
-            dataKey="date_end"
-            interval={25}
-            tickCount={7}
-            tick={<CustomizedAxisTick />}
+             dataKey="number"
+             ticks={[ 1, 26, 51, 76, 101, 125,150, 175,202]}
+             tick={<CustomizedAxisTick />}
           />
           <YAxis
             dataKey="mark"
