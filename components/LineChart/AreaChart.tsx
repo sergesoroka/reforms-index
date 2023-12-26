@@ -1,18 +1,16 @@
 // @ts-nocheck
+import { fetcher } from "lib/fetcher";
+import { useRouter } from "next/router";
 import {
-  ResponsiveContainer,
-  AreaChart,
   Area,
+  AreaChart,
   CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  ReferenceLine,
-  Tooltip,
 } from "recharts";
-import { useRouter } from "next/router";
-import { format, parse, parseISO } from "date-fns";
 import useSWR from "swr";
-import { fetcher } from "lib/fetcher";
 
 export default function AreaChartComp() {
   const { data, error } = useSWR(

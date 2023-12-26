@@ -1,12 +1,10 @@
-import Head from "next/head";
-import Link from "next/link";
 import styles from "@/styles/Home.module.css";
 import Divider from "components/Divider/Divider";
 import HomeBarChart from "components/HomePageComps/HomeBarChart";
 import HomeExperts from "components/HomePageComps/HomeExperts";
 import HomePosts from "components/HomePageComps/HomePosts";
-import HomPartners from "components/HomePageComps/HomPartners";
 import HomeText from "components/HomePageComps/HomeText";
+import Head from "next/head";
 
 export default function Home() {
   return (
