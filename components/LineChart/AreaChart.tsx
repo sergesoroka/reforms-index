@@ -12,9 +12,20 @@ import {
 } from "recharts";
 import useSWR from "swr";
 
+// https://vox-imore.ra-devs.tech/api/rounds/stats-axis
 export default function AreaChartComp() {
   const { data, error } = useSWR(
     `https://vox-imore.ra-devs.tech/api/rounds/stats`,
+    fetcher,
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
+  );
+
+  const { data: dataAxis } = useSWR(
+    `https://vox-imore.ra-devs.tech/api/rounds/stats-axis`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -51,10 +62,6 @@ export default function AreaChartComp() {
         year: item.date_end.toString().substring(6),
       };
     });
-  console.log("Data: ", data);
-
-  // const formmatedDate = (str) =>
-  //   str.replace(/\-/g, ".").replace(/^0/, "").replace(".0", ".");
 
   const formattedPeriod = (startDate, endDate) => {
     let startDay = startDate && startDate.substring(0, 2);
@@ -111,17 +118,6 @@ export default function AreaChartComp() {
   };
 
   const CustomizedAxisTick = ({ x, y, stroke, payload }) => {
-    let years = {};
-    years[1] = 2015;
-    years[26] = 2016;
-    years[51] = 2017;
-    years[76] = 2018;
-    years[101] = 2019;
-    years[125] = 2020;
-    years[150] = 2021;
-    years[175] = 2022;
-    years[202] = 2023;
-
     return (
       <g transform={`translate(${x + 30},${y})`}>
         <text
@@ -130,10 +126,9 @@ export default function AreaChartComp() {
           dy={16}
           textAnchor="end"
           fill="#666"
-          font-size="smaller"
-          transform="translateX(-100px)"
+          fontSize="smaller"
         >
-          {years[payload.value]}
+          {dataAxis && dataAxis[payload.value]}
         </text>
       </g>
     );
