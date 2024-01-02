@@ -182,13 +182,12 @@ export default function AreaChartComp() {
             dataKey="mark"
             type="number"
             // domain={[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]}
-            domain={([dataMin, dataMax]) => [
-              Math.floor(dataMin),
-                Math.floor(dataMax),
-                min_data=  Math.floor(dataMin),
-                max_data = Math.floor(dataMax),
+            domain={([dataMin, dataMax]) =>{
+                min_data= Math.floor(dataMin)
+                max_data = Math.floor(dataMax)
 
-            ]}
+                return [min_data,max_data];
+            }}
             // ticks={[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]}
             axisLine={false}
             tickLine={false}
