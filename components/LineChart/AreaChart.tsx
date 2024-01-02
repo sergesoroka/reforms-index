@@ -13,8 +13,6 @@ import {
 } from "recharts";
 import useSWR from "swr";
 
-import { lineChartData } from "./data";
-
 let max_data = 0;
 let min_data = 0;
 
@@ -29,7 +27,7 @@ export default function AreaChartComp() {
     }
   );
 
-  const { data: dataAxis } = useSWR(
+  const { data: dataAxis, isLoading } = useSWR(
     `https://vox-imore.ra-devs.tech/api/rounds/stats-axis`,
     fetcher,
     {
@@ -142,23 +140,6 @@ export default function AreaChartComp() {
     );
   };
 
-  const CustomizedYAxisTick = ({ x, y, stroke, payload }) => {
-    return (
-      <g transform={`translate(${x},${y})`}>
-        <text
-          x={0}
-          y={0}
-          dy={16}
-          textAnchor="end"
-          fill="#666"
-          fontSize="smaller"
-        >
-          {payload.value}
-        </text>
-      </g>
-    );
-  };
-
   return (
     <div className="font-small">
       <ResponsiveContainer width="100%" height={400}>
@@ -184,25 +165,26 @@ export default function AreaChartComp() {
           <YAxis
             dataKey="mark"
             type="number"
-            // domain={[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]}
             domain={([dataMin, dataMax]) => {
-              min_data = Math.floor(dataMin);
-              max_data = Math.floor(dataMax);
+              min_data = dataMin && Math.floor(dataMin);
+              max_data = dataMax && Math.floor(dataMax);
 
               return [min_data, max_data];
             }}
-            // ticks={[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]}
             axisLine={false}
             tickLine={false}
-            // minTickGap={0}
-            tickCount={Math.abs(min_data) + Math.floor(max_data) + 1}
+            tickCount={
+              !isLoading &&
+              min_data &&
+              max_data &&
+              Math.abs(min_data) + Math.floor(max_data) + 1
+            }
             fontSize={"smaller"}
-            // tick={<CustomizedYAxisTick />}
           />
           <Tooltip content={<CustomTooltip />} />
           <ReferenceLine y={0} stroke="red" opacity={0.4} />
           <ReferenceLine y={2} stroke="steelblue" opacity={0.4} />
-          <CartesianGrid opacity={0.4} />
+          {!isLoading && <CartesianGrid opacity={0.4} />}
         </AreaChart>
       </ResponsiveContainer>
       <div className="flex items-center justify-between ml-10 mt-[6px] px-8 lg:text-[14px] text-[12px]"></div>
