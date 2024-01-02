@@ -12,9 +12,10 @@ import {
 } from "recharts";
 import useSWR from "swr";
 
-// https://vox-imore.ra-devs.tech/api/rounds/stats-axis
+import { lineChartData } from "./data";
+
 export default function AreaChartComp() {
-  const { data, error } = useSWR(
+  const { data } = useSWR(
     `https://vox-imore.ra-devs.tech/api/rounds/stats`,
     fetcher,
     {
@@ -117,7 +118,7 @@ export default function AreaChartComp() {
     }
   };
 
-  const CustomizedAxisTick = ({ x, y, stroke, payload }) => {
+  const CustomizedXAxisTick = ({ x, y, stroke, payload }) => {
     return (
       <g transform={`translate(${x + 30},${y})`}>
         <text
@@ -129,6 +130,23 @@ export default function AreaChartComp() {
           fontSize="smaller"
         >
           {dataAxis && dataAxis[payload.value]}
+        </text>
+      </g>
+    );
+  };
+
+  const CustomizedYAxisTick = ({ x, y, stroke, payload }) => {
+    return (
+      <g transform={`translate(${x},${y})`}>
+        <text
+          x={0}
+          y={0}
+          dy={16}
+          textAnchor="end"
+          fill="#666"
+          fontSize="smaller"
+        >
+          {payload.value}
         </text>
       </g>
     );
@@ -150,20 +168,26 @@ export default function AreaChartComp() {
           />
           <XAxis
             dataKey="number"
-            ticks={[1, 26, 51, 76, 101, 125, 150, 175, 202]}
-            tick={<CustomizedAxisTick />}
+            ticks={
+              dataAxis && Object.keys(dataAxis).map((num) => parseInt(num))
+            }
+            tick={<CustomizedXAxisTick />}
           />
           <YAxis
             dataKey="mark"
             type="number"
+            // domain={[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]}
             domain={([dataMin, dataMax]) => [
-              Math.round(dataMin) - 1,
-              Math.round(dataMax),
+              Math.ceil(dataMin),
+              Math.floor(dataMax),
             ]}
             axisLine={false}
             tickLine={false}
-            tickCount={7}
+            // 7 & 12
+            minTickGap={1}
+            tickCount={7 + 1}
             fontSize={"smaller"}
+            // tick={<CustomizedYAxisTick />}
           />
           <Tooltip content={<CustomTooltip />} />
           <CartesianGrid opacity={0.4} />

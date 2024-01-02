@@ -26,15 +26,7 @@ function HomePosts() {
       return (
         <div key={i} className="lg:w-[256px]  w-full h-auto text-grey-600">
           <Link href={post.post_url} passHref target="_blank">
-            <div
-              className="w-full h-auto lg:w-[256px] lg:h-[144px] overflow-hidden"
-              // style={{
-              //   position: "relative",
-              //   width: "256px",
-              //   height: "144px",
-              //   overflow: "hidden",
-              // }}
-            >
+            <div className="w-full h-auto lg:w-[256px] lg:h-[144px] overflow-hidden">
               <Image
                 // @ts-ignore
                 src={post.post_img}
@@ -47,7 +39,9 @@ function HomePosts() {
             </div>
 
             <div className="w-[87px] h-[4px] bg-red-600 mt-9 mb-6" />
-            <h3 className="text-grey-600">{post.post_title}</h3>
+            <h3 className="text-grey-600" style={{ color: "#374151" }}>
+              {post.post_title}
+            </h3>
             <p className="mt-9 mb-6 text-red-600">{post.author_name}</p>
           </Link>
         </div>
