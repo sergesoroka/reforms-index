@@ -201,7 +201,7 @@ export default function AreaChartComp() {
           />
           <Tooltip content={<CustomTooltip />} />
           <ReferenceLine y={0} stroke="red" opacity={0.4} />
-          <ReferenceLine y={-2} stroke="steelblue" opacity={0.4} />
+          <ReferenceLine y={2} stroke="steelblue" opacity={0.4} />
           <CartesianGrid opacity={0.4} />
         </AreaChart>
       </ResponsiveContainer>
