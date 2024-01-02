@@ -91,12 +91,12 @@ g.recharts-cartesian-axis-ticks > g > text {
   font-size: 12px;
   transform: translateX(-60);
 } */
-.recharts-cartesian-grid-horizontal > line:nth-child(4) {
+/* .recharts-cartesian-grid-horizontal > line:nth-child(4) {
   stroke: #e64e27;
 }
 .recharts-cartesian-grid-horizontal > line:nth-child(2) {
   stroke: steelblue;
-}
+} */
 
 @media (prefers-color-scheme: dark) {
   html {

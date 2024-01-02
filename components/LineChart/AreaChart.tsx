@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
+  ReferenceLine,
   XAxis,
   YAxis,
 } from "recharts";
@@ -14,8 +15,8 @@ import useSWR from "swr";
 
 import { lineChartData } from "./data";
 
-let max_data= 0;
-let min_data= 0;
+let max_data = 0;
+let min_data = 0;
 
 export default function AreaChartComp() {
   const { data } = useSWR(
@@ -69,9 +70,6 @@ export default function AreaChartComp() {
         year: item.date_end.toString().substring(6),
       };
     });
-
-  console.log(Math.max(...marksValue));
-  console.log(Math.min(...marksValue));
 
   const formattedPeriod = (startDate, endDate) => {
     let startDay = startDate && startDate.substring(0, 2);
@@ -162,7 +160,6 @@ export default function AreaChartComp() {
   };
 
   return (
-
     <div className="font-small">
       <ResponsiveContainer width="100%" height={400}>
         <AreaChart
@@ -188,21 +185,23 @@ export default function AreaChartComp() {
             dataKey="mark"
             type="number"
             // domain={[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]}
-            domain={([dataMin, dataMax]) =>{
-                min_data= Math.floor(dataMin)
-                max_data = Math.floor(dataMax)
+            domain={([dataMin, dataMax]) => {
+              min_data = Math.floor(dataMin);
+              max_data = Math.floor(dataMax);
 
-                return [min_data,max_data];
+              return [min_data, max_data];
             }}
             // ticks={[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]}
             axisLine={false}
             tickLine={false}
             // minTickGap={0}
-            tickCount={Math.abs( min_data) +  Math.floor(max_data)+1}
+            tickCount={Math.abs(min_data) + Math.floor(max_data) + 1}
             fontSize={"smaller"}
             // tick={<CustomizedYAxisTick />}
           />
           <Tooltip content={<CustomTooltip />} />
+          <ReferenceLine y={0} stroke="red" opacity={0.4} />
+          <ReferenceLine y={-2} stroke="steelblue" opacity={0.4} />
           <CartesianGrid opacity={0.4} />
         </AreaChart>
       </ResponsiveContainer>
