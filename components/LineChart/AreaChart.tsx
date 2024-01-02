@@ -16,6 +16,8 @@ import { lineChartData } from "./data";
 
 let max_data= 0;
 let min_data= 0;
+let zero_line_index=0;
+let twi_line_index=0;
 
 export default function AreaChartComp() {
   const { data } = useSWR(
@@ -186,6 +188,10 @@ export default function AreaChartComp() {
                 min_data= Math.floor(dataMin)
                 max_data = Math.floor(dataMax)
 
+                    // Перебрати від мін до макс, та визначити які індекси будут відповідати селектору htn- child для 0 и +2
+                let zero_line_index=4;
+                let twi_line_index=2;
+
                 return [min_data,max_data];
             }}
             // ticks={[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]}
@@ -200,6 +206,13 @@ export default function AreaChartComp() {
           <CartesianGrid opacity={0.4} />
         </AreaChart>
       </ResponsiveContainer>
+        <style>
+            {`
+                .recharts-cartesian-grid-horizontal > line:nth-child({zero_line_index}){
+                     stroke: steelblue;
+                }
+            `}
+        </style>
       <div className="flex items-center justify-between ml-10 mt-[6px] px-8 lg:text-[14px] text-[12px]"></div>
     </div>
   );
