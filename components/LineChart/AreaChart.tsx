@@ -45,9 +45,12 @@ export default function AreaChartComp() {
     locale == "en" ? "Round" : locale == "ru" ? "Раунд" : "Раунд";
 
   const uniqYears = [];
+  const marksValue = [];
+
   const formattedData =
     data &&
     data.data.map((item) => {
+      marksValue.push(item.mark);
       if (
         !uniqYears.includes(item.date_end.toString().substring(6)) &&
         item.date_end.toString().substring(6) !== ""
@@ -63,6 +66,9 @@ export default function AreaChartComp() {
         year: item.date_end.toString().substring(6),
       };
     });
+
+  console.log(Math.max(...marksValue));
+  console.log(Math.min(...marksValue));
 
   const formattedPeriod = (startDate, endDate) => {
     let startDay = startDate && startDate.substring(0, 2);
