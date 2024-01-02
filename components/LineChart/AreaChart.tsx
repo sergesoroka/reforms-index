@@ -14,6 +14,9 @@ import useSWR from "swr";
 
 import { lineChartData } from "./data";
 
+let max_data= 0;
+let min_data= 0;
+
 export default function AreaChartComp() {
   const { data } = useSWR(
     `https://vox-imore.ra-devs.tech/api/rounds/stats`,
@@ -151,7 +154,9 @@ export default function AreaChartComp() {
       </g>
     );
   };
+
   return (
+
     <div className="font-small">
       <ResponsiveContainer width="100%" height={400}>
         <AreaChart
@@ -178,14 +183,17 @@ export default function AreaChartComp() {
             type="number"
             // domain={[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]}
             domain={([dataMin, dataMax]) => [
-              Math.ceil(dataMin),
-              Math.floor(dataMax),
+              Math.floor(dataMin),
+                Math.floor(dataMax),
+                min_data=  Math.floor(dataMin),
+                max_data = Math.floor(dataMax),
+
             ]}
+            // ticks={[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]}
             axisLine={false}
             tickLine={false}
-            // 7 & 12
-            minTickGap={1}
-            tickCount={7 + 1}
+            // minTickGap={0}
+            tickCount={Math.abs( min_data) +  Math.floor(max_data)+1}
             fontSize={"smaller"}
             // tick={<CustomizedYAxisTick />}
           />
