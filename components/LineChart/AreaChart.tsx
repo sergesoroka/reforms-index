@@ -17,7 +17,7 @@ let max_data = 0;
 let min_data = 0;
 
 export default function AreaChartComp() {
-  const { data } = useSWR(
+  const { data, isLoading, isValidating } = useSWR(
     `https://vox-imore.ra-devs.tech/api/rounds/stats`,
     fetcher,
     {
@@ -27,7 +27,7 @@ export default function AreaChartComp() {
     }
   );
 
-  const { data: dataAxis, isLoading } = useSWR(
+  const { data: dataAxis, isLoading: isAxisLoading } = useSWR(
     `https://vox-imore.ra-devs.tech/api/rounds/stats-axis`,
     fetcher,
     {
@@ -140,9 +140,11 @@ export default function AreaChartComp() {
     );
   };
 
+  console.log(isValidating);
+
   return (
     <div className="font-small">
-      {data && dataAxis && (
+      {!isValidating && (
         <ResponsiveContainer width="100%" height={400}>
           <AreaChart
             data={data && formattedData}
@@ -167,8 +169,8 @@ export default function AreaChartComp() {
               dataKey="mark"
               type="number"
               domain={([dataMin, dataMax]) => {
-                min_data = Math.floor(dataMin);
-                max_data = Math.ceil(dataMax);
+                min_data = !isValidating && Math.floor(dataMin);
+                max_data = !isValidating && Math.ceil(dataMax);
 
                 return [min_data, max_data];
               }}
