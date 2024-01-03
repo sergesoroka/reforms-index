@@ -142,51 +142,48 @@ export default function AreaChartComp() {
 
   return (
     <div className="font-small">
-      <ResponsiveContainer width="100%" height={400}>
-        <AreaChart
-          data={formattedData}
-          margin={{ top: 5, right: 10, left: 10, bottom: 5 }}
-          style={{ width: "100%", height: "100%" }}
-        >
-          <Area
-            dataKey="mark"
-            stroke="#e64e27"
-            opacity={0.6}
-            fillOpacity={0.1}
-            fill="#e64e27"
-          />
-          <XAxis
-            dataKey="number"
-            ticks={
-              dataAxis && Object.keys(dataAxis).map((num) => parseInt(num))
-            }
-            tick={<CustomizedXAxisTick />}
-          />
-          <YAxis
-            dataKey="mark"
-            type="number"
-            domain={([dataMin, dataMax]) => {
-              min_data = dataMin && Math.floor(dataMin);
-              max_data = dataMax && Math.ceil(dataMax);
+      {data && dataAxis && (
+        <ResponsiveContainer width="100%" height={400}>
+          <AreaChart
+            data={data && formattedData}
+            margin={{ top: 5, right: 10, left: 10, bottom: 5 }}
+            style={{ width: "100%", height: "100%" }}
+          >
+            <Area
+              dataKey="mark"
+              stroke="#e64e27"
+              opacity={0.6}
+              fillOpacity={0.1}
+              fill="#e64e27"
+            />
+            <XAxis
+              dataKey="number"
+              ticks={
+                dataAxis && Object.keys(dataAxis).map((num) => parseInt(num))
+              }
+              tick={<CustomizedXAxisTick />}
+            />
+            <YAxis
+              dataKey="mark"
+              type="number"
+              domain={([dataMin, dataMax]) => {
+                min_data = Math.floor(dataMin);
+                max_data = Math.ceil(dataMax);
 
-              return [min_data, max_data];
-            }}
-            axisLine={false}
-            tickLine={false}
-            tickCount={
-              min_data &&
-              max_data &&
-              Math.abs(min_data) + Math.floor(max_data) + 1
-            }
-            fontSize={"smaller"}
-          />
-          <Tooltip content={<CustomTooltip />} />
-          <ReferenceLine y={0} stroke="red" opacity={0.4} />
-          <ReferenceLine y={2} stroke="steelblue" opacity={0.4} />
-          <CartesianGrid opacity={0.4} />
-        </AreaChart>
-      </ResponsiveContainer>
-      <div className="flex items-center justify-between ml-10 mt-[6px] px-8 lg:text-[14px] text-[12px]"></div>
+                return [min_data, max_data];
+              }}
+              axisLine={false}
+              tickLine={false}
+              tickCount={Math.abs(min_data) + Math.floor(max_data) + 1}
+              fontSize={"smaller"}
+            />
+            <Tooltip content={<CustomTooltip />} />
+            <ReferenceLine y={0} stroke="red" opacity={0.4} />
+            <ReferenceLine y={2} stroke="steelblue" opacity={0.4} />
+            <CartesianGrid opacity={0.4} />
+          </AreaChart>
+        </ResponsiveContainer>
+      )}
     </div>
   );
 }
