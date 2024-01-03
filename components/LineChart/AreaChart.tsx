@@ -140,8 +140,6 @@ export default function AreaChartComp() {
     );
   };
 
-  console.log(isValidating);
-
   return (
     <div className="font-small">
       {!isValidating && (
@@ -176,7 +174,9 @@ export default function AreaChartComp() {
               }}
               axisLine={false}
               tickLine={false}
-              tickCount={Math.abs(min_data) + Math.floor(max_data) + 1}
+              tickCount={
+                !isValidating && Math.abs(min_data) + Math.floor(max_data) + 1
+              }
               fontSize={"smaller"}
             />
             <Tooltip content={<CustomTooltip />} />
