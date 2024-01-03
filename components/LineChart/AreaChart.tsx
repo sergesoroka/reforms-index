@@ -1,6 +1,8 @@
 // @ts-nocheck
+"use client";
 import { fetcher } from "lib/fetcher";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import {
   Area,
   AreaChart,
@@ -172,11 +174,12 @@ export default function AreaChartComp() {
 
                 return [min_data, max_data];
               }}
+              tickCount={9}
+              // tickCount={
+              //   !isValidating && Math.abs(min_data) + Math.floor(max_data) + 1
+              // }
               axisLine={false}
               tickLine={false}
-              tickCount={
-                !isValidating && Math.abs(min_data) + Math.floor(max_data) + 1
-              }
               fontSize={"smaller"}
             />
             <Tooltip content={<CustomTooltip />} />
