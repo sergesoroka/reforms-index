@@ -167,14 +167,13 @@ export default function AreaChartComp() {
             type="number"
             domain={([dataMin, dataMax]) => {
               min_data = dataMin && Math.floor(dataMin);
-              max_data = dataMax && Math.floor(dataMax);
+              max_data = dataMax && Math.ceil(dataMax);
 
               return [min_data, max_data];
             }}
             axisLine={false}
             tickLine={false}
             tickCount={
-              !isLoading &&
               min_data &&
               max_data &&
               Math.abs(min_data) + Math.floor(max_data) + 1
@@ -184,7 +183,7 @@ export default function AreaChartComp() {
           <Tooltip content={<CustomTooltip />} />
           <ReferenceLine y={0} stroke="red" opacity={0.4} />
           <ReferenceLine y={2} stroke="steelblue" opacity={0.4} />
-          {!isLoading && <CartesianGrid opacity={0.4} />}
+          <CartesianGrid opacity={0.4} />
         </AreaChart>
       </ResponsiveContainer>
       <div className="flex items-center justify-between ml-10 mt-[6px] px-8 lg:text-[14px] text-[12px]"></div>
