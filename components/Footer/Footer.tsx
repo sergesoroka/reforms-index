@@ -2,6 +2,7 @@ import Divider from "components/Divider/Divider";
 import styles from "./Footer.module.css";
 import EmailIcon from "../icons/email_icon.svg";
 import FbIcon from "../icons/fb_icon.svg";
+import Globus from "components/IconsComponents/Globus";
 import Link from "next/link";
 
 const Footer = ({ data }) => {
@@ -20,6 +21,13 @@ const Footer = ({ data }) => {
           <p className={styles.copyright}>{data && data.data.copyright}</p>
         </div>
         <div className={styles.social}>
+          <Link
+            href="https://voxukraine.org/category/reformi/imore/"
+            passHref
+            target="_blank"
+          >
+            <Globus />
+          </Link>
           <Link
             href={data ? data.data.social_email : ""}
             passHref

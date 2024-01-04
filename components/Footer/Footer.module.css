@@ -21,11 +21,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 54px;
+  width: 80px;
 }
-
 
 .copyright {
   margin-top: 1rem;
-  font-size: .7rem;
+  font-size: 0.7rem;
 }
