@@ -22,7 +22,7 @@ const Footer = ({ data }) => {
         </div>
         <div className={styles.social}>
           <Link
-            href="https://voxukraine.org/category/reformi/imore/"
+            href={data ? data.data.social_vox : ""}
             passHref
             target="_blank"
           >
