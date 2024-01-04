@@ -2,7 +2,7 @@
 "use client";
 import { fetcher } from "lib/fetcher";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+
 import {
   Area,
   AreaChart,
