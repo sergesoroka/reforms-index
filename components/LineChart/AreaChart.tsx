@@ -136,7 +136,7 @@ export default function AreaChartComp() {
           fill="#666"
           fontSize="smaller"
         >
-          {dataAxis && dataAxis[payload.value]}
+          {dataAxis['x'] && dataAxis['x'][payload.value]}
         </text>
       </g>
     );
@@ -144,7 +144,7 @@ export default function AreaChartComp() {
 
   return (
     <div className="font-small">
-      {!isValidating && (
+      {!isValidating && !isAxisLoading && (
         <ResponsiveContainer width="100%" height={400}>
           <AreaChart
             data={data && formattedData}
@@ -161,23 +161,15 @@ export default function AreaChartComp() {
             <XAxis
               dataKey="number"
               ticks={
-                dataAxis && Object.keys(dataAxis).map((num) => parseInt(num))
+                dataAxis['x'] && Object.keys(dataAxis['x']).map((num) => parseInt(num))
               }
               tick={<CustomizedXAxisTick />}
             />
             <YAxis
               dataKey="mark"
               type="number"
-              domain={([dataMin, dataMax]) => {
-                min_data = !isValidating && Math.floor(dataMin);
-                max_data = !isValidating && Math.ceil(dataMax);
-
-                return [min_data, max_data];
-              }}
-              tickCount={9}
-              // tickCount={
-              //   !isValidating && Math.abs(min_data) + Math.floor(max_data) + 1
-              // }
+              domain={['dataMin', 'dataMax']}
+              ticks={dataAxis['y']}
               axisLine={false}
               tickLine={false}
               fontSize={"smaller"}
