@@ -168,6 +168,7 @@ export default function AreaChartComp() {
             <YAxis
               dataKey="mark"
               type="number"
+              width={10}
               domain={['dataMin', 'dataMax']}
               ticks={dataAxis['y']}
               axisLine={false}
