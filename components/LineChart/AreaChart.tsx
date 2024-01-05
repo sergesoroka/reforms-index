@@ -148,7 +148,7 @@ export default function AreaChartComp() {
         <ResponsiveContainer width="100%" height={400}>
           <AreaChart
             data={data && formattedData}
-            margin={{ top: 5, right: 10, left: 10, bottom: 5 }}
+            margin={{ top: 5, right: 10, left: 0, bottom: 5 }}
             style={{ width: "100%", height: "100%" }}
           >
             <Area
