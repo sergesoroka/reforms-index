@@ -107,7 +107,11 @@ g.recharts-cartesian-axis-ticks > g > text {
 
 /* Mobile */
 @media (max-width: 700px) {
-  .recharts-cartesian-axis-tick:nth-child(even) {
+  .xAxis .recharts-cartesian-axis-tick:nth-child(even) {
     display: none !important;
   }
+}
+
+.recharts-surface{
+  overflow: visible;
 }
