@@ -24,9 +24,9 @@ function HomePosts() {
     data &&
     data.data.map((post, i) => {
       return (
-        <div key={i} className="lg:w-[256px]  w-full h-auto text-grey-600">
+        <div key={i} className="  w-full h-auto text-grey-600">
           <Link href={post.post_url} passHref target="_blank">
-            <div className="w-full h-auto lg:w-[256px] lg:h-[144px] overflow-hidden">
+            <div className="w-full h-auto  lg:h-[200px] overflow-hidden">
               <Image
                 // @ts-ignore
                 src={post.post_img}
