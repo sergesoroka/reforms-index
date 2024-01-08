@@ -42,21 +42,17 @@ h1 {
   font-size: 26px;
 }
 
-/* h2 {
-  margin: 2rem 0 1rem 0;
-  font-size: 1.2rem;
-} */
 h2 {
   margin: 2rem 0 1rem 0;
-  font-size: 18px;
+  font-size: 22px;
 }
 h3 {
   margin: 2rem 0 1rem 0;
-  font-size: large;
+  font-size: 20px;
 }
 h4 {
   margin: 2rem 0 1rem 0;
-  font-size: larger;
+  font-size: 18px;
 }
 
 h6 {
@@ -112,6 +108,6 @@ g.recharts-cartesian-axis-ticks > g > text {
   }
 }
 
-.recharts-surface{
+.recharts-surface {
   overflow: visible;
 }

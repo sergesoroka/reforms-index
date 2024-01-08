@@ -5,6 +5,7 @@ import HomeExperts from "components/HomePageComps/HomeExperts";
 import HomePosts from "components/HomePageComps/HomePosts";
 import HomeText from "components/HomePageComps/HomeText";
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -32,12 +33,19 @@ export default function Home() {
           single={false}
         />
         <HomeExperts />
-        <Divider
-          heading="Індекс реформ Вокс Україна"
-          gray={true}
-          openable={false}
-          single={false}
-        />
+        <Link
+          href="https://voxukraine.org/category/reformi/imore"
+          passHref
+          target="_blank"
+          className="w-full"
+        >
+          <Divider
+            heading="Індекс реформ Вокс Україна"
+            gray={true}
+            openable={false}
+            single={false}
+          />
+        </Link>
         <HomePosts />
         {/* <Divider
           heading="Наші партнери"
