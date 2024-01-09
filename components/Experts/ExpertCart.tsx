@@ -38,7 +38,7 @@ const ExpertCart: FC<ExpertInfo> = ({
             alt={name}
             width={140}
             height={140}
-            className="rounded-full h-[96px] md:h-[140px]"
+            className="rounded-full h-[100px] md:h-[140px]"
           />
           <p className="text-[16px] text-gray-700 text-center mt-4 mb-2">
             {name}
@@ -55,7 +55,7 @@ const ExpertCart: FC<ExpertInfo> = ({
               alt={name}
               width={100}
               height={100}
-              style={{ borderRadius: "100%", height: "96px" }}
+              style={{ borderRadius: "100%", height: "100px" }}
             />
             <p className={styles.expertNameExtended}>{name}</p>
           </div>
