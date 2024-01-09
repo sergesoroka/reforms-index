@@ -36,20 +36,23 @@ export default function Home() {
           single={false}
         />
         <HomeExperts />
+        <Divider
+          heading="Матеріали Індексу реформ"
+          gray={true}
+          openable={false}
+          single={false}
+        />
+        <HomePosts />
         <Link
           href="https://voxukraine.org/category/reformi/imore"
           passHref
           target="_blank"
           className="w-full"
         >
-          <Divider
-            heading="Індекс реформ Вокс Україна"
-            gray={true}
-            openable={false}
-            single={false}
-          />
+          <p className="mt-8 text-gray-500 text-center">
+            Всі матеріали на сайті &laquo;Вокс Україна&raquo;
+          </p>
         </Link>
-        <HomePosts />
         {/* <Divider
           heading="Наші партнери"
           gray={true}
