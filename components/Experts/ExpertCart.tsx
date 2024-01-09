@@ -38,9 +38,11 @@ const ExpertCart: FC<ExpertInfo> = ({
             alt={name}
             width={140}
             height={140}
-            className="rounded-full h-[140px]"
+            className="rounded-full h-[96px] md:h-[140px]"
           />
-          <p className="text-[16px] text-gray-700 mt-4 mb-2">{name}</p>
+          <p className="text-[16px] text-gray-700 text-center mt-4 mb-2">
+            {name}
+          </p>
           {/* <hr style={{ width: "100%" }} /> */}
           <p className="text-sm text-red-500 my-2 text-center">{company}</p>
         </div>
@@ -51,14 +53,14 @@ const ExpertCart: FC<ExpertInfo> = ({
               // @ts-ignore
               src={img}
               alt={name}
-              width={80}
-              height={80}
-              style={{ borderRadius: "100%" }}
+              width={100}
+              height={100}
+              style={{ borderRadius: "100%", height: "96px" }}
             />
             <p className={styles.expertNameExtended}>{name}</p>
           </div>
-          <hr style={{ width: "100%", margin: "1rem 0" }} />
-          <p className={styles.expertCompanyExtended}>{company}</p>
+          <hr style={{ width: "100%", margin: "0.4rem 0" }} />
+          <p className="text-sm text-red-500 my-2">{company}</p>
           {position && (
             <p className={styles.role}>
               <span className={styles.roleName}>Посада:</span> {position}

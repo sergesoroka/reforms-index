@@ -6,7 +6,7 @@
   grid-template-columns: auto auto auto auto auto;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 1rem 2rem;
+  margin: 0 2rem;
   cursor: pointer;
 }
 
@@ -18,7 +18,7 @@
   cursor: pointer;
 } */
 .cartWrapExtended {
-  margin: 1rem;
+  margin: 0 1rem;
   width: 12rem;
 }
 
@@ -31,7 +31,7 @@
 .expertNameExtended {
   text-align: left;
   line-height: 1.2rem;
-  margin: 1rem 0;
+  margin: 1rem 0 0 1rem;
   width: 50%;
 }
 
@@ -91,5 +91,16 @@
   }
   .cartWrap {
     margin: 0;
+  }
+  .cartWrapExtended {
+    margin: 0 0 1rem 0;
+    width: 100%;
+  }
+  .cartNameExtended {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .expertNameExtended {
+    margin-left: 0;
   }
 }
