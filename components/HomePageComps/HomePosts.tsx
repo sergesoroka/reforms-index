@@ -38,7 +38,7 @@ function HomePosts() {
               />
             </div>
 
-            <div className="w-[87px] h-[4px] bg-red-600 mt-2 mb-6" />
+            <div className="w-[87px] h-[4px] bg-red-600 mt-8 lg:mt-2 mb-6" />
             <h3
               className="text-grey-600 text-[18px]"
               style={{ color: "#374151" }}

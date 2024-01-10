@@ -1,41 +1,11 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Navbar.module.css";
-import { motion } from "framer-motion";
+import { frameData, motion } from "framer-motion";
 
 const Navbar = ({ data }) => {
   const router = useRouter();
   const { locale, pathname } = router;
-
-  const aboutLabel =
-    locale == "en"
-      ? "About Index"
-      : locale == "ru"
-      ? "О индексе"
-      : "Про індекс";
-  const methodLabel =
-    locale == "en"
-      ? "Metodology"
-      : locale == "ru"
-      ? "Методология"
-      : "Методологія";
-
-  const dataLabel =
-    locale == "en" ? "Data" : locale == "ru" ? "Данные" : "Дані";
-
-  const expertsLabel =
-    locale == "en"
-      ? "Our Experts"
-      : locale == "ru"
-      ? "Наши эксперты"
-      : "Наші експерти";
-
-  const lawsLabel =
-    locale == "en"
-      ? "The War Laws"
-      : locale == "ru"
-      ? "Военные законы"
-      : "Военні закони";
 
   const variants = {
     visible: { opacity: 1, scaleX: 1 },
@@ -49,66 +19,63 @@ const Navbar = ({ data }) => {
   return (
     <>
       <ul className={styles.navbar}>
-        <li>
-          <Link
-            href="/about"
-            passHref
-            className={
-              pathname === "/about" ? styles.navActiveItem : styles.navItem
+        {data &&
+          data.data.header_menu.map((item, i) => {
+            if (item.children.length == 0) {
+              return (
+                <li key={item.id}>
+                  <Link
+                    href={item.value ? item.value : ""}
+                    passHref
+                    className={
+                      pathname === item.value
+                        ? styles.navActiveItem
+                        : styles.navItem
+                    }
+                  >
+                    {item.name}
+                  </Link>
+                  {pathname === item.value && (
+                    <motion.div
+                      variants={variants}
+                      initial="hidden"
+                      animate="visible"
+                      className="h-1 w-full bg-red-600"
+                    />
+                  )}
+                </li>
+              );
             }
-          >
-            {data && data.data.header_menu[0].name}
-          </Link>
-          {pathname === "/about" && (
-            <motion.div
-              variants={variants}
-              initial="hidden"
-              animate="visible"
-              className="h-1 w-full bg-red-600"
-            />
-          )}
-        </li>
-        <li>
-          <Link
-            href="/method"
-            passHref
-            className={
-              pathname === "/method" ? styles.navActiveItem : styles.navItem
-            }
-          >
-            {data && data.data.header_menu[1].name}
-          </Link>
-          {pathname === "/method" && (
-            <motion.div
-              variants={variants}
-              initial="hidden"
-              animate="visible"
-              className="h-1 w-full bg-red-600"
-            />
-          )}
-        </li>
+            // if (item.children.length > 0) {
+            //   item.children.map((link) => console.log(link.name));
+            // }
+          })}
 
         <li>
-          <Link
-            href="/experts"
-            passHref
-            className={
-              pathname === "/experts" ? styles.navActiveItem : styles.navItem
-            }
-          >
-            {data && data.data.header_menu[2].name}
-          </Link>
-          {pathname === "/experts" && (
-            <motion.div
-              variants={variants}
-              initial="hidden"
-              animate="visible"
-              className="h-1 w-full bg-red-600"
-            />
-          )}
-        </li>
-        <li>
           <div className={styles.dropdown}>
+            {/* <button className={styles.dropbtn}>
+              {data && data.data.header_menu[3].name}
+            </button>
+            <div className={styles.dropdownContent}>
+              {data &&
+                data.data.header_menu.map((item) => {
+                  if (item.children.length > 0) {
+                    item.children.map((link) => console.log(link.name));
+                    return (
+                      <Link
+                        key={item.id}
+                        href={
+                          data ? data.data.header_menu[3].children[0].value : ""
+                        }
+                        passHref
+                        target="_blank"
+                      >
+                        {item.children[0].name}
+                      </Link>
+                    );
+                  }
+                })}
+            </div> */}
             <button className={styles.dropbtn}>
               {data && data.data.header_menu[3].name}
             </button>
