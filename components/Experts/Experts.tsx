@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 
 function Experts() {
   const router = useRouter();
-  const { locale } = router;
+  const { locale, pathname } = router;
   const [status, setStatus] = useState(1);
   const { data, error, isLoading } = useSWR(
     `https://vox-imore.ra-devs.tech/api/experts?lang=${locale}&status=${status}&per_page=100`,
@@ -43,7 +43,7 @@ function Experts() {
       <TabsComp status={status} setStatus={setStatus} />
       {dataDesc &&
         dataDesc.data.map((item) => {
-          if (status == 1 && item.id == 5) {
+          if (status == 1 && item.id == 5 && pathname != "/") {
             return (
               <div key={item.id}>
                 <Head>
@@ -63,7 +63,7 @@ function Experts() {
               </div>
             );
           }
-          if (status == 2 && item.id == 6) {
+          if (status == 2 && item.id == 6 && pathname != "/") {
             return (
               <div key={item.id}>
                 <Head>
@@ -83,7 +83,7 @@ function Experts() {
               </div>
             );
           }
-          if (status == 3 && item.id == 8) {
+          if (status == 3 && item.id == 8 && pathname != "/") {
             return (
               <div key={item.id}>
                 <Head>
