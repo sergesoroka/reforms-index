@@ -20,16 +20,17 @@ const Navbar = ({ data }) => {
         <ul className={styles.navbar}>
           {data && data.data.header_menu.map((item, i) => {
             if (item.children.length == 0 && item.type != 'text') {
+              console.log(pathname);
               return (<li key={item.id}>
                     <Link
                         href={item.value ? item.value : ""}
                         passHref
-                        className={pathname === item.value ? styles.navActiveItem : styles.navItem}
+                        className={item.value.includes(pathname) && pathname!=='/' ? styles.navActiveItem : styles.navItem}
                         target={item.target}
                     >
                       {item.name}
                     </Link>
-                    {pathname === item.value && (<motion.div
+                    {item.value.includes(pathname) && pathname!=='/' && (<motion.div
                             variants={variants}
                             initial="hidden"
                             animate="visible"
