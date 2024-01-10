@@ -1,5 +1,6 @@
 // @ts-nocheck
 "use client";
+import Head from "next/head";
 import { useState } from "react";
 import Divider from "components/Divider/Divider";
 import ExpertCart from "./ExpertCart";
@@ -44,29 +45,62 @@ function Experts() {
         dataDesc.data.map((item) => {
           if (status == 1 && item.id == 5) {
             return (
-              <p
-                key={item.id}
-                className="my-10 text-sm text-gray-500"
-                dangerouslySetInnerHTML={{ __html: item.content }}
-              />
+              <div key={item.id}>
+                <Head>
+                  <title>{item.meta.title}</title>
+                  <meta name="description" content={item.meta.description} />
+                  <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                  />
+                  <link rel="icon" href="/favicon.ico" />
+                </Head>
+                <p
+                  key={item.id}
+                  className="my-10 text-sm text-gray-500"
+                  dangerouslySetInnerHTML={{ __html: item.content }}
+                />
+              </div>
             );
           }
           if (status == 2 && item.id == 6) {
             return (
-              <p
-                key={item.id}
-                className="my-10 text-sm text-gray-500"
-                dangerouslySetInnerHTML={{ __html: item.content }}
-              />
+              <div key={item.id}>
+                <Head>
+                  <title>{item.meta.title}</title>
+                  <meta name="description" content={item.meta.description} />
+                  <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                  />
+                  <link rel="icon" href="/favicon.ico" />
+                </Head>
+                <p
+                  key={item.id}
+                  className="my-10 text-sm text-gray-500"
+                  dangerouslySetInnerHTML={{ __html: item.content }}
+                />
+              </div>
             );
           }
           if (status == 3 && item.id == 8) {
             return (
-              <p
-                key={item.id}
-                className="my-10 text-sm text-gray-500"
-                dangerouslySetInnerHTML={{ __html: item.content }}
-              />
+              <div key={item.id}>
+                <Head>
+                  <title>{item.meta.title}</title>
+                  <meta name="description" content={item.meta.description} />
+                  <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                  />
+                  <link rel="icon" href="/favicon.ico" />
+                </Head>
+                <p
+                  key={item.id}
+                  className="my-10 text-sm text-gray-500"
+                  dangerouslySetInnerHTML={{ __html: item.content }}
+                />
+              </div>
             );
           }
         })}

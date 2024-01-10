@@ -16,30 +16,32 @@ export default function About() {
       revalidateOnReconnect: false,
     }
   );
+  // https://vox-imore.ra-devs.tech/api/pages?lang=ua
   const pageRender =
     data &&
     data.data.map((page, i) => {
       if (page.id == 1) {
         return (
-          <div key={i} className="mb-4">
-            <h1 className="mb-8">{page.title}</h1>
-            <p dangerouslySetInnerHTML={{ __html: page.content }} />
+          <div key={i}>
+            <Head>
+              <title>{page.meta.title}</title>
+              <meta name="description" content={page.meta.description} />
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1"
+              />
+              <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <div className="mb-4">
+              <h1 className="mb-8">{page.title}</h1>
+              <p dangerouslySetInnerHTML={{ __html: page.content }} />
+            </div>
           </div>
         );
       }
     });
   return (
     <>
-      <Head>
-        <title>Про індекс | Індекс реформ</title>
-        <meta
-          name="description"
-          content="Індекс реформ — проєкт, що відстежує всі економічні реформи та антиреформи з 2015 року"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={styles.mainAboutPage}>{pageRender}</main>
     </>
   );
