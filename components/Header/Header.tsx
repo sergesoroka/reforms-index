@@ -11,7 +11,7 @@ const Header = ({ data }) => {
           {data && data.data.logo}
         </h1>
       </Link>
-      <Navbar />
+      <Navbar data={data} />
       <LangSwitcher />
     </header>
   );

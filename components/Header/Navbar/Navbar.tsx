@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import styles from "./Navbar.module.css";
 import { motion } from "framer-motion";
 
-const Navbar = () => {
+const Navbar = ({ data }) => {
   const router = useRouter();
   const { locale, pathname } = router;
 
@@ -57,7 +57,7 @@ const Navbar = () => {
               pathname === "/about" ? styles.navActiveItem : styles.navItem
             }
           >
-            {aboutLabel}
+            {data && data.data.header_menu[0].name}
           </Link>
           {pathname === "/about" && (
             <motion.div
@@ -76,7 +76,7 @@ const Navbar = () => {
               pathname === "/method" ? styles.navActiveItem : styles.navItem
             }
           >
-            {methodLabel}
+            {data && data.data.header_menu[1].name}
           </Link>
           {pathname === "/method" && (
             <motion.div
@@ -96,7 +96,7 @@ const Navbar = () => {
               pathname === "/experts" ? styles.navActiveItem : styles.navItem
             }
           >
-            {expertsLabel}
+            {data && data.data.header_menu[2].name}
           </Link>
           {pathname === "/experts" && (
             <motion.div
@@ -109,21 +109,23 @@ const Navbar = () => {
         </li>
         <li>
           <div className={styles.dropdown}>
-            <button className={styles.dropbtn}>{dataLabel}</button>
+            <button className={styles.dropbtn}>
+              {data && data.data.header_menu[3].name}
+            </button>
             <div className={styles.dropdownContent}>
               <Link
-                href="https://reforms.voxukraine.org/list_ex2_ukr.php"
+                href={data ? data.data.header_menu[3].children[0].value : ""}
                 passHref
                 target="_blank"
               >
-                Інтерактивна таблиця
+                {data && data.data.header_menu[3].children[0].name}
               </Link>
               <Link
-                href="https://reforms.voxukraine.org/list_rounds_ukr.php"
+                href={data ? data.data.header_menu[3].children[1].value : ""}
                 passHref
                 target="_blank"
               >
-                Всі оцінки
+                {data && data.data.header_menu[3].children[1].name}
               </Link>
             </div>
           </div>

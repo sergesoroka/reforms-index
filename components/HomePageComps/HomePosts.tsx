@@ -38,8 +38,11 @@ function HomePosts() {
               />
             </div>
 
-            <div className="w-[87px] h-[4px] bg-red-600 mt-9 mb-6" />
-            <h3 className="text-grey-600" style={{ color: "#374151" }}>
+            <div className="w-[87px] h-[4px] bg-red-600 mt-2 mb-6" />
+            <h3
+              className="text-grey-600 text-[18px]"
+              style={{ color: "#374151" }}
+            >
               {post.post_title}
             </h3>
             <p className="mt-9 mb-6 text-red-600">{post.author_name}</p>
