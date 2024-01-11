@@ -26,7 +26,7 @@ function HomePosts() {
       return (
         <div key={i} className="  w-full h-auto text-grey-600">
           <Link href={post.post_url} passHref target="_blank">
-            <div className="w-full h-auto  lg:h-[200px] overflow-hidden">
+            <div className="w-full h-auto  lg:h-[130px] overflow-hidden">
               <Image
                 // @ts-ignore
                 src={post.post_img}
@@ -38,7 +38,7 @@ function HomePosts() {
               />
             </div>
 
-            <div className="w-[87px] h-[4px] bg-red-600 mt-8 lg:mt-2 mb-6" />
+            <div className="w-[87px] h-[4px] bg-red-600 mt-8 lg:mt-6 mb-6" />
             <h3
               className="text-grey-600 text-[18px]"
               style={{ color: "#374151" }}
