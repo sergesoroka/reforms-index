@@ -10,8 +10,17 @@ import { useRouter } from "next/router";
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const { locale } = router;
-  const { data, error } = useSWR(
+  const { data: dataSettings } = useSWR(
     `https://vox-imore.ra-devs.tech/api/settings?lang=${locale}`,
+    fetcher,
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
+  );
+  const { data, error } = useSWR(
+    `https://vox-imore.ra-devs.tech/api/pages?lang=${locale}`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -21,9 +30,9 @@ export default function App({ Component, pageProps }: AppProps) {
   );
   return (
     <div className="h-full">
-      <Header data={data} />
-      <Component {...pageProps} />
-      <Footer data={data} />
+      <Header data={dataSettings} />
+      <Component {...pageProps} data={data} />
+      <Footer data={dataSettings} />
     </div>
   );
 }

@@ -49,6 +49,7 @@ function Experts() {
                 <Head>
                   <title>{item.meta.title}</title>
                   <meta name="description" content={item.meta.description} />
+                  <meta property="og:image" content={item.meta.image} />
                   <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1"
@@ -69,6 +70,7 @@ function Experts() {
                 <Head>
                   <title>{item.meta.title}</title>
                   <meta name="description" content={item.meta.description} />
+                  <meta property="og:image" content={item.meta.image} />
                   <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1"
@@ -89,6 +91,7 @@ function Experts() {
                 <Head>
                   <title>{item.meta.title}</title>
                   <meta name="description" content={item.meta.description} />
+                  <meta property="og:image" content={item.meta.image} />
                   <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1"

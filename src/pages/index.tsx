@@ -7,18 +7,30 @@ import HomeText from "components/HomePageComps/HomeText";
 import Head from "next/head";
 import Link from "next/link";
 
-export default function Home() {
+export default function Home({ data }) {
+  const menaPageRender =
+    data &&
+    data.data.map((page, i) => {
+      if (page.id == 9) {
+        return (
+          <div key={i}>
+            <Head>
+              <title>{page.meta.title}</title>
+              <meta name="description" content={page.meta.description} />
+              <meta property="og:image" content={page.meta.image} />
+              <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1"
+              />
+              <link rel="icon" href="/favicon.ico" />
+            </Head>
+          </div>
+        );
+      }
+    });
   return (
     <>
-      <Head>
-        <title>Індекс реформ</title>
-        <meta
-          name="description"
-          content="Індекс реформ — проєкт, що відстежує всі економічні реформи та антиреформи з 2015 року"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      {menaPageRender}
 
       <main className={styles.mainAbout}>
         <Divider heading="Індекс" gray={true} openable={false} single={false} />

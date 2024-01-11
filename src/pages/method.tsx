@@ -1,21 +1,7 @@
-import Head from "next/head";
 import styles from "@/styles/Home.module.css";
-import useSWR from "swr";
-import { fetcher } from "lib/fetcher";
-import { useRouter } from "next/router";
+import Head from "next/head";
 
-export default function Method() {
-  const router = useRouter();
-  const { locale } = router;
-  const { data, error } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/pages?lang=${locale}`,
-    fetcher,
-    {
-      revalidateIfStale: false,
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-    }
-  );
+export default function Method({ data }) {
   const pageRender =
     data &&
     data.data.map((page, i) => {
@@ -25,6 +11,7 @@ export default function Method() {
             <Head>
               <title>{page.meta.title}</title>
               <meta name="description" content={page.meta.description} />
+              <meta property="og:image" content={page.meta.image} />
               <meta
                 name="viewport"
                 content="width=device-width, initial-scale=1"

@@ -22,7 +22,6 @@ const Navbar = ({ data }) => {
         {data &&
           data.data.header_menu.map((item, i) => {
             if (item.children.length == 0 && item.type != "text") {
-              console.log(pathname);
               return (
                 <li key={item.id}>
                   <Link
