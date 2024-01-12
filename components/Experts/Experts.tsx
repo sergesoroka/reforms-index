@@ -1,6 +1,6 @@
 // @ts-nocheck
 "use client";
-import Head from "next/head";
+
 import { useState } from "react";
 import Divider from "components/Divider/Divider";
 import ExpertCart from "./ExpertCart";
@@ -46,13 +46,13 @@ function Experts() {
           if (status == 1 && item.id == 5 && pathname != "/") {
             return (
               <div key={item.id}>
-                <Head>
+                {/* <Head>
                   <title>{item.meta.title}</title>
                   <meta name="description" content={item.meta.description} />
-                  <meta property="og:title" content={page.meta.title} />
+                  <meta property="og:title" content={item.meta.title} />
                   <meta
                     property="og:description"
-                    content={page.meta.description}
+                    content={item.meta.description}
                   />
                   <meta property="og:image" content={item.meta.image} />
                   <meta
@@ -60,7 +60,7 @@ function Experts() {
                     content="width=device-width, initial-scale=1"
                   />
                   <link rel="icon" href="/favicon.ico" />
-                </Head>
+                </Head> */}
                 <p
                   key={item.id}
                   className="my-10 text-sm text-gray-500"
@@ -72,13 +72,13 @@ function Experts() {
           if (status == 2 && item.id == 6 && pathname != "/") {
             return (
               <div key={item.id}>
-                <Head>
+                {/* <Head>
                   <title>{item.meta.title}</title>
                   <meta name="description" content={item.meta.description} />
-                  <meta property="og:title" content={page.meta.title} />
+                  <meta property="og:title" content={item.meta.title} />
                   <meta
                     property="og:description"
-                    content={page.meta.description}
+                    content={item.meta.description}
                   />
                   <meta property="og:image" content={item.meta.image} />
                   <meta
@@ -86,7 +86,7 @@ function Experts() {
                     content="width=device-width, initial-scale=1"
                   />
                   <link rel="icon" href="/favicon.ico" />
-                </Head>
+                </Head> */}
                 <p
                   key={item.id}
                   className="my-10 text-sm text-gray-500"
@@ -98,13 +98,13 @@ function Experts() {
           if (status == 3 && item.id == 8 && pathname != "/") {
             return (
               <div key={item.id}>
-                <Head>
+                {/* <Head>
                   <title>{item.meta.title}</title>
                   <meta name="description" content={item.meta.description} />
-                  <meta property="og:title" content={page.meta.title} />
+                  <meta property="og:title" content={item.meta.title} />
                   <meta
                     property="og:description"
-                    content={page.meta.description}
+                    content={item.meta.description}
                   />
                   <meta property="og:image" content={item.meta.image} />
                   <meta
@@ -112,7 +112,7 @@ function Experts() {
                     content="width=device-width, initial-scale=1"
                   />
                   <link rel="icon" href="/favicon.ico" />
-                </Head>
+                </Head> */}
                 <p
                   key={item.id}
                   className="my-10 text-sm text-gray-500"
