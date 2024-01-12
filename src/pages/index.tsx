@@ -7,7 +7,7 @@ import HomeText from "components/HomePageComps/HomeText";
 import Head from "next/head";
 import Link from "next/link";
 
-export default function Home({ data }) {
+export default function Home({ data, dataSettings }) {
   const menaPageRender =
     data &&
     data.data.map((page, i) => {
@@ -33,7 +33,12 @@ export default function Home({ data }) {
       {menaPageRender}
 
       <main className={styles.mainAbout}>
-        <Divider heading="Індекс" gray={true} openable={false} single={false} />
+        <Divider
+          heading={dataSettings && dataSettings.data.hp_block_1_title}
+          gray={true}
+          openable={false}
+          single={false}
+        />
         <HomeBarChart />
         <HomeText />
         <div className="my-0 mx-auto pt-4">
@@ -42,14 +47,14 @@ export default function Home({ data }) {
           </Link> */}
         </div>
         <Divider
-          heading="Наші експерти"
+          heading={dataSettings && dataSettings.data.hp_block_2_title}
           gray={true}
           openable={false}
           single={false}
         />
         <HomeExperts />
         <Divider
-          heading="Матеріали Індексу реформ"
+          heading={dataSettings && dataSettings.data.hp_block_3_title}
           gray={true}
           openable={false}
           single={false}

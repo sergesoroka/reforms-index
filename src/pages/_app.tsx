@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className="h-full">
       <Header data={dataSettings} />
-      <Component {...pageProps} data={data} />
+      <Component {...pageProps} data={data} dataSettings={dataSettings} />
       <Footer data={dataSettings} />
     </div>
   );
