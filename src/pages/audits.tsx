@@ -1,5 +1,5 @@
 import styles from "@/styles/Home.module.css";
-import Head from "next/head";
+import MetaData from "../../components/Header/MetaData";
 
 export default function Audits({ data }) {
   const pageRender =
@@ -8,18 +8,7 @@ export default function Audits({ data }) {
       if (page.id == 4) {
         return (
           <div key={i}>
-            <Head>
-              <title>{page.meta.title}</title>
-              <meta name="description" content={page.meta.description} />
-              <meta property="og:title" content={page.meta.title} />
-              <meta property="og:description" content={page.meta.description} />
-              <meta property="og:image" content={page.meta.image} />
-              <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1"
-              />
-              <link rel="icon" href="/favicon.ico" />
-            </Head>
+              <MetaData data={page}/>
             <div className="mb-4">
               <h1 className="mb-8">{page.title}</h1>
               <p dangerouslySetInnerHTML={{ __html: page.content }} />

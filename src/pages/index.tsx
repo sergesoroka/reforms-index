@@ -4,8 +4,8 @@ import HomeBarChart from "components/HomePageComps/HomeBarChart";
 import HomeExperts from "components/HomePageComps/HomeExperts";
 import HomePosts from "components/HomePageComps/HomePosts";
 import HomeText from "components/HomePageComps/HomeText";
-import Head from "next/head";
 import Link from "next/link";
+import MetaData from "../../components/Header/MetaData";
 
 export default function Home({ data, dataSettings }) {
   const menaPageRender =
@@ -14,18 +14,7 @@ export default function Home({ data, dataSettings }) {
       if (page.id == 9) {
         return (
           <div key={i}>
-            <Head>
-              <title>{page.meta.title}</title>
-              <meta name="description" content={page.meta.description} />
-              <meta property="og:title" content={page.meta.title} />
-              <meta property="og:description" content={page.meta.description} />
-              <meta property="og:image" content={page.meta.image} />
-              <meta
-                name="viewport"
-                content="width=device-width, initial-scale=1"
-              />
-              <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <MetaData data={page}/>
           </div>
         );
       }
