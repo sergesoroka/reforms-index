@@ -11,6 +11,8 @@ export default function Method({ data }) {
             <Head>
               <title>{page.meta.title}</title>
               <meta name="description" content={page.meta.description} />
+              <meta property="og:title" content={page.meta.title} />
+              <meta property="og:description" content={page.meta.description} />
               <meta property="og:image" content={page.meta.image} />
               <meta
                 name="viewport"

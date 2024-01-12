@@ -49,6 +49,11 @@ function Experts() {
                 <Head>
                   <title>{item.meta.title}</title>
                   <meta name="description" content={item.meta.description} />
+                  <meta property="og:title" content={page.meta.title} />
+                  <meta
+                    property="og:description"
+                    content={page.meta.description}
+                  />
                   <meta property="og:image" content={item.meta.image} />
                   <meta
                     name="viewport"
@@ -70,6 +75,11 @@ function Experts() {
                 <Head>
                   <title>{item.meta.title}</title>
                   <meta name="description" content={item.meta.description} />
+                  <meta property="og:title" content={page.meta.title} />
+                  <meta
+                    property="og:description"
+                    content={page.meta.description}
+                  />
                   <meta property="og:image" content={item.meta.image} />
                   <meta
                     name="viewport"
@@ -91,6 +101,11 @@ function Experts() {
                 <Head>
                   <title>{item.meta.title}</title>
                   <meta name="description" content={item.meta.description} />
+                  <meta property="og:title" content={page.meta.title} />
+                  <meta
+                    property="og:description"
+                    content={page.meta.description}
+                  />
                   <meta property="og:image" content={item.meta.image} />
                   <meta
                     name="viewport"

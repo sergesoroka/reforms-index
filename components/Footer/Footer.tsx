@@ -29,7 +29,7 @@ const Footer = ({ data }) => {
             <Globus />
           </Link>
           <Link
-            href={data ? data.data.social_email : ""}
+            href={data ? "mailto:" + data.data.social_email : ""}
             passHref
             target="_blank"
           >
