@@ -3,7 +3,7 @@ import Head from "next/head";
 const MetaData = ({ data }) => {
   return (
 
-              <Head>
+      <Head>
           <title>{data.meta.title}</title>
           <meta name="description" content={data.meta.description}/>
           <meta itemProp="name" content={data.meta.title}/>
@@ -27,8 +27,9 @@ const MetaData = ({ data }) => {
               name="viewport"
               content="width=device-width, initial-scale=1"
           />
+          <link rel="canonical" href={window.location.href}/>
           <link rel="icon" href="/favicon.ico" />
-              </Head>
+      </Head>
 
 
   );
