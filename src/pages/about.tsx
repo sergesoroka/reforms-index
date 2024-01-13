@@ -2,7 +2,6 @@ import styles from "@/styles/Home.module.css";
 import MetaData from "../../components/Header/MetaData";
 
 export default function About({ data }) {
-  console.log("QQQQQQQQQQ");
   const pageRender =
     data &&
     data.data.map((page, i) => {

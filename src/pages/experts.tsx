@@ -3,7 +3,6 @@ import styles from "@/styles/Home.module.css";
 import MetaData from "../../components/Header/MetaData";
 
 export default function Home({ data }) {
-  console.log(data);
 
   const renderMetaData =
     data &&
