@@ -19,6 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
       revalidateOnReconnect: false,
     }
   );
+
   const { data, error } = useSWR(
     `https://vox-imore.ra-devs.tech/api/pages?lang=${locale}`,
     fetcher,
@@ -28,6 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
       revalidateOnReconnect: false,
     }
   );
+
   return (
     <div className="h-full">
       <Header data={dataSettings} />

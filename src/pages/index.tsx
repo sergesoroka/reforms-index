@@ -14,7 +14,7 @@ export default function Home({ data, dataSettings }) {
       if (page.id == 9) {
         return (
           <div key={i}>
-            <MetaData data={page}/>
+            <MetaData data={page} />
           </div>
         );
       }
@@ -61,13 +61,6 @@ export default function Home({ data, dataSettings }) {
             Всі матеріали на сайті &laquo;Вокс Україна&raquo;
           </p>
         </Link>
-        {/* <Divider
-          heading="Наші партнери"
-          gray={true}
-          openable={false}
-          single={false}
-        />
-        <HomPartners /> */}
       </main>
     </>
   );
