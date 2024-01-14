@@ -5,23 +5,42 @@ import HomeExperts from "components/HomePageComps/HomeExperts";
 import HomePosts from "components/HomePageComps/HomePosts";
 import HomeText from "components/HomePageComps/HomeText";
 import Link from "next/link";
-import MetaData from "../../components/Header/MetaData";
+import Head from "next/head";
 
-export default function Home({ data, dataSettings }) {
-  const menaPageRender =
-    data &&
-    data.data.map((page, i) => {
-      if (page.id == 9) {
-        return (
-          <div key={i}>
-            <MetaData data={page} />
-          </div>
-        );
-      }
-    });
+function Home({ data, dataSettings, metadata }) {
   return (
     <>
-      {menaPageRender}
+      <Head>
+        <title>{metadata.data[7].meta.title}</title>
+        <meta name="description" content={metadata.data[7].meta.description} />
+        <meta itemProp="name" content={metadata.data[7].meta.title} />
+        <meta
+          itemProp="description"
+          content={metadata.data[7].meta.description}
+        />
+        <meta itemProp="image" content={metadata.data[7].meta.image} />
+        {/* <meta property="og:url" content={window.location.href} /> */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={metadata.data[7].meta.title} />
+        <meta
+          property="og:description"
+          content={metadata.data[7].meta.description}
+        />
+        <meta property="og:image" content={metadata.data[7].meta.image} />
+        <meta property="og:image:type" content="png" />
+        <meta property="og:image:width" content="630" />
+        <meta property="og:image:height" content="331" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={metadata.data[7].meta.title} />
+        <meta
+          name="twitter:description"
+          content={metadata.data[7].meta.description}
+        />
+        <meta name="twitter:image" content={metadata.data[7].meta.image} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* <link rel="canonical" href={window.location.href} /> */}
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
       <main className={styles.mainAbout}>
         <Divider
@@ -65,3 +84,15 @@ export default function Home({ data, dataSettings }) {
     </>
   );
 }
+
+export async function getServerSideProps() {
+  const res = await fetch("https://vox-imore.ra-devs.tech/api/pages?lang=ua");
+  const metadata = await res.json();
+
+  return {
+    props: {
+      metadata,
+    },
+  };
+}
+export default Home;
