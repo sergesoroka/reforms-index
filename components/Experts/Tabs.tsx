@@ -6,7 +6,7 @@ function TabsComp({ status, setStatus }) {
   const router = useRouter();
   const { locale } = router;
   const { data, error } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/expert/statuses?lang=${locale}`,
+    `https://api-reforms.ra-devs.tech/api/expert/statuses?lang=${locale}`,
     fetcher,
     {
       revalidateIfStale: false,

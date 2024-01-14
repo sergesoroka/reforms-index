@@ -8,7 +8,7 @@ export default function HomeText() {
   const { locale } = router;
 
   const { data } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/pages?lang=${locale}`,
+    `https://api-reforms.ra-devs.tech/api/pages?lang=${locale}`,
     fetcher,
     {
       revalidateIfStale: false,

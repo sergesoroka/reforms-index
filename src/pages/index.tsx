@@ -87,7 +87,7 @@ function Home({ data, dataSettings, metadata }) {
 
 export async function getServerSideProps(context) {
   const res = await fetch(
-    `https://vox-imore.ra-devs.tech/api/pages?lang=${context.locale}`
+    `https://api-reforms.ra-devs.tech/api/pages?lang=${context.locale}`
   );
   const metadata = await res.json();
 

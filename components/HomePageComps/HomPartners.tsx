@@ -5,7 +5,7 @@ import { fetcher } from "lib/fetcher";
 
 function HomPartners() {
   const { data, error } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/partners`,
+    `https://api-reforms.ra-devs.tech/api/partners`,
     fetcher,
     {
       revalidateIfStale: false,
