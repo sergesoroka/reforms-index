@@ -26,7 +26,7 @@ function HomePosts() {
       return (
         <div key={i} className="  w-full h-auto text-grey-600">
           <Link href={post.post_url} passHref target="_blank">
-            <div className="w-full h-auto  lg:h-[130px] overflow-hidden">
+            <div className="w-full h-auto lg:h-[80px] xl:h-[130px] overflow-hidden">
               <Image
                 // @ts-ignore
                 src={post.post_img}
