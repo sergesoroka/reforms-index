@@ -24,9 +24,9 @@ function HomePosts() {
     data &&
     data.data.map((post, i) => {
       return (
-        <div key={i} className="  w-full h-auto text-grey-600">
+        <div key={i} className="w-full h-auto text-grey-600">
           <Link href={post.post_url} passHref target="_blank">
-            <div className="w-full h-auto lg:h-[80px] xl:h-[130px] overflow-hidden">
+            <div className="w-full h-auto lg:h-[78px] xl:h-[120px] 2xl:h-[130px] overflow-hidden">
               <Image
                 // @ts-ignore
                 src={post.post_img}
@@ -52,7 +52,7 @@ function HomePosts() {
     });
 
   return (
-    <div className="lg:flex w-full gap-12 items-start justify-center mt-6">
+    <div className="lg:flex w-full lg:gap-8 xl:gap-10 2xl:gap-12 items-start justify-center mt-6">
       {postsRender}
     </div>
   );
