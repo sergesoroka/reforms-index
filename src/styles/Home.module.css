@@ -63,7 +63,26 @@
 }
 .mainAboutPage ul li {
   margin-left: 1.3rem;
-  list-style: disc;
+  /* list-style: disc; */
+}
+.mainAboutPage a,
+.mainAboutPage a > span {
+  color: #171717;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-color: #e64e27ed;
+}
+.mainAboutPage a:hover {
+  color: #e64e27;
+}
+
+.mainAboutPage ul li::before {
+  content: "•";
+  color: #e64e27ed;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
 }
 
 .mainAboutPage figure {
@@ -326,7 +345,9 @@
   }
   .mainAboutPage a,
   .mainAboutPage h6 a > i {
-    color: #e64e27 !important;
+    color: #171717 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 8px !important;
   }
 
   .mainAboutPage h6 {

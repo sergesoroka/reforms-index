@@ -8,6 +8,10 @@
   flex-wrap: wrap;
 }
 
+.hearer > a {
+  text-decoration: none !important;
+}
+
 /* Mobile */
 @media (max-width: 700px) {
   .header {
