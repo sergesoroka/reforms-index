@@ -80,7 +80,7 @@ export default function StackedBarChart() {
       .attr("width", 16)
       .attr("fill", (d) => d.color)
       .attr("x", (_, i) => i * 30);
-  }, []);
+  }, [y]);
 
   return (
     <svg
