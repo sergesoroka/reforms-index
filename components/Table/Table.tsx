@@ -27,27 +27,24 @@ const Table = () => {
   };
 
   const handleFilters = (filters) => {
-    setFiltered(filters)
-    
+    setFiltered(filters);
   };
 
   console.log(filtered);
-// @ts-ignore
+  // @ts-ignore
   useEffect(() => {
-    if(filtered.length < 1) {
-      setTableData(rows)
+    if (filtered.length < 1) {
+      setTableData(rows);
     }
     const catSelected = [];
-    console.log('effect');
+    console.log("effect");
     tableData.map((item) => {
-  
-      if ( filtered.includes(item.subtheme)) {
+      if (filtered.includes(item.subtheme)) {
         catSelected.push(item);
         setTableData(catSelected);
       }
-    })
-  }, [filtered])
-  
+    });
+  }, [filtered, tableData]);
 
   return (
     <>

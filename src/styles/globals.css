@@ -32,10 +32,8 @@ body {
   font-size: 0.7rem;
 }
 
-a,
-a > span {
-  color: #e64e27 !important;
-  text-decoration: none;
+ul {
+  list-style: none;
 }
 
 h1 {
