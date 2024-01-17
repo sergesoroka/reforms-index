@@ -1,4 +1,5 @@
 import styles from "@/styles/Home.module.css";
+import GoogleAnalitics from "lib/googleAnalitic";
 import Head from "next/head";
 
 export default function Method({ data, metadata }) {
@@ -19,6 +20,7 @@ export default function Method({ data, metadata }) {
   return (
     <>
       <Head>
+        <GoogleAnalitics />
         <title>{metadata.data[1].meta.title}</title>
         <meta name="description" content={metadata.data[1].meta.description} />
         <meta itemProp="name" content={metadata.data[1].meta.title} />

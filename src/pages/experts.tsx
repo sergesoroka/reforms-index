@@ -1,11 +1,13 @@
 import Experts from "components/Experts/Experts";
 import styles from "@/styles/Home.module.css";
 import Head from "next/head";
+import GoogleAnalitics from "lib/googleAnalitic";
 
 export default function Home({ data, metadata }) {
   return (
     <>
       <Head>
+        <GoogleAnalitics />
         <title>{metadata.data[5].meta.title}</title>
         <meta name="description" content={metadata.data[5].meta.description} />
         <meta itemProp="name" content={metadata.data[5].meta.title} />

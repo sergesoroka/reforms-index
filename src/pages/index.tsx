@@ -1,9 +1,11 @@
+// @ts-nocheck
 import styles from "@/styles/Home.module.css";
 import Divider from "components/Divider/Divider";
 import HomeBarChart from "components/HomePageComps/HomeBarChart";
 import HomeExperts from "components/HomePageComps/HomeExperts";
 import HomePosts from "components/HomePageComps/HomePosts";
 import HomeText from "components/HomePageComps/HomeText";
+import GoogleAnalitics from "lib/googleAnalitic";
 import Link from "next/link";
 import Head from "next/head";
 
@@ -11,6 +13,7 @@ function Home({ data, dataSettings, metadata }) {
   return (
     <>
       <Head>
+        <GoogleAnalitics />
         <title>{metadata.data[7].meta.title}</title>
         <meta name="description" content={metadata.data[7].meta.description} />
         <meta itemProp="name" content={metadata.data[7].meta.title} />
