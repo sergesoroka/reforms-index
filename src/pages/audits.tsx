@@ -1,6 +1,7 @@
 import styles from "@/styles/Home.module.css";
 import GoogleAnalitics from "lib/googleAnalitic";
 import Head from "next/head";
+import Script from "next/script";
 
 export default function Audits({ data, metadata }) {
   const pageRender =
@@ -19,8 +20,16 @@ export default function Audits({ data, metadata }) {
     });
   return (
     <>
+      <Script strategy="lazyOnload" id="googleAnalitics">
+        {`
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-NPLHJJTR')
+        `}
+      </Script>
       <Head>
-        <GoogleAnalitics />
         <title>{metadata.data[3].meta.title}</title>
         <meta name="description" content={metadata.data[3].meta.description} />
         <meta itemProp="name" content={metadata.data[3].meta.title} />

@@ -6,6 +6,7 @@ import { fetcher } from "lib/fetcher";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
+
 preload(`https://vox-imore.ra-devs.tech/api/pages?lang=ua`, fetcher);
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -29,6 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className="h-full">
       <Header data={dataSettings} />
+
       <Component {...pageProps} data={data} dataSettings={dataSettings} />
       <Footer data={dataSettings} />
     </div>

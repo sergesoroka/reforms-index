@@ -5,15 +5,23 @@ import HomeBarChart from "components/HomePageComps/HomeBarChart";
 import HomeExperts from "components/HomePageComps/HomeExperts";
 import HomePosts from "components/HomePageComps/HomePosts";
 import HomeText from "components/HomePageComps/HomeText";
-import GoogleAnalitics from "lib/googleAnalitic";
-import Link from "next/link";
 import Head from "next/head";
+import Link from "next/link";
+import Script from "next/script";
 
 function Home({ data, dataSettings, metadata }) {
   return (
     <>
+      <Script strategy="lazyOnload" id="googleAnalitics">
+        {`
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-NPLHJJTR')
+        `}
+      </Script>
       <Head>
-        <GoogleAnalitics />
         <title>{metadata.data[7].meta.title}</title>
         <meta name="description" content={metadata.data[7].meta.description} />
         <meta itemProp="name" content={metadata.data[7].meta.title} />
