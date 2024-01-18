@@ -8,7 +8,7 @@ const nextConfig = {
     localeDetection: false,
   },
   images: {
-    domains: ["voxukraine.org", "kse.ua"],
+    domains: ["reforms.voxukraine.org","voxukraine.org", "kse.ua"],
   },
   webpack(config) {
     config.module.rules.push({
