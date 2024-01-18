@@ -8,7 +8,12 @@ const nextConfig = {
     localeDetection: false,
   },
   images: {
-    domains: ["reforms.voxukraine.org","voxukraine.org", "kse.ua"],
+    remotePatterns: [
+      {
+        hostname: 'api-reforms.voxukraine.org'
+      },
+    ],
+    domains: ["api-reforms.voxukraine.org","reforms.voxukraine.org","voxukraine.org", "kse.ua"],
   },
   webpack(config) {
     config.module.rules.push({
