@@ -6,7 +6,7 @@ import { fetcher } from "lib/fetcher";
 
 export default function LinePlot({ width, height }) {
   const { data, error } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/rounds/stats`,
+    `https://api-reforms.voxukraine.org/api/rounds/stats`,
     fetcher,
     {
       revalidateIfStale: false,

@@ -14,7 +14,7 @@ import useSWR from "swr";
 
 export default function LineChartComp() {
   const { data, error } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/rounds/stats`,
+    `https://api-reforms.voxukraine.org/api/rounds/stats`,
     fetcher,
     {
       revalidateIfStale: false,

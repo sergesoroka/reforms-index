@@ -20,7 +20,7 @@ let min_data = 0;
 
 export default function AreaChartComp() {
   const { data, isLoading, isValidating } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/rounds/stats`,
+    `https://api-reforms.voxukraine.org/api/rounds/stats`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -30,7 +30,7 @@ export default function AreaChartComp() {
   );
 
   const { data: dataAxis, isLoading: isAxisLoading } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/rounds/stats-axis`,
+    `https://api-reforms.voxukraine.org/api/rounds/stats-axis`,
     fetcher,
     {
       revalidateIfStale: false,

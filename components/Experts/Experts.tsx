@@ -16,7 +16,7 @@ function Experts() {
   const { locale, pathname } = router;
   const [status, setStatus] = useState(1);
   const { data, error, isLoading } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/experts?lang=${locale}&status=${status}&per_page=100`,
+    `https://api-reforms.voxukraine.org/api/experts?lang=${locale}&status=${status}&per_page=100`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -26,7 +26,7 @@ function Experts() {
   );
 
   const { data: dataDesc } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/pages?lang=${locale}`,
+    `https://api-reforms.voxukraine.org/api/pages?lang=${locale}`,
     fetcher,
     {
       revalidateIfStale: false,

@@ -10,7 +10,7 @@ function HomePosts() {
   const { locale } = router;
 
   const { data, error, isLoading } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/posts?lang=${locale}`,
+    `https://api-reforms.voxukraine.org/api/posts?lang=${locale}`,
     fetcher,
     {
       revalidateIfStale: false,
