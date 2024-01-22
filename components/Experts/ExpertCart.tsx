@@ -41,10 +41,18 @@ const ExpertCart: FC<ExpertInfo> = ({
             className="rounded-full h-[100px] md:h-[140px]"
           />
           <p className="text-[16px] text-gray-700 text-center mt-4 mb-2">
-            {name}
+            {name} {name == "Олександр Жолудь" && <span>*</span>}
           </p>
           {/* <hr style={{ width: "100%" }} /> */}
           <p className="text-sm text-red-500 my-2 text-center">{company}</p>
+          <p>
+            {name == "Олександр Жолудь" && (
+              <span className={styles.note}>
+                * Олександр не бере участь у оцінці нормативних актів, які мають
+                відношення до діяльності НБУ
+              </span>
+            )}
+          </p>
         </div>
       ) : (
         <div className={styles.cartWrapExtended} onClick={showFullCart}>
@@ -57,7 +65,9 @@ const ExpertCart: FC<ExpertInfo> = ({
               height={100}
               style={{ borderRadius: "100%", height: "100px" }}
             />
-            <p className={styles.expertNameExtended}>{name}</p>
+            <p className={styles.expertNameExtended}>
+              {name} {name == "Олександр Жолудь" && <span>*</span>}
+            </p>
           </div>
           <hr style={{ width: "100%", margin: "0.4rem 0" }} />
           <p className="text-sm text-red-500 my-2">{company}</p>
@@ -72,6 +82,14 @@ const ExpertCart: FC<ExpertInfo> = ({
               {specialization}
             </p>
           )}
+          <p>
+            {name == "Олександр Жолудь" && (
+              <span className={styles.note}>
+                * Олександр не бере участь у оцінці нормативних актів, які мають
+                відношення до діяльності НБУ
+              </span>
+            )}
+          </p>
           {/* <p
             className={styles.disc}
             dangerouslySetInnerHTML={{ __html: info }}

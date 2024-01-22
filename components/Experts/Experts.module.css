@@ -83,6 +83,16 @@
   color: var(--primary-color);
 }
 
+.note {
+  margin-top: 0.6rem;
+  font-size: 0.7rem;
+  line-height: 1rem;
+  padding: 0.6rem 1rem;
+  display: inline-block;
+  color: #707070;
+  border-top: 1px solid #ccc;
+}
+
 @media (max-width: 440px) {
   .expertsCartsWrap {
     display: grid;
