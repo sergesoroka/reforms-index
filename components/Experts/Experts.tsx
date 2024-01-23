@@ -43,24 +43,9 @@ function Experts() {
       <TabsComp status={status} setStatus={setStatus} />
       {dataDesc &&
         dataDesc.data.map((item) => {
-          if (status == 1 && item.id == 5 && pathname != "/") {
+          if (status == 1 && item.id == 5) {
             return (
               <div key={item.id}>
-                {/* <Head>
-                  <title>{item.meta.title}</title>
-                  <meta name="description" content={item.meta.description} />
-                  <meta property="og:title" content={item.meta.title} />
-                  <meta
-                    property="og:description"
-                    content={item.meta.description}
-                  />
-                  <meta property="og:image" content={item.meta.image} />
-                  <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                  />
-                  <link rel="icon" href="/favicon.ico" />
-                </Head> */}
                 <p
                   key={item.id}
                   className="my-10 text-sm text-gray-500"
@@ -69,24 +54,9 @@ function Experts() {
               </div>
             );
           }
-          if (status == 2 && item.id == 6 && pathname != "/") {
+          if (status == 2 && item.id == 6) {
             return (
               <div key={item.id}>
-                {/* <Head>
-                  <title>{item.meta.title}</title>
-                  <meta name="description" content={item.meta.description} />
-                  <meta property="og:title" content={item.meta.title} />
-                  <meta
-                    property="og:description"
-                    content={item.meta.description}
-                  />
-                  <meta property="og:image" content={item.meta.image} />
-                  <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                  />
-                  <link rel="icon" href="/favicon.ico" />
-                </Head> */}
                 <p
                   key={item.id}
                   className="my-10 text-sm text-gray-500"
@@ -95,24 +65,9 @@ function Experts() {
               </div>
             );
           }
-          if (status == 3 && item.id == 8 && pathname != "/") {
+          if (status == 3 && item.id == 8) {
             return (
               <div key={item.id}>
-                {/* <Head>
-                  <title>{item.meta.title}</title>
-                  <meta name="description" content={item.meta.description} />
-                  <meta property="og:title" content={item.meta.title} />
-                  <meta
-                    property="og:description"
-                    content={item.meta.description}
-                  />
-                  <meta property="og:image" content={item.meta.image} />
-                  <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1"
-                  />
-                  <link rel="icon" href="/favicon.ico" />
-                </Head> */}
                 <p
                   key={item.id}
                   className="my-10 text-sm text-gray-500"

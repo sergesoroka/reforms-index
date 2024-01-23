@@ -51,6 +51,10 @@ function Home({ data, dataSettings, metadata }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* <link rel="canonical" href={window.location.href} /> */}
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="google-site-verification"
+          content="KA29mhKSjDzdFgXZnQ8nsxqDdH_8zLzAKPvyBZqJr50"
+        />
       </Head>
 
       <main className={styles.mainAbout}>
@@ -87,7 +91,7 @@ function Home({ data, dataSettings, metadata }) {
           target="_blank"
           className="w-full"
         >
-          <p className="mt-8 text-gray-500 text-center">
+          <p className="mt-8 text-gray-500 hover:text-[#e64e27ed] decoration-[#e64e27ed] underline underline-offset-[6px] text-center">
             Всі матеріали на сайті &laquo;Вокс Україна&raquo;
           </p>
         </Link>
