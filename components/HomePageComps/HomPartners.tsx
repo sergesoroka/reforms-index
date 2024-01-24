@@ -3,16 +3,12 @@ import Link from "next/link";
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
 
-function HomPartners() {
-  const { data, error } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/partners`,
-    fetcher,
-    {
-      revalidateIfStale: false,
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-    }
-  );
+function HomPartners({ baseURL }) {
+  const { data, error } = useSWR(`${baseURL}/api/partners`, fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+  });
   const partnersRender =
     data &&
     data.data.map((partner, i) => {

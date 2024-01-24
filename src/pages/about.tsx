@@ -1,11 +1,13 @@
 import styles from "@/styles/Home.module.css";
 import Head from "next/head";
 import Script from "next/script";
+import Header from "components/Header/Header";
+import Footer from "components/Footer/Footer";
 
-export default function About({ data, metadata }) {
+export default function About({ setting, metadata }) {
   const pageRender =
-    data &&
-    data.data.map((page, i) => {
+    metadata &&
+    metadata.data.map((page, i) => {
       if (page.id == 1) {
         return (
           <div key={i}>
@@ -59,21 +61,28 @@ export default function About({ data, metadata }) {
         {/* <link rel="canonical" href={window.location.href} /> */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <Header data={setting} />
       <main className={styles.mainAboutPage}>{pageRender}</main>
+      <Footer data={setting} />
     </>
   );
 }
 
 export async function getServerSideProps(context) {
   const res = await fetch(
-    `https://vox-imore.ra-devs.tech/api/pages?lang=${context.locale}`
+    `${process.env.baseURL}/api/pages?lang=${context.locale}`
+  );
+  const resSetting = await fetch(
+    `${process.env.baseURL}/api/settings?lang=${context.locale}`
   );
   const metadata = await res.json();
+  const setting = await resSetting.json();
 
   return {
     props: {
       metadata,
+      baseURL: process.env.baseURL,
+      setting,
     },
   };
 }

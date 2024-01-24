@@ -2,11 +2,11 @@ import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
 import { useRouter } from "next/router";
 
-function TabsComp({ status, setStatus }) {
+function TabsComp({ status, setStatus, baseURL }) {
   const router = useRouter();
   const { locale } = router;
   const { data, error } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/expert/statuses?lang=${locale}`,
+    `${baseURL}/api/expert/statuses?lang=${locale}`,
     fetcher,
     {
       revalidateIfStale: false,

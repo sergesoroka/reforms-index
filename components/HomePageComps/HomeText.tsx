@@ -3,19 +3,15 @@ import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
 import { useRouter } from "next/router";
 
-export default function HomeText() {
+export default function HomeText({ baseURL }) {
   const router = useRouter();
   const { locale } = router;
 
-  const { data } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/pages?lang=${locale}`,
-    fetcher,
-    {
-      revalidateIfStale: false,
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-    }
-  );
+  const { data } = useSWR(`${baseURL}/api/pages?lang=${locale}`, fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+  });
 
   return (
     <p className="lg:mx-20 ls:mx-4 my-6 text-sm text-gray-500">

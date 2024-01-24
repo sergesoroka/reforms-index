@@ -1,9 +1,9 @@
 import AreaChartComp from "components/LineChart/AreaChart";
 
-function HomeBarChart() {
+function HomeBarChart({ baseURL }) {
   return (
     <div className="flex flex-col gap-16 w-full mx-2">
-      <AreaChartComp />
+      <AreaChartComp baseURL={baseURL} />
     </div>
   );
 }

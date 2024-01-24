@@ -18,9 +18,9 @@ import useSWR from "swr";
 let max_data = 0;
 let min_data = 0;
 
-export default function AreaChartComp() {
+export default function AreaChartComp({ baseURL }) {
   const { data, isLoading, isValidating } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/rounds/stats`,
+    `${baseURL}/api/rounds/stats`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -30,7 +30,7 @@ export default function AreaChartComp() {
   );
 
   const { data: dataAxis, isLoading: isAxisLoading } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/rounds/stats-axis`,
+    `${baseURL}/api/rounds/stats-axis`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -136,7 +136,7 @@ export default function AreaChartComp() {
           fill="#666"
           fontSize="smaller"
         >
-          {dataAxis['x'] && dataAxis['x'][payload.value]}
+          {dataAxis["x"] && dataAxis["x"][payload.value]}
         </text>
       </g>
     );
@@ -161,7 +161,8 @@ export default function AreaChartComp() {
             <XAxis
               dataKey="number"
               ticks={
-                dataAxis['x'] && Object.keys(dataAxis['x']).map((num) => parseInt(num))
+                dataAxis["x"] &&
+                Object.keys(dataAxis["x"]).map((num) => parseInt(num))
               }
               tick={<CustomizedXAxisTick />}
             />
@@ -169,8 +170,8 @@ export default function AreaChartComp() {
               dataKey="mark"
               type="number"
               width={10}
-              domain={['dataMin', 'dataMax']}
-              ticks={dataAxis['y']}
+              domain={["dataMin", "dataMax"]}
+              ticks={dataAxis["y"]}
               axisLine={false}
               tickLine={false}
               fontSize={"smaller"}

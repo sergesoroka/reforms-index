@@ -5,12 +5,12 @@ import { fetcher } from "lib/fetcher";
 import Spiner from "components/Spiner";
 import { useRouter } from "next/router";
 
-function HomePosts() {
+function HomePosts({ baseURL }) {
   const router = useRouter();
   const { locale } = router;
 
   const { data, error, isLoading } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/posts?lang=${locale}`,
+    `${baseURL}/api/posts?lang=${locale}`,
     fetcher,
     {
       revalidateIfStale: false,

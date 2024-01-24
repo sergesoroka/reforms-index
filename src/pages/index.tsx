@@ -5,11 +5,13 @@ import HomeBarChart from "components/HomePageComps/HomeBarChart";
 import HomeExperts from "components/HomePageComps/HomeExperts";
 import HomePosts from "components/HomePageComps/HomePosts";
 import HomeText from "components/HomePageComps/HomeText";
+import Footer from "components/Footer/Footer";
+import Header from "components/Header/Header";
 import Head from "next/head";
 import Link from "next/link";
 import Script from "next/script";
 
-function Home({ data, dataSettings, metadata }) {
+function Home({ setting, metadata, baseURL }) {
   return (
     <>
       <Script strategy="lazyOnload" id="googleAnalitics">
@@ -56,35 +58,35 @@ function Home({ data, dataSettings, metadata }) {
           content="KA29mhKSjDzdFgXZnQ8nsxqDdH_8zLzAKPvyBZqJr50"
         />
       </Head>
-
+      <Header data={setting} />
       <main className={styles.mainAbout}>
         <Divider
-          heading={dataSettings && dataSettings.data.hp_block_1_title}
+          heading={setting && setting.data.hp_block_1_title}
           gray={true}
           openable={false}
           single={false}
         />
-        <HomeBarChart />
-        <HomeText />
+        <HomeBarChart baseURL={baseURL} />
+        <HomeText baseURL={baseURL} />
         <div className="my-0 mx-auto pt-4">
           {/* <Link href="/" className="hover:text-red-600 text-[14px]">
             Інтерактивний графік
           </Link> */}
         </div>
         <Divider
-          heading={dataSettings && dataSettings.data.hp_block_2_title}
+          heading={setting && setting.data.hp_block_2_title}
           gray={true}
           openable={false}
           single={false}
         />
-        <HomeExperts />
+        <HomeExperts baseURL={baseURL} />
         <Divider
-          heading={dataSettings && dataSettings.data.hp_block_3_title}
+          heading={setting && setting.data.hp_block_3_title}
           gray={true}
           openable={false}
           single={false}
         />
-        <HomePosts />
+        <HomePosts baseURL={baseURL} />
         <Link
           href="https://voxukraine.org/category/reformi/imore"
           passHref
@@ -96,19 +98,26 @@ function Home({ data, dataSettings, metadata }) {
           </p>
         </Link>
       </main>
+      <Footer data={setting} />
     </>
   );
 }
 
 export async function getServerSideProps(context) {
   const res = await fetch(
-    `https://vox-imore.ra-devs.tech/api/pages?lang=${context.locale}`
+    `${process.env.baseURL}/api/pages?lang=${context.locale}`
+  );
+  const resSetting = await fetch(
+    `${process.env.baseURL}/api/settings?lang=${context.locale}`
   );
   const metadata = await res.json();
+  const setting = await resSetting.json();
 
   return {
     props: {
       metadata,
+      baseURL: process.env.baseURL,
+      setting,
     },
   };
 }

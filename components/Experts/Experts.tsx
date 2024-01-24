@@ -11,12 +11,14 @@ import { fetcher } from "lib/fetcher";
 import TabsComp from "./Tabs";
 import { useRouter } from "next/router";
 
-function Experts() {
+function Experts({ baseURL }) {
+  console.log("ex", baseURL);
+
   const router = useRouter();
   const { locale, pathname } = router;
   const [status, setStatus] = useState(1);
   const { data, error, isLoading } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/experts?lang=${locale}&status=${status}&per_page=100`,
+    `${baseURL}/api/experts?lang=${locale}&status=${status}&per_page=100`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -26,7 +28,7 @@ function Experts() {
   );
 
   const { data: dataDesc } = useSWR(
-    `https://vox-imore.ra-devs.tech/api/pages?lang=${locale}`,
+    `${baseURL}/api/pages?lang=${locale}`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -40,7 +42,7 @@ function Experts() {
   return (
     <div className="wrap">
       <Divider heading="Наші експерти" single={false} />
-      <TabsComp status={status} setStatus={setStatus} />
+      <TabsComp status={status} setStatus={setStatus} baseURL={baseURL} />
       {dataDesc &&
         dataDesc.data.map((item) => {
           if (status == 1 && item.id == 5) {

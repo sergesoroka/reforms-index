@@ -1,18 +1,20 @@
 import styles from "@/styles/Home.module.css";
+import Footer from "components/Footer/Footer";
+import Header from "components/Header/Header";
 import GoogleAnalitics from "lib/googleAnalitic";
 import Head from "next/head";
 import Script from "next/script";
 
-export default function Audits({ data, metadata }) {
+export default function Audits({ setting, metadata }) {
   const pageRender =
-    data &&
-    data.data.map((page, i) => {
+    metadata &&
+    metadata.data.map((page, i) => {
       if (page.id == 4) {
         return (
           <div key={i}>
             <div className="mb-4">
               <h1 className="mb-8">{page.title}</h1>
-              <p dangerouslySetInnerHTML={{ __html: page.content }} />
+              <div dangerouslySetInnerHTML={{ __html: page.content }} />
             </div>
           </div>
         );
@@ -60,20 +62,28 @@ export default function Audits({ data, metadata }) {
         {/* <link rel="canonical" href={window.location.href} /> */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header data={setting} />
       <main className={styles.mainAboutPage}>{pageRender}</main>
+      <Footer data={setting} />
     </>
   );
 }
 
 export async function getServerSideProps(context) {
   const res = await fetch(
-    `https://vox-imore.ra-devs.tech/api/pages?lang=${context.locale}`
+    `${process.env.baseURL}/api/pages?lang=${context.locale}`
+  );
+  const resSetting = await fetch(
+    `${process.env.baseURL}/api/settings?lang=${context.locale}`
   );
   const metadata = await res.json();
+  const setting = await resSetting.json();
 
   return {
     props: {
       metadata,
+      baseURL: process.env.baseURL,
+      setting,
     },
   };
 }

@@ -1,10 +1,10 @@
 import React from "react";
 import Experts from "components/Experts/Experts";
 
-function HomeExperts() {
+function HomeExperts({ baseURL }) {
   return (
     <div className="w-full">
-      <Experts />
+      <Experts baseURL={baseURL} />
     </div>
   );
 }
