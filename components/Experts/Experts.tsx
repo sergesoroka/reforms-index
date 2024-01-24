@@ -12,7 +12,6 @@ import TabsComp from "./Tabs";
 import { useRouter } from "next/router";
 
 function Experts({ baseURL }) {
-  console.log("ex", baseURL);
 
   const router = useRouter();
   const { locale, pathname } = router;
