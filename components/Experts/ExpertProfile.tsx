@@ -12,9 +12,13 @@ export default function ExpertProfile({ data, baseURL }) {
     data &&
     expert.works.map((item) => {
       return (
-        <p key={item.name} className="text-sm font-medium text-gray-700">
-          <Link href={item.link}>{item.name},</Link>{" "}
-          <span className="text-gray-500"> {item.position}</span>
+        <p key={item.name} className="text-sm font-medium text-red-700">
+          <Link href={item.link}>{item.name}</Link>
+
+          <span className="text-gray-500">
+            {" | "}
+            {item.position}
+          </span>
         </p>
       );
     });
