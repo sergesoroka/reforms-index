@@ -33,9 +33,9 @@ const Divider: FC<divider> = ({
         <>
           <div
             onClick={() => setOpen(!open)}
-            className="flex justify-start items-baseline gap-4 cursor-pointer"
+            className="flex justify-between items-baseline gap-4 cursor-pointer"
           >
-            <h2 className="text-base select-none mt-10 text-gray-600 mb-1 underline decoration-red-600 decoration-4 underline-offset-[14px]">
+            <h2 className="text-base select-none mt-10 text-gray-600 mb-1 ">
               {heading}
             </h2>
             {openable && <ArrowOpen open={open} />}
@@ -44,7 +44,7 @@ const Divider: FC<divider> = ({
         </>
       )}
       {!openable ||
-        (!gray && (
+        (!gray && !single && !openable && (
           <>
             <div className="flex justify-start items-baseline gap-4 cursor-pointer">
               <h2 className="text-base select-none mt-10 mb-6 text-gray-600  underline decoration-red-600 decoration-4 underline-offset-[14px]">

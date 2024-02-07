@@ -13,7 +13,7 @@ export default function About({ setting, metadata }) {
           <div key={i}>
             <div className="mb-4">
               <h1 className="mb-8">{page.title}</h1>
-              <p dangerouslySetInnerHTML={{ __html: page.content }} />
+              <div dangerouslySetInnerHTML={{ __html: page.content }} />
             </div>
           </div>
         );

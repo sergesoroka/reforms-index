@@ -65,9 +65,11 @@ const ExpertCart: FC<ExpertInfo> = ({
               height={100}
               style={{ borderRadius: "100%", height: "100px" }}
             />
-            <p className={styles.expertNameExtended}>
-              {name} {name == "Олександр Жолудь" && <span>*</span>}
-            </p>
+            <Link href={`/expert/${id}`}>
+              <p className={styles.expertNameExtended}>
+                {name} {name == "Олександр Жолудь" && <span>*</span>}
+              </p>
+            </Link>
           </div>
           <hr style={{ width: "100%", margin: "0.4rem 0" }} />
           <p className="text-sm text-red-500 my-2">{company}</p>
