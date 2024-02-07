@@ -26,7 +26,7 @@ export default function ExpertPage({ baseURL, setting }) {
     <>
       <Header data={setting} />
       <main className={styles.main}>
-        <ExpertProfile data={data} />
+        <ExpertProfile data={data} baseURL={baseURL} />
       </main>
       <Footer data={setting} />
     </>

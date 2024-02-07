@@ -28,14 +28,14 @@ const Divider: FC<divider> = ({
           <div className="h-[1px] mt-1 mb-10 w-full bg-gray-200" />
         </>
       )}
-      {single && <div className="h-1 mt-3 mb-10 w-full bg-red-600" />}
+      {single && <div className="h-1 mt-3 mb-4 w-full bg-red-600" />}
       {openable && (
         <>
           <div
             onClick={() => setOpen(!open)}
             className="flex justify-between items-baseline gap-4 cursor-pointer"
           >
-            <h2 className="text-base select-none mt-10 text-gray-600 mb-1 ">
+            <h2 className="text-base select-none mt-4 text-gray-600 mb-1 ">
               {heading}
             </h2>
             {openable && <ArrowOpen open={open} />}

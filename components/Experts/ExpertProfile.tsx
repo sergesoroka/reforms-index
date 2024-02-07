@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Divider from "components/Divider/Divider";
+import ExpertArticles from "./ExpertArticles";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function ExpertProfile({ data }) {
+export default function ExpertProfile({ data, baseURL }) {
   const [openChart, setOpenChart] = useState(false);
   const expert = data ? data.data : null;
 
@@ -50,10 +51,9 @@ export default function ExpertProfile({ data }) {
           />
         </div>
       </div>
-      <h2>Статті експерта</h2>
-      <div className="text-center text-sm font-medium text-gray-500">
-        <p>Усі статті</p>
-      </div>
+      <h2 className="my-10">Статті експерта</h2>
+      <ExpertArticles baseURL={baseURL} />
+
       <h2>Коментарі</h2>
       <Divider
         heading="Закон про протидію цькуванню на роботі"
