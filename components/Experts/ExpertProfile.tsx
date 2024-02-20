@@ -55,7 +55,7 @@ export default function ExpertProfile({ data, baseURL }) {
           />
         </div>
       </div>
-      <h2 className="my-10">Статті експерта</h2>
+      <h2 className="my-10">{data && expert.expert_posts_text}</h2>
       <ExpertArticles baseURL={baseURL} data={data} />
 
       <h2>Коментарі</h2>
