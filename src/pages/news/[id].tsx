@@ -21,8 +21,6 @@ export default function NewsPage({ baseURL, setting }) {
     }
   );
 
-  console.log(data);
-
   return (
     <>
       <Header data={setting} />
