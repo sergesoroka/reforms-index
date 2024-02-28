@@ -21,15 +21,18 @@ export default function NewsPage({ baseURL, setting }) {
     }
   );
 
-  return (
-    <>
-      <Header data={setting} />
-      <main className={styles.mainAboutPage}>
-        <News data={data} />
-      </main>
-      <Footer data={setting} />
-    </>
-  );
+  if (!isLoading && data.message == "Новини не існує") router.push("/404");
+  if (data && data.message !== "Новини не існує") {
+    return (
+      <>
+        <Header data={setting} />
+        <main className={styles.mainAboutPage}>
+          <News data={data} />
+        </main>
+        <Footer data={setting} />
+      </>
+    );
+  }
 }
 
 export async function getServerSideProps(context) {

@@ -12,23 +12,25 @@ export default function News({ data }) {
     );
   };
 
-  const contentRender = data?.data.content.map((item, i) => {
-    return (
-      <div key={i}>
-        <div className="flex justify-between items-center text-xs px-2">
-          <p className="font-semibold text-xs">{formattedDate(item.date)}</p>
-          <div className="flex items-center gap-2 text-red-700 uppercase font-bold">
-            <span className="text-red-700">{item.source}</span>
+  const contentRender =
+    data &&
+    data.data.content.map((item, i) => {
+      return (
+        <div key={i}>
+          <div className="flex justify-between items-center text-xs px-2">
+            <p className="font-semibold text-xs">{formattedDate(item.date)}</p>
+            <div className="flex items-center gap-2 text-red-700 uppercase font-bold">
+              <span className="text-red-700">{item.source}</span>
+            </div>
           </div>
+          <div
+            className="text-[16px] px-2"
+            dangerouslySetInnerHTML={{ __html: item.body }}
+          />
+          <Divider heading="" gray={true} openable={false} single={false} />
         </div>
-        <div
-          className="text-[16px] px-2"
-          dangerouslySetInnerHTML={{ __html: item.body }}
-        />
-        <Divider heading="" gray={true} openable={false} single={false} />
-      </div>
-    );
-  });
+      );
+    });
   return (
     <div>
       <div className="flex items-center justify-between">
