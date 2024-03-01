@@ -58,11 +58,15 @@ export default function ExpertProfile({ data, baseURL }) {
           />
         </div>
       </div>
-      <h2 className="my-10">{data && expert.expert_posts_text}</h2>
-      <ExpertArticles baseURL={baseURL} data={data} />
-
-      <h2>Коментарі</h2>
+      {data && expert.posts.length !== 0 && (
+        <>
+          <h2 className="my-10">{data && expert.expert_posts_text}</h2>
+          <ExpertArticles baseURL={baseURL} data={data} />
+        </>
+      )}
+      {data && expert.comments.length !== 0 && <h2>Коментарі</h2>};
       {data &&
+        expert.comments.length !== 0 &&
         expert.comments.map((item) => (
           <div key={item.id}>
             <Comment item={item} />
