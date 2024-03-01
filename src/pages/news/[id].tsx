@@ -22,6 +22,7 @@ export default function NewsPage({ baseURL, setting }) {
   );
 
   if (!isLoading && data.message == "Новини не існує") router.push("/404");
+
   if (data && data.message !== "Новини не існує") {
     return (
       <>

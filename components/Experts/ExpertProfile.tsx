@@ -1,11 +1,11 @@
-import Image from "next/image";
 import Divider from "components/Divider/Divider";
-import ExpertArticles from "./ExpertArticles";
+import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import Comment from "./Comment";
+import ExpertArticles from "./ExpertArticles";
 
 export default function ExpertProfile({ data, baseURL }) {
-  const [openChart, setOpenChart] = useState(false);
   const expert = data ? data.data : null;
 
   const ExpertWorks =
@@ -25,6 +25,9 @@ export default function ExpertProfile({ data, baseURL }) {
 
   return (
     <div className="w-full">
+      <Head>
+        <title>{data && expert.name}</title>
+      </Head>
       <div className="md:flex items-start justify-start gap-10 mt-10">
         <Image
           src={data && expert.avatar}
@@ -59,27 +62,12 @@ export default function ExpertProfile({ data, baseURL }) {
       <ExpertArticles baseURL={baseURL} data={data} />
 
       <h2>Коментарі</h2>
-      <Divider
-        heading="Закон про протидію цькуванню на роботі"
-        single={false}
-        openable={true}
-        open={openChart}
-        // @ts-ignore
-        setOpen={setOpenChart}
-      />
-      {openChart && (
-        <div className="flex items-start justify-between gap-10">
-          <p className="font-medium text-sm text-gray-500 leading-relaxed">
-            Нові норми щодо захисту працівників від мобінгу (цькування) на
-            роботі є частиною проєвропейського антидискримінаційного
-            законодавства. Вони забороняють мобінг на робочому місці, визначають
-            у яких діях це може проявлятися, а також передбачають зобов’язання
-            роботодавця попереджати такі дії з боку працівників. Власне
-            виконання нововведень покладається безпосередньо на роботодавця.
-          </p>
-          <p className="w-[400px] text-right text-red-600 text-sm">Раунд #4</p>
-        </div>
-      )}
+      {data &&
+        expert.comments.map((item) => (
+          <div key={item.id}>
+            <Comment item={item} />
+          </div>
+        ))}
     </div>
   );
 }
