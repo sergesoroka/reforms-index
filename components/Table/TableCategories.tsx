@@ -37,6 +37,7 @@ const TableCategories: FC = ({ handleFilters }) => {
       {/* <div onClick={() => resetFilters()}>Сборисити фільтри</div> */}
       {openFilters && (
         <ul className="mb-8">
+          {/* @ts-ignore */}
           {rows.map(({ id, subtheme }) => (
             <div
               onClick={() => handleCategoriesChange(subtheme)}

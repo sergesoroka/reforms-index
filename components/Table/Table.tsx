@@ -52,7 +52,8 @@ const Table = ({ baseURL }) => {
     const catSelected = [];
     console.log("effect");
     tableData.map((item) => {
-      if (filtered.includes(item)) {
+      // @ts-ignore
+      if (filtered.includes(item?.subtheme)) {
         catSelected.push(item);
         setTableData(catSelected);
       }
