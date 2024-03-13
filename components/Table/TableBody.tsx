@@ -15,7 +15,7 @@ const TableBody = ({ tableData }) => {
               if (accessor == "npa_links[0].initiator") {
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
-                    <p>{row.npa_links[0].initiator}</p>
+                    <p>{row.npa_links[0]?.initiator}</p>
                   </td>
                 );
               }
@@ -32,7 +32,7 @@ const TableBody = ({ tableData }) => {
               if (accessor == "npa_links[0].doc_type") {
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
-                    <p>{row.npa_links[0].doc_type}</p>
+                    <p>{row.npa_links[0]?.doc_type}</p>
                   </td>
                 );
               } else {
