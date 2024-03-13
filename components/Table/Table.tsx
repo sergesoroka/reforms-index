@@ -3,12 +3,25 @@ import TableBody from "./TableBody";
 import TableHead from "./TableHead";
 import rows from "./../../data/tableRows.json";
 import Divider from "components/Divider/Divider";
+import Spiner from "components/Spiner";
 import TableCategories from "./TableCategories";
+import { fetcher } from "lib/fetcher";
+import useSWR from "swr";
+import { useRouter } from "next/router";
 
-const Table = () => {
+const Table = ({ baseURL }) => {
   const [tableData, setTableData] = useState(rows);
   const [category, setCategory] = useState("all");
   const [filtered, setFiltered] = useState([]);
+
+  const router = useRouter();
+  const { locale, pathname } = router;
+
+  const { data, isLoading } = useSWR(`${baseURL}/api/news`, fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+  });
 
   const handleSorting = (sortField: string, sortOrder: string) => {
     if (sortField) {
@@ -39,7 +52,7 @@ const Table = () => {
     const catSelected = [];
     console.log("effect");
     tableData.map((item) => {
-      if (filtered.includes(item.subtheme)) {
+      if (filtered.includes(item?.subtheme)) {
         catSelected.push(item);
         setTableData(catSelected);
       }
@@ -50,12 +63,18 @@ const Table = () => {
     <>
       {/* @ts-ignore */}
       <TableCategories handleFilters={handleFilters} />
-      <Divider single={true} />
-      <table style={{ width: "100%", textAlign: "left" }}>
-        {/* @ts-ignore */}
-        <TableHead handleSorting={handleSorting} />
-        <TableBody tableData={tableData} />
-      </table>
+      <Divider gray={true} />
+      {isLoading ? (
+        <div className="flex justify-center">
+          <Spiner />
+        </div>
+      ) : (
+        <table style={{ width: "100%", textAlign: "left" }}>
+          {/* @ts-ignore */}
+          <TableHead handleSorting={handleSorting} />
+          <TableBody tableData={data && data.data} />
+        </table>
+      )}
     </>
   );
 };

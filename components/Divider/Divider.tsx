@@ -12,6 +12,8 @@ type divider = {
 
 const Divider: FC<divider> = ({
   heading,
+  position,
+  work,
   single,
   gray,
   openable,
@@ -36,7 +38,14 @@ const Divider: FC<divider> = ({
             className="flex justify-between items-baseline gap-4 cursor-pointer"
           >
             <h2 className="text-base select-none mt-4 text-gray-600 mb-1 ">
-              {heading}
+              {heading}{" "}
+              <span className="text-[13px] ml-8 font-medium text-red-700">
+                {work ? work + " |" : null}
+              </span>{" "}
+              <span className="text-[13px] text-gray-500">
+                {" "}
+                {position ? position : null}
+              </span>
             </h2>
             {openable && <ArrowOpen open={open} />}
           </div>

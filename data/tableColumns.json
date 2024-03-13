@@ -1,14 +1,72 @@
 [
-  { "accessor": "issue", "label": "Випуск", "sortable": true },
-  { "accessor": "date", "label": "Дата", "sortable": true },
-  { "accessor": "number", "label": "Номер", "sortable": true },
-  { "accessor": "name", "label": "Коротка назва", "sortable": false },
-  { "accessor": "rating", "label": "Загальна\nоцінка", "sortable": true },
-  { "accessor": "arrangment", "label": "Урядування", "sortable": true },
-  { "accessor": "finance", "label": "Державні фінанси", "sortable": true },
-  { "accessor": "money", "label": "Монетарна система", "sortable": true },
-  { "accessor": "business", "label": "Бізнес середовище", "sortable": true },
-  { "accessor": "energy", "label": "Енергетика", "sortable": true },
-  { "accessor": "people", "label": "Людський капітал", "sortable": true },
-  { "accessor": "subtheme", "label": "Піднапрямок", "sortable": false }
+  {
+    "accessor": "id",
+    "label": "№",
+    "sortable": true
+  },
+  {
+    "accessor": "npa_links[0].doc_type",
+    "label": "Тип документу",
+    "sortable": false
+  },
+  {
+    "accessor": "npa_links[0].initiator",
+    "label": "Ініціатор",
+    "sortable": true
+  },
+  {
+    "accessor": "date",
+    "label": "Дата",
+    "sortable": true
+  },
+  {
+    "accessor": "title",
+    "label": "Назва",
+    "sortable": true
+  },
+  {
+    "accessor": "grade_1",
+    "label": "Урядування",
+    "sortable": true
+  },
+  {
+    "accessor": "grade_2",
+    "label": "Держ. фінанси",
+    "sortable": true
+  },
+  {
+    "accessor": "grade_3",
+    "label": "Монетарна система",
+    "sortable": true
+  },
+  {
+    "accessor": "grade_4",
+    "label": "Бізнес середовище",
+    "sortable": true
+  },
+  {
+    "accessor": "grade_5",
+    "label": "Енергетика",
+    "sortable": true
+  },
+  {
+    "accessor": "grade_6",
+    "label": "Людский капітал",
+    "sortable": true
+  },
+  {
+    "accessor": "grade_total",
+    "label": "Загальна оцінка iMoRe",
+    "sortable": false
+  },
+  {
+    "accessor": "code",
+    "label": "Код",
+    "sortable": true
+  },
+  {
+    "accessor": "round",
+    "label": "Раунд",
+    "sortable": true
+  }
 ]

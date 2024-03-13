@@ -2,13 +2,17 @@
 .tableHeadCell,
 .tableHeadCellActive {
   padding: 0.6rem;
+  vertical-align: top !important;
 }
 .tableBodyCell {
-  font-size: .8rem;
+  font-size: 0.8rem;
+  border-bottom: 1px solid #ccc;
 }
 
-.tableHeadCell, .tableHeadCellActive {
+.tableHeadCell,
+.tableHeadCellActive {
   border-bottom: 1px solid #ededed;
+
   cursor: pointer;
   font-weight: 100;
   font-size: 0.7rem;
@@ -16,7 +20,6 @@
 
 .tableHeadCellActive {
   color: var(--primary-color);
-  
 }
 
 .tableHeadCell:hover {

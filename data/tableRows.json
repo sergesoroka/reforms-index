@@ -1,47 +1,50 @@
 [
   {
-    "id": "1",
-    "issue": "198",
-    "date": "2023-02-06",
-    "number": "198-5817",
-    "name": "Закон про водовідведення та очищення стічних вод",
-    "rating": "0.00",
-    "arrangment": "",
-    "finance": "",
-    "money": "",
-    "business": "",
-    "energy": "2.5",
-    "people": "",
-    "subtheme": "Держзакупівлі (203)"
+    "id": 7419,
+    "npa_links": [
+      {
+        "id": 1576,
+        "link": "",
+        "initiator": "ВР",
+        "doc_type": "постанова"
+      }
+    ],
+    "flag": 0,
+    "date": "2024-02-28",
+    "title": "назва",
+    "comments_count": 0,
+    "grade_1": null,
+    "grade_2": null,
+    "grade_3": null,
+    "grade_4": null,
+    "grade_5": null,
+    "grade_6": null,
+    "grade_total": "0.00",
+    "code": "202",
+    "round": 226
   },
   {
-    "id": "2",
-    "issue": "198",
-    "date": "2023-02-03",
-    "number": "198-5818",
-    "name": "Україна приєдналася до Марракеського договору, який полегшує незрячим доступ до опублікованих творів",
-    "rating": "1.50",
-    "arrangment": "",
-    "finance": "",
-    "money": "",
-    "business": "",
-    "energy": "1.0",
-    "people": "1.5",
-    "subtheme": "Податкова система (201)"
-  },
-  {
-    "id": "3",
-    "issue": "198",
-    "date": "2023-02-03",
-    "number": "198-5819",
-    "name": "Удосконалення порядку укладання договорів про співробітництво територіальних громад",
-    "rating": "2.50",
-    "arrangment": "",
-    "finance": "",
-    "money": "",
-    "business": "",
-    "energy": "0.5",
-    "people": "2.4",
-    "subtheme": "Банківський сектор (303)"
+    "id": 7418,
+    "npa_links": [
+      {
+        "id": 1575,
+        "link": "",
+        "initiator": "МОН",
+        "doc_type": "постанова"
+      }
+    ],
+    "flag": 0,
+    "date": "2024-02-14",
+    "title": "Назва події українською",
+    "comments_count": 0,
+    "grade_1": null,
+    "grade_2": null,
+    "grade_3": null,
+    "grade_4": null,
+    "grade_5": null,
+    "grade_6": null,
+    "grade_total": "0.00",
+    "code": "202",
+    "round": 226
   }
 ]
