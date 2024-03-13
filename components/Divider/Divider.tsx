@@ -3,6 +3,8 @@ import ArrowOpen from "components/IconsComponents/ArrowOpen";
 
 type divider = {
   heading?: string;
+  position?: string;
+  work?: string;
   single?: boolean;
   openable?: boolean;
   open?: boolean;
