@@ -21,7 +21,7 @@
   },
   {
     "accessor": "title",
-    "label": "Назва",
+    "label": "Документ",
     "sortable": true
   },
   {
