@@ -35,6 +35,86 @@ const TableBody = ({ tableData }) => {
                         {row.npa_links[1]?.doc_type}
                       </Link>
                     </p>
+                    <p>
+                      <Link
+                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
+                        href={
+                          row.npa_links[2]?.link ? row.npa_links[1]?.link : ""
+                        }
+                      >
+                        {row.npa_links[2]?.doc_type}
+                      </Link>
+                    </p>
+                    <p>
+                      <Link
+                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
+                        href={
+                          row.npa_links[3]?.link ? row.npa_links[1]?.link : ""
+                        }
+                      >
+                        {row.npa_links[3]?.doc_type}
+                      </Link>
+                    </p>
+                    <p>
+                      <Link
+                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
+                        href={
+                          row.npa_links[4]?.link ? row.npa_links[1]?.link : ""
+                        }
+                      >
+                        {row.npa_links[4]?.doc_type}
+                      </Link>
+                      <p>
+                        <Link
+                          className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
+                          href={
+                            row.npa_links[5]?.link ? row.npa_links[1]?.link : ""
+                          }
+                        >
+                          {row.npa_links[5]?.doc_type}
+                        </Link>
+                      </p>
+                      <p>
+                        <Link
+                          className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
+                          href={
+                            row.npa_links[6]?.link ? row.npa_links[1]?.link : ""
+                          }
+                        >
+                          {row.npa_links[6]?.doc_type}
+                        </Link>
+                      </p>
+                      <p>
+                        <Link
+                          className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
+                          href={
+                            row.npa_links[7]?.link ? row.npa_links[1]?.link : ""
+                          }
+                        >
+                          {row.npa_links[7]?.doc_type}
+                        </Link>
+                      </p>
+                      <p>
+                        <Link
+                          className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
+                          href={
+                            row.npa_links[8]?.link ? row.npa_links[1]?.link : ""
+                          }
+                        >
+                          {row.npa_links[8]?.doc_type}
+                        </Link>
+                      </p>
+                      <p>
+                        <Link
+                          className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
+                          href={
+                            row.npa_links[9]?.link ? row.npa_links[1]?.link : ""
+                          }
+                        >
+                          {row.npa_links[9]?.doc_type}
+                        </Link>
+                      </p>
+                    </p>
                   </td>
                 );
               }
