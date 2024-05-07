@@ -89,7 +89,7 @@ const Table = ({ baseURL }) => {
         <p
           onClick={() => setSortField([])}
           className={`my-6 text-sm cursor-pointer select-none ${
-            resetSorting ? "text-red-800" : "text-gray-400"
+            sortField.length > 0 ? "text-red-800" : "text-gray-400"
           }`}
         >
           Скинути сортування
