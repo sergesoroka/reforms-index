@@ -22,7 +22,8 @@ const TableHead: FC = ({
           <th
             key={accessor}
             onClick={() => {
-              setSortField(accessor);
+              sortField.push(accessor);
+              // setSortField(accessor);
               setResetSorting(true);
             }}
             className={
@@ -36,7 +37,7 @@ const TableHead: FC = ({
             <div
               onClick={() => setAscOrder(!ascOrder)}
               style={{
-                height: "64px",
+                height: "74px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
@@ -44,7 +45,7 @@ const TableHead: FC = ({
             >
               <p>{label}</p>
               {accessor !== "subtheme" && accessor !== "name" && sortable ? (
-                sortField === accessor && resetSorting ? (
+                sortField.includes(accessor) ? (
                   ascOrder ? (
                     <ArrowActive />
                   ) : (

@@ -32,32 +32,32 @@
   {
     "accessor": "grade2",
     "label": "Держ. фінанси",
-    "sortable": false
+    "sortable": true
   },
   {
     "accessor": "grade3",
     "label": "Монетарна система",
-    "sortable": false
+    "sortable": true
   },
   {
     "accessor": "grade4",
     "label": "Бізнес середовище",
-    "sortable": false
+    "sortable": true
   },
   {
     "accessor": "grade5",
     "label": "Енергетика",
-    "sortable": false
+    "sortable": true
   },
   {
     "accessor": "grade6",
     "label": "Людский капітал",
-    "sortable": false
+    "sortable": true
   },
   {
     "accessor": "grade_total",
     "label": "Загальна оцінка iMoRe",
-    "sortable": false
+    "sortable": true
   },
   {
     "accessor": "code",
@@ -67,6 +67,6 @@
   {
     "accessor": "round",
     "label": "Раунд",
-    "sortable": false
+    "sortable": true
   }
 ]

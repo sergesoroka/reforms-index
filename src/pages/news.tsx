@@ -4,6 +4,7 @@ import Header from "components/Header/Header";
 import Table from "components/Table/Table";
 import Head from "next/head";
 import Script from "next/script";
+import { useState } from "react";
 
 export default function News({ setting, metadata, baseURL }) {
   return (

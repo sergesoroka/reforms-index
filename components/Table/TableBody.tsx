@@ -12,7 +12,7 @@ const TableBody = ({ tableData }) => {
         tableData.map((row, i) => (
           <tr key={i}>
             {columns.map(({ accessor }) => {
-              const tData = row[accessor] ? row[accessor] : "——";
+              const tData = row[accessor];
 
               if (accessor == "npa_links[0].doc_type") {
                 return (
@@ -143,6 +143,48 @@ const TableBody = ({ tableData }) => {
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
                     {row.npa_links[0]?.initiator}
+                  </td>
+                );
+              }
+              if (accessor == "grade1") {
+                return (
+                  <td key={accessor} className={styles.tableBodyCell}>
+                    {row.grade_1}
+                  </td>
+                );
+              }
+              if (accessor == "grade2") {
+                return (
+                  <td key={accessor} className={styles.tableBodyCell}>
+                    {row.grade_2}
+                  </td>
+                );
+              }
+              if (accessor == "grade3") {
+                return (
+                  <td key={accessor} className={styles.tableBodyCell}>
+                    {row.grade_3}
+                  </td>
+                );
+              }
+              if (accessor == "grade4") {
+                return (
+                  <td key={accessor} className={styles.tableBodyCell}>
+                    {row.grade_4}
+                  </td>
+                );
+              }
+              if (accessor == "grade5") {
+                return (
+                  <td key={accessor} className={styles.tableBodyCell}>
+                    {row.grade_5}
+                  </td>
+                );
+              }
+              if (accessor == "grade6") {
+                return (
+                  <td key={accessor} className={styles.tableBodyCell}>
+                    {row.grade_6}
                   </td>
                 );
               }
