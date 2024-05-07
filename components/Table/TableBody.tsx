@@ -3,7 +3,7 @@ import columns from "./../../data/tableColumns.json";
 
 import Flag from "components/IconsComponents/Flag";
 import CommentsIcon from "components/IconsComponents/CommentsIcon";
-import Link from "next/link";
+import a from "next/link";
 
 const TableBody = ({ tableData }) => {
   return (
@@ -17,103 +17,123 @@ const TableBody = ({ tableData }) => {
               if (accessor == "npa_links[0].doc_type") {
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
-                    <Link
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
                       className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
                       href={
                         row.npa_links[0]?.link ? row.npa_links[0]?.link : ""
                       }
                     >
                       {row.npa_links[0]?.doc_type}
-                    </Link>
+                    </a>
                     <p>
-                      <Link
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
                         className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
                         href={
                           row.npa_links[1]?.link ? row.npa_links[1]?.link : ""
                         }
                       >
                         {row.npa_links[1]?.doc_type}
-                      </Link>
+                      </a>
                     </p>
                     <p>
-                      <Link
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
                         className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
                         href={
                           row.npa_links[2]?.link ? row.npa_links[1]?.link : ""
                         }
                       >
                         {row.npa_links[2]?.doc_type}
-                      </Link>
+                      </a>
                     </p>
                     <p>
-                      <Link
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
                         className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
                         href={
                           row.npa_links[3]?.link ? row.npa_links[1]?.link : ""
                         }
                       >
                         {row.npa_links[3]?.doc_type}
-                      </Link>
+                      </a>
                     </p>
                     <p>
-                      <Link
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
                         className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
                         href={
                           row.npa_links[4]?.link ? row.npa_links[1]?.link : ""
                         }
                       >
                         {row.npa_links[4]?.doc_type}
-                      </Link>
-                      <p>
-                        <Link
-                          className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                          href={
-                            row.npa_links[5]?.link ? row.npa_links[1]?.link : ""
-                          }
-                        >
-                          {row.npa_links[5]?.doc_type}
-                        </Link>
-                      </p>
-                      <p>
-                        <Link
-                          className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                          href={
-                            row.npa_links[6]?.link ? row.npa_links[1]?.link : ""
-                          }
-                        >
-                          {row.npa_links[6]?.doc_type}
-                        </Link>
-                      </p>
-                      <p>
-                        <Link
-                          className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                          href={
-                            row.npa_links[7]?.link ? row.npa_links[1]?.link : ""
-                          }
-                        >
-                          {row.npa_links[7]?.doc_type}
-                        </Link>
-                      </p>
-                      <p>
-                        <Link
-                          className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                          href={
-                            row.npa_links[8]?.link ? row.npa_links[1]?.link : ""
-                          }
-                        >
-                          {row.npa_links[8]?.doc_type}
-                        </Link>
-                      </p>
-                      <p>
-                        <Link
-                          className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                          href={
-                            row.npa_links[9]?.link ? row.npa_links[1]?.link : ""
-                          }
-                        >
-                          {row.npa_links[9]?.doc_type}
-                        </Link>
-                      </p>
+                      </a>
+                    </p>
+                    <p>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
+                        href={
+                          row.npa_links[5]?.link ? row.npa_links[1]?.link : ""
+                        }
+                      >
+                        {row.npa_links[5]?.doc_type}
+                      </a>
+                    </p>
+                    <p>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
+                        href={
+                          row.npa_links[6]?.link ? row.npa_links[1]?.link : ""
+                        }
+                      >
+                        {row.npa_links[6]?.doc_type}
+                      </a>
+                    </p>
+                    <p>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
+                        href={
+                          row.npa_links[7]?.link ? row.npa_links[1]?.link : ""
+                        }
+                      >
+                        {row.npa_links[7]?.doc_type}
+                      </a>
+                    </p>
+                    <p>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
+                        href={
+                          row.npa_links[8]?.link ? row.npa_links[1]?.link : ""
+                        }
+                      >
+                        {row.npa_links[8]?.doc_type}
+                      </a>
+                    </p>
+                    <p>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
+                        href={
+                          row.npa_links[9]?.link ? row.npa_links[1]?.link : ""
+                        }
+                      >
+                        {row.npa_links[9]?.doc_type}
+                      </a>
                     </p>
                   </td>
                 );
@@ -140,10 +160,20 @@ const TableBody = ({ tableData }) => {
                   <td key={accessor} className={styles.tableBodyCell}>
                     {row.title}
                     <p className="flex gap-4 text-[11px] font-medium pt-2 text-gray-500">
-                      <span>Новина</span>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={
+                          row.npa_links[0]?.link ? row.npa_links[0]?.link : ""
+                        }
+                      >
+                        <span>Новина</span>
+                      </a>
                       <span className="flex gap-1">
                         <CommentsIcon />
-                        <span className="text-red-600">0</span>
+                        <span className="text-red-600">
+                          {row.comments_count}
+                        </span>
                       </span>
                     </p>
                   </td>

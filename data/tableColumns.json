@@ -12,7 +12,7 @@
   {
     "accessor": "npa_links[0].initiator",
     "label": "Ініціатор",
-    "sortable": true
+    "sortable": false
   },
   {
     "accessor": "date",
@@ -22,37 +22,37 @@
   {
     "accessor": "title",
     "label": "Документ",
-    "sortable": true
+    "sortable": false
   },
   {
-    "accessor": "grade_1",
+    "accessor": "grade1",
     "label": "Урядування",
     "sortable": true
   },
   {
-    "accessor": "grade_2",
+    "accessor": "grade2",
     "label": "Держ. фінанси",
-    "sortable": true
+    "sortable": false
   },
   {
-    "accessor": "grade_3",
+    "accessor": "grade3",
     "label": "Монетарна система",
-    "sortable": true
+    "sortable": false
   },
   {
-    "accessor": "grade_4",
+    "accessor": "grade4",
     "label": "Бізнес середовище",
-    "sortable": true
+    "sortable": false
   },
   {
-    "accessor": "grade_5",
+    "accessor": "grade5",
     "label": "Енергетика",
-    "sortable": true
+    "sortable": false
   },
   {
-    "accessor": "grade_6",
+    "accessor": "grade6",
     "label": "Людский капітал",
-    "sortable": true
+    "sortable": false
   },
   {
     "accessor": "grade_total",
@@ -62,11 +62,11 @@
   {
     "accessor": "code",
     "label": "Код",
-    "sortable": true
+    "sortable": false
   },
   {
     "accessor": "round",
     "label": "Раунд",
-    "sortable": true
+    "sortable": false
   }
 ]
