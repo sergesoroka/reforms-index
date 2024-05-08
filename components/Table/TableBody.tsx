@@ -4,6 +4,7 @@ import columns from "./../../data/tableColumns.json";
 import Flag from "components/IconsComponents/Flag";
 import CommentsIcon from "components/IconsComponents/CommentsIcon";
 import a from "next/link";
+import Link from "next/link";
 
 const TableBody = ({ tableData }) => {
   return (
@@ -202,21 +203,21 @@ const TableBody = ({ tableData }) => {
                   <td key={accessor} className={styles.tableBodyCell}>
                     {row.title}
                     <p className="flex gap-4 text-[11px] font-medium pt-2 text-gray-500">
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        href={
-                          row.npa_links[0]?.link ? row.npa_links[0]?.link : ""
-                        }
+                      <Link
+                        href={`https://reforms-index.vercel.app/news/${row.npa_links[0]?.id}`}
                       >
                         <span>Новина</span>
-                      </a>
-                      <span className="flex gap-1">
-                        <CommentsIcon />
-                        <span className="text-red-600">
-                          {row.comments_count}
+                      </Link>
+                      <Link
+                        href={`https://reforms-index.vercel.app/news/comments/${row.npa_links[0]?.id}`}
+                      >
+                        <span className="flex gap-1">
+                          <CommentsIcon />
+                          <span className="text-red-600">
+                            {row.comments_count}
+                          </span>
                         </span>
-                      </span>
+                      </Link>
                     </p>
                   </td>
                 );

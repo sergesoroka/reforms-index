@@ -16,7 +16,7 @@ const Table = ({ baseURL }) => {
   const [filtered, setFiltered] = useState([]);
 
   const [sortField, setSortField] = useState([]);
-  const [ascOrder, setAscOrder] = useState(false);
+  const [ascOrder, setAscOrder] = useState(true);
   const [resetSorting, setResetSorting] = useState(false);
 
   const router = useRouter();
@@ -59,7 +59,15 @@ const Table = ({ baseURL }) => {
     params = "&orders[q_num]=" + order + params;
   }
 
-  const { data, isLoading } = useSWR(`${baseURL}/api/news?${params}`, fetcher);
+  const { data, isLoading } = useSWR(
+    resetSorting ? `${baseURL}/api/news` : `${baseURL}/api/news?${params}`,
+    fetcher,
+    {
+      revalidateIfStale: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
+  );
 
   const handleFilters = (filters) => {
     setFiltered(filters);
@@ -87,9 +95,9 @@ const Table = ({ baseURL }) => {
       <Divider gray={true} />
       <div className="flex justify-end">
         <p
-          onClick={() => setSortField([])}
+          onClick={() => setResetSorting(true)}
           className={`my-6 text-sm cursor-pointer select-none ${
-            sortField.length > 0 ? "text-red-800" : "text-gray-400"
+            resetSorting ? "text-red-800" : "text-gray-400"
           }`}
         >
           Скинути сортування

@@ -23,11 +23,10 @@ const TableHead: FC = ({
             key={accessor}
             onClick={() => {
               sortField.push(accessor);
-              // setSortField(accessor);
-              setResetSorting(true);
+              if (resetSorting) setResetSorting(false);
             }}
             className={
-              sortField === accessor && resetSorting
+              sortField.includes(accessor) && resetSorting
                 ? styles.tableHeadCellActive
                 : sortable
                 ? styles.tableHeadCell
