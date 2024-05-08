@@ -15,6 +15,16 @@ const TableBody = ({ tableData }) => {
             {columns.map(({ accessor }) => {
               const tData = row[accessor];
 
+              if (accessor == "id") {
+                return (
+                  <td key={accessor} className={styles.tableBodyCell}>
+                    <p>{row.id}</p>
+
+                    <p className="text-[12px] text-gray-600 mt-1">{row.act}</p>
+                  </td>
+                );
+              }
+
               if (accessor == "npa_links[0].doc_type") {
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
