@@ -46,7 +46,12 @@ export default function ExpertProfile({ data, baseURL }) {
           <div className="md:flex justify-between gap-10">
             <p className="w-[500px] text-sm font-medium text-gray-700">
               <span className="font-medium text-gray-500">Спеціалізація: </span>
-              {data && expert.specialization}
+              {expert?.specializaion &&
+                expert?.specializaion.map((item) => (
+                  <span key={item.id} className="block my-1">
+                    {item.name}
+                  </span>
+                ))}
             </p>
 
             <div className="w-[400px] md:text-right">{ExpertWorks}</div>
