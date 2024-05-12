@@ -385,7 +385,3 @@
     transform: rotate(0deg);
   }
 }
-
-::-webkit-scrollbar-button {
-  display: none !important;
-}
