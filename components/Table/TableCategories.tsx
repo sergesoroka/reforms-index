@@ -35,21 +35,7 @@ const TableCategories: FC = ({ handleFilters }) => {
         setOpen={setOpenFilters}
       />
       {/* <div onClick={() => resetFilters()}>Сборисити фільтри</div> */}
-      {openFilters && (
-        <ul className="mb-8">
-          {/* @ts-ignore */}
-          {rows.map(({ id, subtheme }) => (
-            <div
-              onClick={() => handleCategoriesChange(subtheme)}
-              key={id}
-              className="flex justify-start items-center gap-3 mx-2 cursor-pointer"
-            >
-              <CheckedIcons checked={Checked.includes(subtheme)} />
-              <li className=" text-sm leading-6">{subtheme}</li>
-            </div>
-          ))}
-        </ul>
-      )}
+      {openFilters && <h2>filters</h2>}
     </>
   );
 };

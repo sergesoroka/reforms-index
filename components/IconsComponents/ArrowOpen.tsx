@@ -2,7 +2,7 @@ import React from "react";
 
 function ArrowOpen({ open }) {
   return (
-    <div
+    <span
       className={
         open
           ? "rotate-90 transition-transform"
@@ -33,7 +33,7 @@ function ArrowOpen({ open }) {
           fill="#8D8D8D"
         />
       </svg>
-    </div>
+    </span>
   );
 }
 

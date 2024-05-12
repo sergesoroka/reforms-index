@@ -5,7 +5,7 @@ import TableHead from "./TableHead";
 import rows from "./../../data/tableRows.json";
 import Divider from "components/Divider/Divider";
 import Spiner from "components/Spiner";
-import TableCategories from "./TableCategories";
+import TableFilters from "./TableFilters/TableFilters";
 import { fetcher } from "lib/fetcher";
 import useSWR from "swr";
 import { useRouter } from "next/router";
@@ -18,9 +18,12 @@ const Table = ({ baseURL }) => {
   const [sortField, setSortField] = useState([]);
   const [ascOrder, setAscOrder] = useState(true);
   const [resetSorting, setResetSorting] = useState(false);
+  const [labels, setLabels] = useState([]);
 
   const router = useRouter();
   const { locale, pathname } = router;
+
+  const filterPath = labels.map((item) => "&initiators" + item.id).join("");
 
   const order = ascOrder ? "asc" : "desc";
 
@@ -60,7 +63,9 @@ const Table = ({ baseURL }) => {
   }
 
   const { data, isLoading } = useSWR(
-    resetSorting ? `${baseURL}/api/news` : `${baseURL}/api/news?${params}`,
+    resetSorting
+      ? `${baseURL}/api/news`
+      : `${baseURL}/api/news?${params}${filterPath}`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -91,7 +96,7 @@ const Table = ({ baseURL }) => {
 
   return (
     <>
-      <TableCategories handleFilters={handleFilters} />
+      <TableFilters baseURL={baseURL} setLabels={setLabels} labels={labels} />
       <Divider gray={true} />
       <div className="flex justify-end">
         <p
