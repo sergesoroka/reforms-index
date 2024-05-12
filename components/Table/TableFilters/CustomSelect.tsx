@@ -13,7 +13,9 @@ export default function CustomSelect({ data, setLabels, labels }) {
       setFiltered(
         data &&
           data.data.filter((item) =>
-            item.short_name.toLocaleLowerCase().includes(search)
+            item.short_name
+              .toLocaleLowerCase()
+              .includes(search.toLocaleLowerCase())
           )
       ),
     [search, data]
