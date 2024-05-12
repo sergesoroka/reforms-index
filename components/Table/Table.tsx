@@ -22,8 +22,11 @@ const Table = ({ baseURL }) => {
 
   const router = useRouter();
   const { locale, pathname } = router;
-
-  const filterPath = labels.map((item) => "&initiators" + item.id).join("");
+  // %5B%5D
+  // https://vox-imore.ra-devs.tech/api/news?initiators%5B%5D=1
+  const filterPath = labels
+    .map((item) => "&initiators%5B%5D=" + item.id)
+    .join("");
 
   const order = ascOrder ? "asc" : "desc";
 
