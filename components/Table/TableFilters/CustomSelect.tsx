@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ArrowOpen from "components/IconsComponents/ArrowOpen";
+import CloseIconGrey from "components/IconsComponents/CloseIconGrey";
 
 import cats from "../../../data/tableColumns.json";
 
@@ -33,23 +34,26 @@ export default function CustomSelect({ data, setLabels, labels }) {
       <div>
         <p
           onClick={() => setOpen(!open)}
-          className="bg-slate-200 pt-3 pb-2 px-4 flex rounded-sm cursor-pointer  justify-between text-[14px] text-slate-500"
+          className="flex rounded-sm cursor-pointer items-center justify-between text-[14px] text-slate-500 border-b-2 border-slate-500"
         >
-          Оберіть ініціаторів
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Пошук по ініціаторах"
+            className="w-full pt-3 pb-2 px-4 outline-none "
+          />
+
           <span>
-            <ArrowOpen open={open} />
+            {search && (
+              <div onClick={() => setSearch("")}>
+                <CloseIconGrey />
+              </div>
+            )}
           </span>
         </p>
         {open && (
           <div>
-            <div className="text-[14px] text-slate-500 pt-4 pb-3">
-              <input
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Пошук..."
-                className="w-full pt-3 pb-2 px-4 outline-none"
-              />
-            </div>
+            <div className="text-[14px] text-slate-500 pt-4 pb-3"></div>
             <div
               className="max-h-40 overflow-y-auto"
               style={{ scrollbarWidth: "thin" }}
