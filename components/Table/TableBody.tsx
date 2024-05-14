@@ -214,12 +214,12 @@ const TableBody = ({ tableData }) => {
                     {row.title}
                     <p className="flex gap-4 text-[11px] font-medium pt-2 text-gray-500">
                       <Link
-                        href={`https://reforms-index.vercel.app/news/${row.npa_links[0]?.id}`}
+                        href={`https://reforms-index.vercel.app/news/${row?.id}`}
                       >
                         <span>Новина</span>
                       </Link>
                       <Link
-                        href={`https://reforms-index.vercel.app/news/comments/${row.npa_links[0]?.id}`}
+                        href={`https://reforms-index.vercel.app/news/comments/${row?.id}`}
                       >
                         <span className="flex gap-1">
                           <CommentsIcon />

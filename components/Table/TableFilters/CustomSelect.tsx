@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import ArrowOpen from "components/IconsComponents/ArrowOpen";
 import CloseIconGrey from "components/IconsComponents/CloseIconGrey";
 
-import cats from "../../../data/tableColumns.json";
-
 export default function CustomSelect({ data, setLabels, labels }) {
   const [open, setOpen] = useState(false);
   const [filtered, setFiltered] = useState([]);
@@ -21,8 +19,6 @@ export default function CustomSelect({ data, setLabels, labels }) {
       ),
     [search, data]
   );
-
-  const dataRender = search ? filtered : cats;
 
   const handleSelectChange = (newLabel) => {
     if (!labels.includes(newLabel)) {
