@@ -17,7 +17,7 @@ const Table = ({ baseURL }) => {
 
   const [sortField, setSortField] = useState([]);
   const [ascOrder, setAscOrder] = useState(true);
-  const [resetSorting, setResetSorting] = useState(false);
+
   const [labels, setLabels] = useState([]);
 
   const router = useRouter();
@@ -28,32 +28,27 @@ const Table = ({ baseURL }) => {
     .map((item) => "&initiators%5B%5D=" + item.id)
     .join("");
 
-  const order = ascOrder ? "asc" : "desc";
-
   let params = "";
-  let comp_table={
-    'id':'id',
-    'date':'news_date',
-    'grade1':'grade1',
-    'grade2':'grade2',
-    'grade3':'grade3',
-    'grade4':'grade4',
-    'grade5':'grade5',
-    'grade6':'grade6',
-    'grade_total':'average',
-    'round':'q_num'
+  let comp_table = {
+    id: "id",
+    date: "news_date",
+    grade1: "grade1",
+    grade2: "grade2",
+    grade3: "grade3",
+    grade4: "grade4",
+    grade5: "grade5",
+    grade6: "grade6",
+    grade_total: "average",
+    round: "q_num",
   };
 
-  sortField.forEach(function(key, index) {
-    let sort_key=Object.keys(key)[0];
-    params+='&orders['+comp_table[sort_key]+']='+key[sort_key];
+  sortField.forEach(function (key, index) {
+    let sort_key = Object.keys(key)[0];
+    params += "&orders[" + comp_table[sort_key] + "]=" + key[sort_key];
   });
 
-
   const { data, isLoading } = useSWR(
-    resetSorting
-      ? `${baseURL}/api/news`
-      : `${baseURL}/api/news?${params}${filterPath}`,
+    `${baseURL}/api/news?${params}${filterPath}`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -88,9 +83,9 @@ const Table = ({ baseURL }) => {
       <Divider gray={true} />
       <div className="flex justify-end">
         <p
-          onClick={() => setResetSorting(true)}
+          onClick={() => setSortField([])}
           className={`my-6 text-sm cursor-pointer select-none ${
-            resetSorting ? "text-red-800" : "text-gray-400"
+            sortField.length > 0 ? "text-red-800" : "text-gray-400"
           }`}
         >
           Скинути сортування
@@ -107,8 +102,6 @@ const Table = ({ baseURL }) => {
             sortField={sortField}
             setAscOrder={setAscOrder}
             ascOrder={ascOrder}
-            setResetSorting={setResetSorting}
-            resetSorting={resetSorting}
           />
           <TableBody tableData={data && data.data} />
         </table>

@@ -12,84 +12,79 @@ const TableHead: FC = ({
   sortField,
   ascOrder,
   setAscOrder,
-  setResetSorting,
-  resetSorting,
-  activeColumn=[]
+  activeColumn = [],
 }) => {
   return (
     <thead>
       <tr>
-        {columns.map(({accessor, label, sortable}) => (
-            <th
-                key={accessor}
-                onClick={() => {
+        {columns.map(({ accessor, label, sortable }) => (
+          <th
+            key={accessor}
+            onClick={() => {
+              // setResetSorting(false);
 
-                  if (sortField.length !== 0) {
-                    let uniq = true;
-                    sortField.forEach(function (key, index) {
-                      let sort_key = Object.keys(key)[0];
-                      if (sort_key == accessor) {
-                        uniq = false;
-                        if (key[sort_key] == 'DESC') {
-                          key[sort_key] = 'ASC'
-                        } else {
-                          key[sort_key] = 'DESC'
-                        }
-                        activeColumn[accessor]=key[sort_key];
-                      }
-                    });
-                    if (uniq) {
-                      sortField.push({[accessor]: 'DESC'});
-                      activeColumn[accessor]='DESC';
+              if (sortField.length !== 0) {
+                let uniq = true;
+                sortField.forEach(function (key, index) {
+                  let sort_key = Object.keys(key)[0];
+                  if (sort_key == accessor) {
+                    uniq = false;
+                    if (key[sort_key] == "DESC") {
+                      key[sort_key] = "ASC";
+                    } else {
+                      key[sort_key] = "DESC";
                     }
-                  } else {
-                    sortField.push({[accessor]: 'DESC'});
-                    activeColumn[accessor]='DESC';
+                    activeColumn[accessor] = key[sort_key];
                   }
-
-                  if (resetSorting) setResetSorting(true);
-                }}
-
-                className={
-                  sortField.includes(accessor) && resetSorting
-                      ? styles.tableHeadCellActive
-                      : sortable
-                          ? styles.tableHeadCell
-                          : styles.tableHeadCellDisable
+                });
+                if (uniq) {
+                  sortField.push({ [accessor]: "DESC" });
+                  activeColumn[accessor] = "DESC";
                 }
+              } else {
+                sortField.push({ [accessor]: "DESC" });
+                activeColumn[accessor] = "DESC";
+              }
+
+              // if (resetSorting) setResetSorting(true);
+            }}
+            className={
+              sortField.includes(accessor)
+                ? styles.tableHeadCellActive
+                : sortable
+                ? styles.tableHeadCell
+                : styles.tableHeadCellDisable
+            }
+          >
+            <div
+              onClick={() => setAscOrder(!ascOrder)}
+              style={{
+                height: "74px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+              }}
             >
-              <div
-                  onClick={() => setAscOrder(!ascOrder)}
-                  style={{
-                    height: "74px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                  }}
-              >
-                <p>{label}</p>
-                {
-                  sortField.forEach(function (key, index) {
-                    let sort_key = Object.keys(key)[0];
-                    if (sort_key == accessor) {
-                      activeColumn[accessor] = key[sort_key];
-                    }
-                  })
+              <p>{label}</p>
+              {sortField.forEach(function (key, index) {
+                let sort_key = Object.keys(key)[0];
+                if (sort_key == accessor) {
+                  activeColumn[accessor] = key[sort_key];
                 }
-                {
-                  accessor !== "subtheme" && accessor !== "name" && sortable ? (
-                      activeColumn[accessor]!== undefined ? (
-                          activeColumn[accessor]==='ASC' ? (
-                              <ArrowActive/>
-                          ) : (
-                              <ArrowActiveReverse/>
-                          )
-                      ) : (
-                          <Arrow/>
-                      )
-                  ) : null}
-              </div>
-            </th>
+              })}
+              {accessor !== "subtheme" && accessor !== "name" && sortable ? (
+                activeColumn[accessor] !== undefined ? (
+                  activeColumn[accessor] === "ASC" ? (
+                    <ArrowActive />
+                  ) : (
+                    <ArrowActiveReverse />
+                  )
+                ) : (
+                  <Arrow />
+                )
+              ) : null}
+            </div>
+          </th>
         ))}
       </tr>
     </thead>
