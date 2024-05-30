@@ -31,39 +31,24 @@ const Table = ({ baseURL }) => {
   const order = ascOrder ? "asc" : "desc";
 
   let params = "";
+  let comp_table={
+    'id':'id',
+    'date':'news_date',
+    'grade1':'grade1',
+    'grade2':'grade2',
+    'grade3':'grade3',
+    'grade4':'grade4',
+    'grade5':'grade5',
+    'grade6':'grade6',
+    'grade_total':'average',
+    'round':'q_num'
+  };
 
-  if (sortField.includes("id")) {
-    params = "&orders[id]=" + order + params;
-  }
-  if (sortField.includes("date")) {
-    params = "&orders[news_date]=" + order + params;
-  }
-  if (sortField.includes("grade1")) {
-    params = "&orders[grade1]=" + order + params;
-  }
-  if (sortField.includes("grade2")) {
-    params = "&orders[grade2]=" + order + params;
-  }
-  if (sortField.includes("grade3")) {
-    params = "&orders[grade3]=" + order + params;
-  }
-  if (sortField.includes("grade4")) {
-    params = "&orders[grade4]=" + order + params;
-  }
-  if (sortField.includes("grade5")) {
-    params = "&orders[grade5]=" + order + params;
-  }
-  if (sortField.includes("grade6")) {
-    params = "&orders[grade6]=" + order + params;
-  }
+  sortField.forEach(function(key, index) {
+    let sort_key=Object.keys(key)[0];
+    params+='&orders['+comp_table[sort_key]+']='+key[sort_key];
+  });
 
-  if (sortField.includes("grade_total")) {
-    params = "&orders[average]=" + order + params;
-  }
-
-  if (sortField.includes("round")) {
-    params = "&orders[q_num]=" + order + params;
-  }
 
   const { data, isLoading } = useSWR(
     resetSorting
