@@ -36,7 +36,7 @@ export default function TableFilters({ baseURL, setLabels, labels }) {
       />
       {openFilters && (
         <div>
-          <RadioButtons />
+          {/* <RadioButtons /> */}
           <Labels labels={labels} setLabels={setLabels} />
           <CustomSelect data={data} setLabels={setLabels} labels={labels} />
           {/* <TableSelect setLabels={setLabels} labels={labels} /> */}
