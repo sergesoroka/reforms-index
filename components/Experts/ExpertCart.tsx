@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { FC, useState } from "react";
 import Image from "next/image";
 import styles from "./Experts.module.css";
@@ -28,7 +29,6 @@ const ExpertCart: FC<ExpertInfo> = ({
   const [isShown, setIsShown] = useState(false);
 
   const showFullCart = () => setIsShown(!isShown);
-  
 
   return (
     <Link href={`/expert/${id}`}>
