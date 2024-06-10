@@ -12,7 +12,6 @@ import TabsComp from "./Tabs";
 import { useRouter } from "next/router";
 
 function Experts({ baseURL }) {
-
   const router = useRouter();
   const { locale, pathname } = router;
   const [status, setStatus] = useState(1);
@@ -79,7 +78,7 @@ function Experts({ baseURL }) {
           }
         })}
 
-      <div className="grid grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-8">
+      <div className="grid grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-8 mt-8">
         {data &&
           data.data.map((expert) => {
             return (
@@ -87,7 +86,7 @@ function Experts({ baseURL }) {
                 name={expert.name}
                 status={status}
                 id={expert.id}
-                company={expert.work}
+                company={expert.works}
                 img={expert.avatar}
                 position={expert.position}
                 info={expert.info}

@@ -36,14 +36,14 @@ const Navbar = ({ data }) => {
                   >
                     {item.name}
                   </Link>
-                  {item.value.includes(pathname) && pathname !== "/" && (
+                  {/* {item.value.includes(pathname) && pathname !== "/" && (
                     <motion.div
                       variants={variants}
                       initial="hidden"
                       animate="visible"
                       className="h-1 w-full bg-red-600"
                     />
-                  )}
+                  )} */}
                 </li>
               );
             } else if (item.children.length > 0) {

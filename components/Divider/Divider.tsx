@@ -25,12 +25,12 @@ const Divider: FC<divider> = ({
   return (
     <>
       {gray && (
-        <>
-          <h2 className="text-lg select-none mt-12 ml-1  text-gray-600 mb-1">
+        <div className="w-full text-center">
+          <h2 className="text-lg select-none mt-12 ml-1  text-red-600 mb-8 ">
             {heading}
           </h2>
-          <div className="h-[1px] mt-1 mb-10 w-full bg-gray-200" />
-        </>
+          {/* <div className="h-[1px] mt-1 mb-10 w-full bg-gray-200" /> */}
+        </div>
       )}
       {single && <div className="h-1 mt-3 mb-4 w-full bg-red-600" />}
       {openable && (

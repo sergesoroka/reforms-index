@@ -5,6 +5,8 @@ import HomeBarChart from "components/HomePageComps/HomeBarChart";
 import HomeExperts from "components/HomePageComps/HomeExperts";
 import HomePosts from "components/HomePageComps/HomePosts";
 import HomeText from "components/HomePageComps/HomeText";
+import HomeDescription from "components/HomePageComps/HomeDescription";
+import HomeCurrentIndex from "components/HomePageComps/HomeCurrentIndex";
 import Footer from "components/Footer/Footer";
 import Header from "components/Header/Header";
 import Head from "next/head";
@@ -60,6 +62,14 @@ function Home({ setting, metadata, baseURL }) {
       </Head>
       <Header data={setting} />
       <main className={styles.mainAbout}>
+        <HomeDescription />
+        <Divider
+          heading="Поточний Індекс"
+          gray={true}
+          openable={false}
+          single={false}
+        />
+        <HomeCurrentIndex />
         <Divider
           heading={setting && setting.data.hp_block_1_title}
           gray={true}
