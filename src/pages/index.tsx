@@ -69,7 +69,7 @@ function Home({ setting, metadata, baseURL }) {
           openable={false}
           single={false}
         />
-        <HomeCurrentIndex />
+        <HomeCurrentIndex baseURL={baseURL} />
         <Divider
           heading={setting && setting.data.hp_block_1_title}
           gray={true}

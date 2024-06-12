@@ -3,7 +3,7 @@ import Header from "components/Header/Header";
 import Footer from "components/Footer/Footer";
 import styles from "@/styles/Home.module.css";
 import { useRouter } from "next/router";
-import useSWR from "swr";
+
 import { fetcher } from "lib/fetcher";
 
 import ExpertProfile from "components/Experts/ExpertProfile";
