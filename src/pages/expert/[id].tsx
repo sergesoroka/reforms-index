@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { fetcher } from "lib/fetcher";
 
 import ExpertProfile from "components/Experts/ExpertProfile";
+import useSWR from "swr";
 
 export default function ExpertPage({ baseURL, setting }) {
   const router = useRouter();
