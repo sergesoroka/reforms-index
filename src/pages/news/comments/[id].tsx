@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
 import Divider from "components/Divider/Divider";
+import Link from "next/link";
 
 export default function Comments({ setting, baseURL }) {
   const router = useRouter();
@@ -46,7 +47,14 @@ export default function Comments({ setting, baseURL }) {
         <div className="flex items-center justify-between">
           <h1 className="px-2">{data && data.data.title}</h1>
           <p className="w-[400px] text-right text-red-600 text-sm whitespace-nowrap">
-            Раунд #{data && data.data.round}
+            <Link
+              href={data ? data.data.round_link : ""}
+              passHref
+              target="_blank"
+              // className="w-full"
+            >
+              Раунд #{data && data.data.round}
+            </Link>
           </p>
         </div>
         <Divider single={true} />

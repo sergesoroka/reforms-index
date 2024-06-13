@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Divider from "components/Divider/Divider";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Comment({ item }) {
   const [openChart, setOpenChart] = useState(false);
@@ -24,7 +25,14 @@ export default function Comment({ item }) {
             />
           </div>
           <p className="w-[400px] text-right text-red-600 text-sm whitespace-nowrap">
-            Раунд #{item && item.round_id}
+            <Link
+              href={item && item.round_link}
+              passHref
+              target="_blank"
+              // className="w-full"
+            >
+              Раунд #{item && item.round_id}
+            </Link>
           </p>
         </div>
       )}

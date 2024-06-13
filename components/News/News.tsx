@@ -1,4 +1,5 @@
 import Divider from "components/Divider/Divider";
+import Link from "next/link";
 
 export default function News({ data }) {
   const formattedDate = (date) => {
@@ -38,9 +39,16 @@ export default function News({ data }) {
           {data?.data.tag}
         </div>
         <div className="text-xs">
-          <span className="text-gray-500 uppercase font-bold">
-            Раунд {data?.data.round}
-          </span>
+          <Link
+            href={data ? data.data.round_link : ""}
+            passHref
+            target="_blank"
+            className="no-underline"
+          >
+            <span className="text-gray-500 uppercase font-bold">
+              Раунд {data?.data.round}
+            </span>
+          </Link>
         </div>
       </div>
       <h1 className="px-2">{data?.data.title}</h1>
