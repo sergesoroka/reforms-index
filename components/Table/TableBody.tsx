@@ -242,6 +242,14 @@ const TableBody = ({ tableData }) => {
                 );
               }
 
+              if (accessor == "code") {
+                return (
+                  <td key={accessor} className={styles.tableBodyCell}>
+                    <div>{row.code["401"]}</div>
+                  </td>
+                );
+              }
+
               if (accessor == "npa_links[0].doc_type") {
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
