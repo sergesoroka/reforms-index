@@ -243,9 +243,14 @@ const TableBody = ({ tableData }) => {
               }
 
               if (accessor == "code") {
+                console.log(Object.keys(row.code));
+
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
-                    <div>{row.code["401"]}</div>
+                    {Object.keys(row.code).map((item, i) => (
+                      <p key={i}>{item}</p>
+                    ))}
+                    {/* <div>{row.code["401"]}</div> */}
                   </td>
                 );
               }
