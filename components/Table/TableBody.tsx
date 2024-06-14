@@ -3,7 +3,7 @@ import columns from "./../../data/tableColumns.json";
 
 import Flag from "components/IconsComponents/Flag";
 import CommentsIcon from "components/IconsComponents/CommentsIcon";
-import a from "next/link";
+
 import Link from "next/link";
 
 const TableBody = ({ tableData }) => {
@@ -203,7 +203,7 @@ const TableBody = ({ tableData }) => {
               if (accessor == "grade_total") {
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
-                    <span className="text-lg">{row.grade_total}</span>
+                    <span className="text-orange-700">{row.grade_total}</span>
                   </td>
                 );
               }
@@ -222,9 +222,9 @@ const TableBody = ({ tableData }) => {
                         href={`https://reforms-index.vercel.app/news/comments/${row?.id}`}
                       >
                         <span className="flex gap-1">
-                          <CommentsIcon />
+                          {row.comments_count > 0 && "Коментарі:"}
                           <span className="text-red-600">
-                            {row.comments_count}
+                            {row.comments_count > 0 && row.comments_count}
                           </span>
                         </span>
                       </Link>
@@ -243,14 +243,17 @@ const TableBody = ({ tableData }) => {
               }
 
               if (accessor == "code") {
-                console.log(Object.keys(row.code));
-
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
                     {Object.keys(row.code).map((item, i) => (
-                      <p key={i}>{item}</p>
+                      <p
+                        className="cursor-pointer"
+                        key={i}
+                        title={row.code[item]}
+                      >
+                        {item}
+                      </p>
                     ))}
-                    {/* <div>{row.code["401"]}</div> */}
                   </td>
                 );
               }

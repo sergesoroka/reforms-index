@@ -20,7 +20,7 @@ export default function News({ data }) {
         <div key={i}>
           <div className="flex justify-between items-center text-xs px-2">
             <p className="font-semibold text-xs">{formattedDate(item.date)}</p>
-            <div className="flex items-center gap-2 text-red-700 uppercase font-bold">
+            <div className="flex items-center gap-2 text-red-700 text-[16px] font-medium">
               <span className="text-red-700">{item.source}</span>
             </div>
           </div>
