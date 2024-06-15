@@ -19,6 +19,7 @@ const TableBody = ({ tableData }) => {
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
                     <p>{row.id}</p>
+                    <div>{row.flag == 1 ? <Flag /> : null}</div>
 
                     <p className="text-[12px] text-gray-600 mt-1">{row.act}</p>
                   </td>
@@ -27,125 +28,12 @@ const TableBody = ({ tableData }) => {
 
               if (accessor == "npa_links[0].doc_type") {
                 return (
-                  <td key={accessor} className={styles.tableBodyCell}>
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                      href={
-                        row.npa_links[0]?.link ? row.npa_links[0]?.link : ""
-                      }
-                    >
-                      {row.npa_links[0]?.doc_type}
-                    </a>
-                    <p>
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                        href={
-                          row.npa_links[1]?.link ? row.npa_links[1]?.link : ""
-                        }
-                      >
-                        {row.npa_links[1]?.doc_type}
-                      </a>
-                    </p>
-                    <p>
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                        href={
-                          row.npa_links[2]?.link ? row.npa_links[1]?.link : ""
-                        }
-                      >
-                        {row.npa_links[2]?.doc_type}
-                      </a>
-                    </p>
-                    <p>
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                        href={
-                          row.npa_links[3]?.link ? row.npa_links[1]?.link : ""
-                        }
-                      >
-                        {row.npa_links[3]?.doc_type}
-                      </a>
-                    </p>
-                    <p>
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                        href={
-                          row.npa_links[4]?.link ? row.npa_links[1]?.link : ""
-                        }
-                      >
-                        {row.npa_links[4]?.doc_type}
-                      </a>
-                    </p>
-                    <p>
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                        href={
-                          row.npa_links[5]?.link ? row.npa_links[1]?.link : ""
-                        }
-                      >
-                        {row.npa_links[5]?.doc_type}
-                      </a>
-                    </p>
-                    <p>
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                        href={
-                          row.npa_links[6]?.link ? row.npa_links[1]?.link : ""
-                        }
-                      >
-                        {row.npa_links[6]?.doc_type}
-                      </a>
-                    </p>
-                    <p>
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                        href={
-                          row.npa_links[7]?.link ? row.npa_links[1]?.link : ""
-                        }
-                      >
-                        {row.npa_links[7]?.doc_type}
-                      </a>
-                    </p>
-                    <p>
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                        href={
-                          row.npa_links[8]?.link ? row.npa_links[1]?.link : ""
-                        }
-                      >
-                        {row.npa_links[8]?.doc_type}
-                      </a>
-                    </p>
-                    <p>
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        className="underline underline-offset-2 capitalize whitespace-nowrap hover:text-red-600"
-                        href={
-                          row.npa_links[9]?.link ? row.npa_links[1]?.link : ""
-                        }
-                      >
-                        {row.npa_links[9]?.doc_type}
-                      </a>
-                    </p>
+                  <td
+                    key={accessor}
+                    className={styles.tableBodyCell}
+                    style={{ textTransform: "capitalize" }}
+                  >
+                    {row.npa_links[0]?.doc_type}
                   </td>
                 );
               }
@@ -218,6 +106,17 @@ const TableBody = ({ tableData }) => {
                       >
                         <span>Новина</span>
                       </Link>
+                      {row.npa_links.map((item, i) => (
+                        <p key={item.id}>
+                          <Link href={item.link}>
+                            {row.npa_links.length == 1 &&
+                              row.npa_links.length !== 0 &&
+                              "Документ"}
+                            {row.npa_links.length > 1 && <span>Документ </span>}
+                            {row.npa_links.length > 1 && i + 1}
+                          </Link>
+                        </p>
+                      ))}
                       <Link
                         href={`https://reforms-index.vercel.app/news/comments/${row?.id}`}
                       >
@@ -237,7 +136,6 @@ const TableBody = ({ tableData }) => {
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
                     <p className="whitespace-nowrap">{row.date}</p>
-                    <div>{row.flag == 1 ? <Flag /> : null}</div>
                   </td>
                 );
               }

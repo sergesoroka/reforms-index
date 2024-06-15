@@ -19,6 +19,7 @@ const TableHead: FC = ({
       <tr>
         {columns.map(({ accessor, label, sortable }) => (
           <th
+            style={{ position: "sticky", top: 0 }}
             key={accessor}
             onClick={() => {
               // setResetSorting(false);

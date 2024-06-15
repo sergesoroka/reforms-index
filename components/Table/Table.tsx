@@ -96,7 +96,9 @@ const Table = ({ baseURL }) => {
           <Spiner />
         </div>
       ) : (
-        <table style={{ width: "100%", textAlign: "left" }}>
+        <table
+          style={{ width: "100%", textAlign: "left", position: "relative" }}
+        >
           <TableHead
             setSortField={setSortField}
             sortField={sortField}

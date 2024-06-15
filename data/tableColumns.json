@@ -5,6 +5,11 @@
     "sortable": true
   },
   {
+    "accessor": "date",
+    "label": "Дата",
+    "sortable": true
+  },
+  {
     "accessor": "npa_links[0].doc_type",
     "label": "Тип документу",
     "sortable": false
@@ -15,14 +20,14 @@
     "sortable": false
   },
   {
-    "accessor": "date",
-    "label": "Дата",
-    "sortable": true
+    "accessor": "title",
+    "label": "Назва",
+    "sortable": false
   },
   {
-    "accessor": "title",
-    "label": "Документ",
-    "sortable": false
+    "accessor": "grade_total",
+    "label": "Загальна оцінка",
+    "sortable": true
   },
   {
     "accessor": "grade1",
@@ -52,11 +57,6 @@
   {
     "accessor": "grade6",
     "label": "Людский капітал",
-    "sortable": true
-  },
-  {
-    "accessor": "grade_total",
-    "label": "Загальна оцінка iMoRe",
     "sortable": true
   },
   {
