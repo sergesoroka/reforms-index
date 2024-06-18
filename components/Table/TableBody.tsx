@@ -21,7 +21,7 @@ const TableBody = ({ tableData }) => {
                     <p>{row.id}</p>
                     <div>{row.flag == 1 ? <Flag /> : null}</div>
 
-                    <p className="text-[12px] text-gray-600 mt-1">{row.act}</p>
+                    {/* <p className="text-[12px] text-gray-600 mt-1">{row.act}</p> */}
                   </td>
                 );
               }

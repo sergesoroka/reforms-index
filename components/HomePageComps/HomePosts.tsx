@@ -5,6 +5,8 @@ import { fetcher } from "lib/fetcher";
 import Spiner from "components/Spiner";
 import { useRouter } from "next/router";
 
+import Carousel from "./Carousel";
+
 function HomePosts({ baseURL }) {
   const router = useRouter();
   const { locale } = router;
@@ -53,7 +55,8 @@ function HomePosts({ baseURL }) {
 
   return (
     <div className="lg:flex w-full lg:gap-8 xl:gap-10 2xl:gap-12 items-start justify-center mt-6">
-      {postsRender}
+      <Carousel data={data} />
+      {/* {postsRender} */}
     </div>
   );
 }

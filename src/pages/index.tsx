@@ -83,13 +83,13 @@ function Home({ setting, metadata, baseURL }) {
             Інтерактивний графік
           </Link> */}
         </div>
-        <Divider
+        {/* <Divider
           heading={setting && setting.data.hp_block_2_title}
           gray={true}
           openable={false}
           single={false}
-        />
-        <HomeExperts baseURL={baseURL} />
+        /> */}
+        {/* <HomeExperts baseURL={baseURL} /> */}
         <Divider
           heading={setting && setting.data.hp_block_3_title}
           gray={true}

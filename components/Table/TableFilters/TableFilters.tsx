@@ -11,6 +11,7 @@ import { fetcher } from "lib/fetcher";
 
 export default function TableFilters({ baseURL, setLabels, labels }) {
   const [openFilters, setOpenFilters] = useState(false);
+  const [tab, setTab] = useState("date");
 
   //   https://vox-imore.ra-devs.tech/api/filters/initiators
 
@@ -35,10 +36,52 @@ export default function TableFilters({ baseURL, setLabels, labels }) {
         setOpen={setOpenFilters}
       />
       {openFilters && (
-        <div>
+        <div className="flex flex-col justify-center items-center">
+          <ul className="flex items-center justify-center gap-6 mb-12 text-sm ">
+            <li
+              className={`cursor-pointer ${
+                tab == "date" ? "text-red-700" : "text-[#828282]"
+              }`}
+              onClick={() => setTab("date")}
+            >
+              Дата
+            </li>
+            <li
+              className={`cursor-pointer ${
+                tab == "type" ? "text-red-700" : "text-[#828282]"
+              }`}
+              onClick={() => setTab("type")}
+            >
+              Тип документа
+            </li>
+            <li
+              className={`cursor-pointer ${
+                tab == "initiator" ? "text-red-700" : "text-[#828282]"
+              }`}
+              onClick={() => setTab("initiator")}
+            >
+              Ініціатор
+            </li>
+            <li
+              className={`cursor-pointer ${
+                tab == "direction" ? "text-red-700" : "text-[#828282]"
+              }`}
+              onClick={() => setTab("direction")}
+            >
+              Напрямки
+            </li>
+          </ul>
+          {tab == "date" && <div>Дата</div>}
+          {tab == "type" && <div>Тип документа</div>}
+          {tab == "initiator" && (
+            <div>
+              <CustomSelect data={data} setLabels={setLabels} labels={labels} />
+            </div>
+          )}
+          {tab == "direction" && <div>Напрямки</div>}
           {/* <RadioButtons /> */}
           <Labels labels={labels} setLabels={setLabels} />
-          <CustomSelect data={data} setLabels={setLabels} labels={labels} />
+
           {/* <TableSelect setLabels={setLabels} labels={labels} /> */}
         </div>
       )}
