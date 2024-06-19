@@ -19,13 +19,21 @@ const Table = ({ baseURL }) => {
   const [ascOrder, setAscOrder] = useState(true);
 
   const [labels, setLabels] = useState([]);
+  const [docTypes, setDocTypes] = useState([]);
 
   const router = useRouter();
   const { locale, pathname } = router;
-  // %5B%5D
+  // %20 is space
+  // %22 is quotes
+  // %5B is '['
+  // and %5D is ']'
   // https://vox-imore.ra-devs.tech/api/news?initiators%5B%5D=1
-  const filterPath = labels
+  const filterInitiator = labels
     .map((item) => "&initiators%5B%5D=" + item.id)
+    .join("");
+
+  const filterDocType = docTypes
+    .map((item) => "&doctypes%5B%5D=" + item.id)
     .join("");
 
   let params = "";
@@ -48,7 +56,7 @@ const Table = ({ baseURL }) => {
   });
 
   const { data, isLoading } = useSWR(
-    `${baseURL}/api/news?${params}${filterPath}`,
+    `${baseURL}/api/news?${params}${filterInitiator}${filterDocType}`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -79,7 +87,13 @@ const Table = ({ baseURL }) => {
 
   return (
     <>
-      <TableFilters baseURL={baseURL} setLabels={setLabels} labels={labels} />
+      <TableFilters
+        baseURL={baseURL}
+        setLabels={setLabels}
+        labels={labels}
+        docTypes={docTypes}
+        setDocTypes={setDocTypes}
+      />
       <Divider gray={true} />
       <div className="flex justify-end">
         <p

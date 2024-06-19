@@ -18,7 +18,7 @@ const TableBody = ({ tableData }) => {
               if (accessor == "id") {
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
-                    <p>{row.id}</p>
+                    <div>{row.id}</div>
                     <div>{row.flag == 1 ? <Flag /> : null}</div>
 
                     {/* <p className="text-[12px] text-gray-600 mt-1">{row.act}</p> */}
@@ -100,7 +100,7 @@ const TableBody = ({ tableData }) => {
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
                     {row.title}
-                    <p className="flex gap-4 text-[11px] font-medium pt-2 text-gray-500">
+                    <div className="flex gap-4 text-[11px] font-medium pt-2 text-gray-500">
                       <Link
                         href={`https://reforms-index.vercel.app/news/${row?.id}`}
                       >
@@ -127,7 +127,7 @@ const TableBody = ({ tableData }) => {
                           </span>
                         </span>
                       </Link>
-                    </p>
+                    </div>
                   </td>
                 );
               }

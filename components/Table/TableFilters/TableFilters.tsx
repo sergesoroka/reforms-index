@@ -5,15 +5,24 @@ import TableSelect from "./Select";
 import CustomSelect from "./CustomSelect";
 import Labels from "./Labels";
 import RadioButtons from "./RadioButtons";
+import CheckBox from "./CheckBox";
 
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
+import DocTypeFilter from "./DocTypeFilter";
 
-export default function TableFilters({ baseURL, setLabels, labels }) {
+export default function TableFilters({
+  baseURL,
+  setLabels,
+  labels,
+  docTypes,
+  setDocTypes,
+}) {
   const [openFilters, setOpenFilters] = useState(false);
   const [tab, setTab] = useState("date");
 
   //   https://vox-imore.ra-devs.tech/api/filters/initiators
+  // https://vox-imore.ra-devs.tech/api/news?doctypes%5B%5D=1&doctypes%5B%5D=2&orders[q_num]=desc&orders[grade1]=asc
 
   const { data, isLoading } = useSWR(
     `${baseURL}/api/filters/initiators`,
@@ -71,14 +80,22 @@ export default function TableFilters({ baseURL, setLabels, labels }) {
               Напрямки
             </li>
           </ul>
-          {tab == "date" && <div>Дата</div>}
-          {tab == "type" && <div>Тип документа</div>}
-          {tab == "initiator" && (
+          {tab === "date" && <div>Дата</div>}
+          {tab === "type" && (
+            <div>
+              <DocTypeFilter
+                baseURL={baseURL}
+                docTypes={docTypes}
+                setDocTypes={setDocTypes}
+              />
+            </div>
+          )}
+          {tab === "initiator" && (
             <div>
               <CustomSelect data={data} setLabels={setLabels} labels={labels} />
             </div>
           )}
-          {tab == "direction" && <div>Напрямки</div>}
+          {tab === "direction" && <div>Напрямки</div>}
           {/* <RadioButtons /> */}
           <Labels labels={labels} setLabels={setLabels} />
 

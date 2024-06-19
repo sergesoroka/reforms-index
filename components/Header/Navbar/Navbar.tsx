@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Navbar.module.css";
-import { frameData, motion } from "framer-motion";
 
 const Navbar = ({ data }) => {
   const router = useRouter();

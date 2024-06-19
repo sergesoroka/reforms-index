@@ -62,7 +62,7 @@ export default function Carousel({ data }) {
                           passHref
                           target="_blank"
                         >
-                          <p className="mt-2 mb-6 text-red-600">
+                          <p className="mt-2 text-red-600">
                             {item.author_name}
                           </p>
                         </Link>
