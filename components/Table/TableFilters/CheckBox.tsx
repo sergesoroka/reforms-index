@@ -20,17 +20,19 @@ export default function CheckBox({ label, item, setDocTypes, docTypes }) {
         <Checkbox.Root
           checked={checked}
           onCheckedChange={setChecked}
-          className="shadow-blackA4 hover:bg-violet3 flex h-[20px] w-[20px] appearance-none items-center justify-center rounded-[4px] checked:bg-red-500 bg-gray-100 border-red-500 outline-red-500 focus:border-red-400"
-          defaultChecked
-          id="c1"
+          className={`${
+            checked && "border border-red-500"
+          } hover:bg-gray-100 border border-gray-300 flex h-[20px] w-[20px] appearance-none items-center justify-center rounded-[4px]  bg-white accent-border-red-500 outline-red-500 focus:border-red-400`}
+          // defaultChecked
+          id={item.id}
         >
-          <Checkbox.Indicator className="text-violet11">
+          <Checkbox.Indicator className="text-red-500">
             <CheckIcon />
           </Checkbox.Indicator>
         </Checkbox.Root>
         <label
-          className="pl-[10px] text-[15px] leading-none text-gray-400 select-none capitalize"
-          htmlFor="c1"
+          className="pl-[10px] text-[15px] leading-none text-gray-400 cursor-pointer select-none capitalize"
+          htmlFor={item.id}
         >
           {label}
         </label>
