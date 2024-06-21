@@ -17,7 +17,7 @@ export default function DocTypeFilter({ baseURL, docTypes, setDocTypes }) {
   );
 
   return (
-    <div className="flex gap-10">
+    <div className="flex gap-6 items-center">
       {data &&
         data.data.map((item) => (
           <CheckBox

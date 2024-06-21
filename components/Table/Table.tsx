@@ -20,6 +20,10 @@ const Table = ({ baseURL }) => {
 
   const [labels, setLabels] = useState([]);
   const [docTypes, setDocTypes] = useState([]);
+  const [directions, setDirections] = useState([]);
+  const [initiators, setInitiators] = useState([]);
+
+  console.log(directions);
 
   const router = useRouter();
   const { locale, pathname } = router;
@@ -28,7 +32,7 @@ const Table = ({ baseURL }) => {
   // %5B is '['
   // and %5D is ']'
   // https://vox-imore.ra-devs.tech/api/news?initiators%5B%5D=1
-  const filterInitiator = labels
+  const filterInitiator = initiators
     .map((item) => "&initiators%5B%5D=" + item.id)
     .join("");
 
@@ -93,6 +97,10 @@ const Table = ({ baseURL }) => {
         labels={labels}
         docTypes={docTypes}
         setDocTypes={setDocTypes}
+        directions={directions}
+        setDirections={setDirections}
+        initiators={initiators}
+        setInitiators={setInitiators}
       />
       <Divider gray={true} />
       <div className="flex justify-end">

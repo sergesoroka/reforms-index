@@ -31,7 +31,7 @@ export default function CheckBox({ label, item, setDocTypes, docTypes }) {
           </Checkbox.Indicator>
         </Checkbox.Root>
         <label
-          className="pl-[10px] text-[15px] leading-none text-gray-400 cursor-pointer select-none capitalize"
+          className="pl-[10px] text-[15px]  text-gray-600 cursor-pointer select-none leading-6"
           htmlFor={item.id}
         >
           {label}

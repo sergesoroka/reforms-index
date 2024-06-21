@@ -10,6 +10,8 @@ import CheckBox from "./CheckBox";
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
 import DocTypeFilter from "./DocTypeFilter";
+import DirectionsFilter from "./DirectionsFilter";
+import InitiatorsFilter from "./InitiatorsFilter";
 
 export default function TableFilters({
   baseURL,
@@ -17,6 +19,10 @@ export default function TableFilters({
   labels,
   docTypes,
   setDocTypes,
+  directions,
+  setDirections,
+  initiators,
+  setInitiators,
 }) {
   const [openFilters, setOpenFilters] = useState(false);
   const [tab, setTab] = useState("date");
@@ -45,11 +51,13 @@ export default function TableFilters({
         setOpen={setOpenFilters}
       />
       {openFilters && (
-        <div className="flex flex-col justify-center items-center">
-          <ul className="flex items-center justify-center gap-6 mb-12 text-sm ">
+        <div className="flex flex-col justify-center items-start ">
+          <ul className="flex items-center justify-center gap-6 text-sm ">
             <li
-              className={`cursor-pointer ${
-                tab == "date" ? "text-red-700" : "text-[#828282]"
+              className={`cursor-pointer  ${
+                tab == "date"
+                  ? "text-red-700 bg-gray-100 px-2 py-2 rounded-t-md"
+                  : "text-[#828282]"
               }`}
               onClick={() => setTab("date")}
             >
@@ -57,7 +65,9 @@ export default function TableFilters({
             </li>
             <li
               className={`cursor-pointer ${
-                tab == "type" ? "text-red-700" : "text-[#828282]"
+                tab == "type"
+                  ? "text-red-700 bg-gray-100 px-2 py-2 rounded-t-md"
+                  : "text-[#828282]"
               }`}
               onClick={() => setTab("type")}
             >
@@ -65,7 +75,9 @@ export default function TableFilters({
             </li>
             <li
               className={`cursor-pointer ${
-                tab == "initiator" ? "text-red-700" : "text-[#828282]"
+                tab == "initiator"
+                  ? "text-red-700 bg-gray-100 px-2 py-2 rounded-t-md"
+                  : "text-[#828282]"
               }`}
               onClick={() => setTab("initiator")}
             >
@@ -73,16 +85,20 @@ export default function TableFilters({
             </li>
             <li
               className={`cursor-pointer ${
-                tab == "direction" ? "text-red-700" : "text-[#828282]"
+                tab == "direction"
+                  ? "text-red-700 bg-gray-100 px-2 py-2 rounded-t-md"
+                  : "text-[#828282]"
               }`}
               onClick={() => setTab("direction")}
             >
               Напрямки
             </li>
           </ul>
-          {tab === "date" && <div>Дата</div>}
+          {tab === "date" && (
+            <div className="w-full bg-gray-100 py-4 px-8 rounded-md">Дата</div>
+          )}
           {tab === "type" && (
-            <div>
+            <div className="w-full bg-gray-100 py-4 px-8 rounded-md capitalize">
               <DocTypeFilter
                 baseURL={baseURL}
                 docTypes={docTypes}
@@ -91,11 +107,24 @@ export default function TableFilters({
             </div>
           )}
           {tab === "initiator" && (
-            <div>
-              <CustomSelect data={data} setLabels={setLabels} labels={labels} />
+            <div className="w-full bg-gray-100 py-4 px-8 rounded-md">
+              {/* <CustomSelect data={data} setLabels={setLabels} labels={labels} /> */}
+              <InitiatorsFilter
+                baseURL={baseURL}
+                setInitiators={setInitiators}
+                initiators={initiators}
+              />
             </div>
           )}
-          {tab === "direction" && <div>Напрямки</div>}
+          {tab === "direction" && (
+            <div className="w-full bg-gray-100 py-4 px-8 rounded-md">
+              <DirectionsFilter
+                baseURL={baseURL}
+                directions={directions}
+                setDirections={setDirections}
+              />
+            </div>
+          )}
           {/* <RadioButtons /> */}
           <Labels labels={labels} setLabels={setLabels} />
 
