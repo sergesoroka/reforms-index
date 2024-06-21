@@ -4,14 +4,20 @@ import { CheckIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 
 export default function CheckBox({ label, item, setDocTypes, docTypes }) {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(() =>
+    docTypes.includes(item) ? true : false
+  );
 
   if (checked && !docTypes.includes(item)) {
     setDocTypes([...docTypes, item]);
   }
 
   if (!checked && docTypes.includes(item)) {
-    setDocTypes(docTypes.filter((type) => type.id !== item.id));
+    setDocTypes(
+      docTypes.filter(
+        (type) => type.id !== item.id && item.sub_directions.length < 0
+      )
+    );
   }
 
   return (

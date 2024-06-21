@@ -23,8 +23,6 @@ const Table = ({ baseURL }) => {
   const [directions, setDirections] = useState([]);
   const [initiators, setInitiators] = useState([]);
 
-  console.log(directions);
-
   const router = useRouter();
   const { locale, pathname } = router;
   // %20 is space
@@ -32,6 +30,11 @@ const Table = ({ baseURL }) => {
   // %5B is '['
   // and %5D is ']'
   // https://vox-imore.ra-devs.tech/api/news?initiators%5B%5D=1
+
+  const filterDirections = directions
+    .map((item) => "&directions%5B%5D=" + item.id)
+    .join("");
+
   const filterInitiator = initiators
     .map((item) => "&initiators%5B%5D=" + item.id)
     .join("");
@@ -60,7 +63,7 @@ const Table = ({ baseURL }) => {
   });
 
   const { data, isLoading } = useSWR(
-    `${baseURL}/api/news?${params}${filterInitiator}${filterDocType}`,
+    `${baseURL}/api/news?${params}${filterInitiator}${filterDocType}${filterDirections}`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -102,7 +105,7 @@ const Table = ({ baseURL }) => {
         initiators={initiators}
         setInitiators={setInitiators}
       />
-      <Divider gray={true} />
+      {/* <Divider gray={true} /> */}
       <div className="flex justify-end">
         <p
           onClick={() => setSortField([])}

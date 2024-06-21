@@ -51,7 +51,7 @@ export default function TableFilters({
         setOpen={setOpenFilters}
       />
       {openFilters && (
-        <div className="flex flex-col justify-center items-start ">
+        <div className="flex flex-col justify-center">
           <ul className="flex items-center justify-center gap-6 text-sm ">
             <li
               className={`cursor-pointer  ${
