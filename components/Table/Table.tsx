@@ -19,9 +19,12 @@ const Table = ({ baseURL }) => {
   const [ascOrder, setAscOrder] = useState(true);
 
   const [labels, setLabels] = useState([]);
+  const [dates, setDates] = useState([]);
   const [docTypes, setDocTypes] = useState([]);
   const [directions, setDirections] = useState([]);
   const [initiators, setInitiators] = useState([]);
+
+  console.log("Table", dates);
 
   const router = useRouter();
   const { locale, pathname } = router;
@@ -30,6 +33,8 @@ const Table = ({ baseURL }) => {
   // %5B is '['
   // and %5D is ']'
   // https://vox-imore.ra-devs.tech/api/news?initiators%5B%5D=1
+
+  const filterDates = dates.map((item) => "&dates%5B%5D=" + item).join("");
 
   const filterDirections = directions
     .map((item) => "&directions%5B%5D=" + item.id)
@@ -63,7 +68,7 @@ const Table = ({ baseURL }) => {
   });
 
   const { data, isLoading } = useSWR(
-    `${baseURL}/api/news?${params}${filterInitiator}${filterDocType}${filterDirections}`,
+    `${baseURL}/api/news?${params}${filterInitiator}${filterDocType}${filterDirections}${filterDates}`,
     fetcher,
     {
       revalidateIfStale: false,
@@ -104,6 +109,8 @@ const Table = ({ baseURL }) => {
         setDirections={setDirections}
         initiators={initiators}
         setInitiators={setInitiators}
+        setDates={setDates}
+        dates={dates}
       />
       {/* <Divider gray={true} /> */}
       <div className="flex justify-end">

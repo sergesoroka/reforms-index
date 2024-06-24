@@ -22,7 +22,6 @@ export default function InitiatorsFilter({
   );
 
   const alphabet = ["М", "П", "К", "В", "Н", "Ф", "Д", "А"];
-  console.log(alphabet.sort());
 
   return (
     <div>

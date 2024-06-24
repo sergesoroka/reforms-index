@@ -9,6 +9,7 @@ import CheckBox from "./CheckBox";
 
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
+import DateFilter from "./DateFilter";
 import DocTypeFilter from "./DocTypeFilter";
 import DirectionsFilter from "./DirectionsFilter";
 import InitiatorsFilter from "./InitiatorsFilter";
@@ -23,6 +24,8 @@ export default function TableFilters({
   setDirections,
   initiators,
   setInitiators,
+  dates,
+  setDates,
 }) {
   const [openFilters, setOpenFilters] = useState(false);
   const [tab, setTab] = useState("date");
@@ -95,7 +98,9 @@ export default function TableFilters({
             </li>
           </ul>
           {tab === "date" && (
-            <div className="w-full bg-gray-100 py-4 px-8 rounded-md">Дата</div>
+            <div className="w-full bg-gray-100 py-4 px-8 rounded-md">
+              <DateFilter baseURL={baseURL} dates={dates} setDates={setDates} />
+            </div>
           )}
           {tab === "type" && (
             <div className="w-full bg-gray-100 py-4 px-8 rounded-md capitalize">
