@@ -29,6 +29,8 @@ export default function TableFilters({
 }) {
   const [openFilters, setOpenFilters] = useState(false);
   const [tab, setTab] = useState("date");
+  const [resetFilters, setResetFilters] = useState(false);
+  const [showInitiatorSearch, setShowInitiatorSearch] = useState(true);
 
   //   https://vox-imore.ra-devs.tech/api/filters/initiators
   // https://vox-imore.ra-devs.tech/api/news?doctypes%5B%5D=1&doctypes%5B%5D=2&orders[q_num]=desc&orders[grade1]=asc
@@ -54,7 +56,19 @@ export default function TableFilters({
         setOpen={setOpenFilters}
       />
       {openFilters && (
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center items-center">
+          <button
+            onClick={() => {
+              setInitiators([]);
+              setDates([]);
+              setDirections([]);
+              setDocTypes([]);
+            }}
+            className="border border-gray-300 hover:border-gray-600 rounded-full text-xs text-gray-400 hover:text-gray-600 w-32 py-1 px-2"
+          >
+            Скинути фільтри
+          </button>
+          <Labels labels={labels} setLabels={setLabels} />
           <ul className="flex items-center justify-center gap-6 text-sm ">
             <li
               className={`cursor-pointer  ${
@@ -99,7 +113,14 @@ export default function TableFilters({
           </ul>
           {tab === "date" && (
             <div className="w-full bg-gray-100 py-4 px-8 rounded-md">
-              <DateFilter baseURL={baseURL} dates={dates} setDates={setDates} />
+              <DateFilter
+                baseURL={baseURL}
+                dates={dates}
+                setDates={setDates}
+                setLabels={setLabels}
+                resetFilters={resetFilters}
+                setResetFilters={setResetFilters}
+              />
             </div>
           )}
           {tab === "type" && (
@@ -108,18 +129,46 @@ export default function TableFilters({
                 baseURL={baseURL}
                 docTypes={docTypes}
                 setDocTypes={setDocTypes}
+                setLabels={setLabels}
               />
             </div>
           )}
           {tab === "initiator" && (
-            <div className="w-full bg-gray-100 py-4 px-8 rounded-md">
-              {/* <CustomSelect data={data} setLabels={setLabels} labels={labels} /> */}
-              <InitiatorsFilter
-                baseURL={baseURL}
-                setInitiators={setInitiators}
-                initiators={initiators}
-              />
-            </div>
+            <>
+              {showInitiatorSearch && (
+                <div
+                  className=" bg-gray-100 px-8 py-6 rounded-md"
+                  style={{ width: "fit-content" }}
+                >
+                  <CustomSelect
+                    data={data}
+                    setLabels={setInitiators}
+                    labels={initiators}
+                  />
+                  <p
+                    onClick={() => setShowInitiatorSearch(false)}
+                    className="text-sm text-gray-400 mt-2  hover:text-red-500 cursor-pointer"
+                  >
+                    Алфавітний показник
+                  </p>
+                </div>
+              )}
+              {!showInitiatorSearch && (
+                <div className="w-full bg-gray-100 px-8 py-6 rounded-md">
+                  <p
+                    onClick={() => setShowInitiatorSearch(true)}
+                    className="text-sm text-gray-400 my-2  hover:text-red-500 cursor-pointer"
+                  >
+                    Повернутись до пошуку
+                  </p>
+                  <InitiatorsFilter
+                    baseURL={baseURL}
+                    setInitiators={setInitiators}
+                    initiators={initiators}
+                  />
+                </div>
+              )}
+            </>
           )}
           {tab === "direction" && (
             <div className="w-full bg-gray-100 py-4 px-8 rounded-md">
@@ -131,7 +180,6 @@ export default function TableFilters({
             </div>
           )}
           {/* <RadioButtons /> */}
-          <Labels labels={labels} setLabels={setLabels} />
 
           {/* <TableSelect setLabels={setLabels} labels={labels} /> */}
         </div>

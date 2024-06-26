@@ -5,7 +5,12 @@ import CheckBox from "./CheckBox";
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
 
-export default function DocTypeFilter({ baseURL, docTypes, setDocTypes }) {
+export default function DocTypeFilter({
+  baseURL,
+  docTypes,
+  setDocTypes,
+  setLabels,
+}) {
   const { data, isLoading } = useSWR(
     `${baseURL}/api/filters/doctypes`,
     fetcher,
@@ -22,7 +27,7 @@ export default function DocTypeFilter({ baseURL, docTypes, setDocTypes }) {
         data.data.map((item) => (
           <CheckBox
             key={item.id}
-            onClick={() => handleSelectChange(item)}
+            onClick={() => setLabels(item.title)}
             label={item.type}
             item={item}
             docTypes={docTypes}

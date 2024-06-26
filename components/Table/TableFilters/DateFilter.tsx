@@ -1,6 +1,7 @@
 // @ts-nocheck
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CheckBox from "./CheckBox";
+import CheckBoxComp from "./CheckBoxComp";
 
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
@@ -20,16 +21,23 @@ const monthNames = [
   { name: "грудень", number: "12" },
 ];
 
-export default function DateFilter({ baseURL, dates, setDates }) {
-  const [year, setYear] = useState("");
+export default function DateFilter({
+  baseURL,
+  dates,
+  setDates,
+  setLabels,
+  setResetFilters,
+  resetFilters,
+}) {
   const { data, isLoading } = useSWR(`${baseURL}/api/filters/dates`, fetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
   });
 
+  const [values, setValues] = useState([]);
+
   const years = [];
-  console.log(dates);
   return (
     <div>
       <div className="space-y-2">
@@ -37,60 +45,22 @@ export default function DateFilter({ baseURL, dates, setDates }) {
           Object.keys(data.data).map((item, i) => {
             if (!years.includes(item.slice(0, 4))) {
               years.push(item.slice(0, 4));
+
               return (
                 <div
                   key={item.id}
-                  className="flex items-center justify-start gap-6"
+                  className="flex items-center justify-start gap-6 cursor-pointer"
                 >
-                  <CheckBox
-                    onClick={() => setYear(item.slice(0, 4))}
-                    label={item.slice(0, 4)}
+                  <CheckBoxComp
                     item={item}
-                    docTypes={dates}
-                    setDocTypes={setDates}
+                    label={item.slice(0, 4)}
+                    values={dates}
+                    setValues={setDates}
                   />
 
                   <div className="flex justify-start items-center gap-4">
-                    {monthNames.map((m, y) => {
-                      let newDate = item.slice(0, 4) + "-" + m.number;
-                      if (dates.includes(item)) {
-                        return (
-                          <p
-                            onClick={() => {
-                              if (!dates.includes(newDate)) {
-                                setDates([...dates, newDate]);
-                              } else {
-                                setDates(dates.filter((d) => d !== newDate));
-                              }
-                            }}
-                            className={`cursor-pointer capitalize text-gray-400 ${
-                              dates.includes(newDate) && "text-red-500"
-                            }`}
-                            key={y}
-                          >
-                            {m.name}
-                          </p>
-                        );
-                      }
-                    })}
                     {/* {data &&
-                      Object.keys(data.data).map((month, y) => {
-                        if (
-                          dates.includes(month) &&
-                          month.slice(0, 4) == item.slice(0, 4)
-                        ) {
-                          //       dates.push(month);
-                          return (
-                            <p
-                              onClick={() => console.log("rr")}
-                              className="cursor-poiner capitalize text-gray-400"
-                              key={y}
-                            >
-                              {monthNames[month.slice(5, 7)]}
-                            </p>
-                          );
-                        }
-                      })} */}
+                      Object.keys(data.data).map((v, y) => <p key={y}>{v}</p>)} */}
                   </div>
                 </div>
               );

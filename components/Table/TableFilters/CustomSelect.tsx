@@ -30,13 +30,13 @@ export default function CustomSelect({ data, setLabels, labels }) {
       <div>
         <p
           onClick={() => setOpen(!open)}
-          className="flex rounded-sm cursor-pointer items-center justify-between text-[14px] text-slate-500 border-b-2 border-slate-500"
+          className="flex rounded-sm cursor-pointer items-center justify-between text-[14px] text-slate-500"
         >
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Пошук по ініціаторах"
-            className="w-full pt-3 pb-2 px-4 outline-none "
+            className="w-full pt-2 pb-2 px-4 outline-none border-none rounded-full"
           />
 
           <span>

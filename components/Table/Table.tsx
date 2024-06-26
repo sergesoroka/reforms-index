@@ -23,8 +23,7 @@ const Table = ({ baseURL }) => {
   const [docTypes, setDocTypes] = useState([]);
   const [directions, setDirections] = useState([]);
   const [initiators, setInitiators] = useState([]);
-
-  console.log("Table", dates);
+  console.log(initiators);
 
   const router = useRouter();
   const { locale, pathname } = router;
