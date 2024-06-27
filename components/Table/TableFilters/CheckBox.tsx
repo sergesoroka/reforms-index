@@ -26,7 +26,7 @@ export default function CheckBox({
   if (!checked && docTypes.includes(item)) {
     setDocTypes(
       docTypes.filter(
-        (type) => type.id !== item.id && item?.sub_directions.length < 0
+        (type) => type.id !== item.id && item?.sub_directions?.length < 0
       )
     );
   }
@@ -38,7 +38,7 @@ export default function CheckBox({
           checked={checked}
           onCheckedChange={setChecked}
           className={`${
-            checked && "border border-red-500"
+            checked && "border border-red-500 h-[16px] w-[16px]"
           } hover:bg-gray-100 border border-gray-300 flex h-[16px] w-[16px] appearance-none items-center justify-center rounded-[4px]  bg-white accent-border-red-500 outline-red-500 focus:border-red-400`}
           // defaultChecked
           id={item.id}
@@ -48,7 +48,7 @@ export default function CheckBox({
           </Checkbox.Indicator>
         </Checkbox.Root>
         <label
-          className="w-full pl-[10px] text-[15px]  text-gray-600 cursor-pointer select-none leading-6"
+          className="pl-[10px] text-[15px]  text-gray-600 cursor-pointer select-none leading-6"
           htmlFor={item.id}
         >
           {label}
