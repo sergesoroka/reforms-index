@@ -6,20 +6,20 @@ import CheckBoxComp from "./CheckBoxComp";
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
 
-const monthNames = [
-  { name: "Січень", number: "01" },
-  { name: "лютий", number: "02" },
-  { name: "березень", number: "03" },
-  { name: "квітень", number: "04" },
-  { name: "травень", number: "05" },
-  { name: "червень", number: "06" },
-  { name: "липень", number: "07" },
-  { name: "серпень", number: "08" },
-  { name: "вересень", number: "09" },
-  { name: "жовтень", number: "10" },
-  { name: "листопад", number: "11" },
-  { name: "грудень", number: "12" },
-];
+const monthNames = {
+  "01": "Січень",
+  "02": "лютий",
+  "03": "березень",
+  "04": "квітень",
+  "05": "травень",
+  "06": "червень",
+  "07": "липень",
+  "08": "серпень",
+  "09": "вересень",
+  "10": "жовтень",
+  "11": "листопад",
+  "12": "грудень",
+};
 
 export default function DateFilter({
   baseURL,
@@ -38,29 +38,46 @@ export default function DateFilter({
   const [values, setValues] = useState([]);
 
   const years = [];
+  const months = [];
   return (
     <div>
       <div className="space-y-2">
         {data &&
-          Object.keys(data.data).map((item, i) => {
-            if (!years.includes(item.slice(0, 4))) {
-              years.push(item.slice(0, 4));
+          data.data.map((item, i) => {
+            if (!years.includes(item.date.slice(0, 4))) {
+              years.push(item.date.slice(0, 4));
 
               return (
                 <div
                   key={item.id}
-                  className="flex items-center justify-start gap-6 cursor-pointer"
+                  className="flex items-center justify-start gap-6 "
                 >
                   <CheckBoxComp
-                    item={item}
-                    label={item.slice(0, 4)}
+                    item={item.date}
+                    label={item.date.slice(0, 4)}
                     values={dates}
                     setValues={setDates}
                   />
 
                   <div className="flex justify-start items-center gap-4">
-                    {/* {data &&
-                      Object.keys(data.data).map((v, y) => <p key={y}>{v}</p>)} */}
+                    {data &&
+                      data.data.map((v, y) => {
+                        console.log(v.date);
+                        if (item.date.slice(0, 4) == v.date.slice(0, 4)) {
+                          return (
+                            <p
+                              key={y}
+                              className={`${
+                                v.status == "empty"
+                                  ? "text-gray-300"
+                                  : "text-gray-600 cursor-pointer hover:text-red-600"
+                              } capitalize`}
+                            >
+                              {monthNames[v.date.slice(5, 7)]}
+                            </p>
+                          );
+                        }
+                      })}
                   </div>
                 </div>
               );

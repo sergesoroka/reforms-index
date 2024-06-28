@@ -11,10 +11,14 @@ export default function CustomSelect({ data, setLabels, labels }) {
     () =>
       setFiltered(
         data &&
-          data.data.filter((item) =>
-            item.short_name
-              .toLocaleLowerCase()
-              .includes(search.toLocaleLowerCase())
+          data.data.filter(
+            (item) =>
+              item.name
+                .toLocaleLowerCase()
+                .includes(search.toLocaleLowerCase()) ||
+              item.short_name
+                .toLocaleLowerCase()
+                .includes(search.toLocaleLowerCase())
           )
       ),
     [search, data]
@@ -26,11 +30,11 @@ export default function CustomSelect({ data, setLabels, labels }) {
     }
   };
   return (
-    <section className="w-[14rem] mb-4 ">
+    <section className="w-[20rem] mb-4 ">
       <div>
         <p
           onClick={() => setOpen(!open)}
-          className="flex rounded-sm cursor-pointer items-center justify-between text-[14px] text-slate-500"
+          className="flex rounded-sm cursor-pointer items-center justify-between gap-3 text-[14px] text-slate-500"
         >
           <input
             value={search}
@@ -39,13 +43,11 @@ export default function CustomSelect({ data, setLabels, labels }) {
             className="w-full pt-2 pb-2 px-4 outline-none border-none rounded-full"
           />
 
-          <span>
-            {search && (
-              <div onClick={() => setSearch("")}>
-                <CloseIconGrey />
-              </div>
-            )}
-          </span>
+          {search && (
+            <div onClick={() => setSearch("")}>
+              <CloseIconGrey />
+            </div>
+          )}
         </p>
         {open && (
           <div>
@@ -61,7 +63,7 @@ export default function CustomSelect({ data, setLabels, labels }) {
                     onClick={() => handleSelectChange(item)}
                     className="cust text-[14px] text-slate-500 cursor-pointer select-none px-4 py-2 hover:bg-slate-100"
                   >
-                    {item.short_name}
+                    {item.name + " (" + item.short_name + ")"}
                   </p>
                 ))}
             </div>
