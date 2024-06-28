@@ -3,16 +3,31 @@ import * as Checkbox from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 
-export default function CheckBoxComp({ label, item, values, setValues }) {
+export default function CheckBoxComp({
+  label,
+  item,
+  values,
+  setValues,
+  setSelected,
+  selected,
+}) {
   const [checked, setChecked] = useState(() =>
     values.includes(item) ? true : false
   );
 
-  checked && !values.includes(item) && values.push(item);
+  if (
+    checked &&
+    // !values.includes(item) &&
+    !selected.includes(item.slice(0, 4))
+  ) {
+    // values.push(item);
+    setSelected([...selected, item.slice(0, 4)]);
+  }
+
   if (!checked && values.includes(item)) {
     setValues(values.filter((v) => v !== item));
+    setSelected(selected.filter((v) => v !== item.slice(0, 4)));
   }
-  console.log(values);
 
   return (
     <form>

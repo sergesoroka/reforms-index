@@ -1,10 +1,9 @@
 // @ts-nocheck
-import React, { useState, useEffect } from "react";
-import CheckBox from "./CheckBox";
+import { useEffect, useState } from "react";
 import CheckBoxComp from "./CheckBoxComp";
 
-import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
+import useSWR from "swr";
 
 const monthNames = {
   "01": "Січень",
@@ -35,10 +34,27 @@ export default function DateFilter({
     revalidateOnReconnect: false,
   });
 
-  const [values, setValues] = useState([]);
+  const [selected, setSelected] = useState([]);
+
+  useEffect(() => {
+    data &&
+      data.data.map((item) => {
+        if (
+          !dates.includes(item.date) &&
+          selected.includes(item.date.slice(0, 4))
+        ) {
+          // setDates([...dates, item.date]);
+          dates.push(item.date);
+        }
+        if (!selected.includes(item.date.slice(0, 4)))
+          setDates(dates.filter((d) => d !== item.date));
+
+        if (selected.length < 1) setDates([]);
+      });
+  }, [selected]);
 
   const years = [];
-  const months = [];
+
   return (
     <div>
       <div className="space-y-2">
@@ -48,30 +64,38 @@ export default function DateFilter({
               years.push(item.date.slice(0, 4));
 
               return (
-                <div
-                  key={item.id}
-                  className="flex items-center justify-start gap-6 "
-                >
+                <div key={i} className="flex items-center justify-start gap-6 ">
                   <CheckBoxComp
                     item={item.date}
                     label={item.date.slice(0, 4)}
                     values={dates}
                     setValues={setDates}
+                    setSelected={setSelected}
+                    selected={selected}
                   />
 
                   <div className="flex justify-start items-center gap-4">
                     {data &&
                       data.data.map((v, y) => {
-                        console.log(v.date);
-                        if (item.date.slice(0, 4) == v.date.slice(0, 4)) {
+                        if (
+                          item.date.slice(0, 4) == v.date.slice(0, 4) &&
+                          selected.includes(v.date.slice(0, 4))
+                        ) {
                           return (
                             <p
+                              onClick={() => {
+                                setDates(dates.filter((d) => d !== v.date));
+                              }}
                               key={y}
                               className={`${
                                 v.status == "empty"
                                   ? "text-gray-300"
-                                  : "text-gray-600 cursor-pointer hover:text-red-600"
-                              } capitalize`}
+                                  : "text-gray-500 cursor-pointer hover:text-gray-700"
+                              } capitalize select-none ${
+                                dates.includes(v.date) &&
+                                v.status !== "empty" &&
+                                "text-red-600"
+                              }`}
                             >
                               {monthNames[v.date.slice(5, 7)]}
                             </p>

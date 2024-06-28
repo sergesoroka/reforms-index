@@ -1,14 +1,13 @@
 // @ts-nocheck
-import { useEffect, useState } from "react";
-import TableBody from "./TableBody";
-import TableHead from "./TableHead";
-import rows from "./../../data/tableRows.json";
-import Divider from "components/Divider/Divider";
 import Spiner from "components/Spiner";
-import TableFilters from "./TableFilters/TableFilters";
 import { fetcher } from "lib/fetcher";
-import useSWR from "swr";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import useSWR from "swr";
+import rows from "./../../data/tableRows.json";
+import TableBody from "./TableBody";
+import TableFilters from "./TableFilters/TableFilters";
+import TableHead from "./TableHead";
 
 const Table = ({ baseURL }) => {
   const [tableData, setTableData] = useState(rows);
@@ -23,7 +22,6 @@ const Table = ({ baseURL }) => {
   const [docTypes, setDocTypes] = useState([]);
   const [directions, setDirections] = useState([]);
   const [initiators, setInitiators] = useState([]);
-  console.log(initiators);
 
   const router = useRouter();
   const { locale, pathname } = router;
