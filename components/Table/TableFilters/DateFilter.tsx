@@ -41,7 +41,8 @@ export default function DateFilter({
       data.data.map((item) => {
         if (
           !dates.includes(item.date) &&
-          selected.includes(item.date.slice(0, 4))
+          selected.includes(item.date.slice(0, 4)) &&
+          item.status !== "empty"
         ) {
           // setDates([...dates, item.date]);
           dates.push(item.date);
@@ -84,7 +85,14 @@ export default function DateFilter({
                           return (
                             <p
                               onClick={() => {
-                                setDates(dates.filter((d) => d !== v.date));
+                                if (
+                                  !dates.includes(v.date) &&
+                                  v.status !== "empty"
+                                ) {
+                                  setDates([...dates, v.date]);
+                                } else {
+                                  setDates(dates.filter((d) => d !== v.date));
+                                }
                               }}
                               key={y}
                               className={`${

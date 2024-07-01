@@ -23,6 +23,8 @@ const Table = ({ baseURL }) => {
   const [directions, setDirections] = useState([]);
   const [initiators, setInitiators] = useState([]);
 
+  console.log(dates);
+
   const router = useRouter();
   const { locale, pathname } = router;
   // %20 is space
