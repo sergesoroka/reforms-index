@@ -1,27 +1,27 @@
 // @ts-nocheck
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function CheckBoxComp({
+export default function CheckBox({
   label,
   item,
-  values,
-  setValues,
-  setSelected,
-  selected,
+  setDocTypes,
+  docTypes,
+  setResetFilters,
+  resetFilters,
 }) {
   const [checked, setChecked] = useState(() =>
-    values.includes(item) ? true : false
+    docTypes.includes(item) ? true : false
   );
 
-  if (checked && !selected.includes(item.slice(0, 4))) {
-    setSelected([...selected, item.slice(0, 4)]);
+  if (checked && !docTypes.includes(item.id)) {
+    setDocTypes([...docTypes, item.id]);
+    item.sub_directions.map((d) => docTypes.push(d.id));
   }
 
-  if (!checked && selected.includes(item.slice(0, 4))) {
-    setValues(values.filter((v) => v !== item));
-    setSelected(selected.filter((v) => v !== item.slice(0, 4)));
+  if (!checked && docTypes.includes(item.id)) {
+    setDocTypes(docTypes.filter((d) => d !== item.id));
   }
 
   return (
@@ -31,18 +31,18 @@ export default function CheckBoxComp({
           checked={checked}
           onCheckedChange={setChecked}
           className={`${
-            checked && "border border-red-500"
+            checked && "border border-red-500 h-[16px] w-[16px]"
           } hover:bg-gray-100 border border-gray-300 flex h-[16px] w-[16px] appearance-none items-center justify-center rounded-[4px]  bg-white accent-border-red-500 outline-red-500 focus:border-red-400`}
           // defaultChecked
-          id={label}
+          id={item.id}
         >
           <Checkbox.Indicator className="text-red-500">
             <CheckIcon />
           </Checkbox.Indicator>
         </Checkbox.Root>
         <label
-          className="pl-[10px] text-[15px]  text-gray-600  select-none leading-6"
-          htmlFor={label}
+          className="pl-[10px] text-[15px]  text-gray-600 cursor-pointer select-none leading-6"
+          htmlFor={item.id}
         >
           {label}
         </label>

@@ -23,8 +23,6 @@ const Table = ({ baseURL }) => {
   const [directions, setDirections] = useState([]);
   const [initiators, setInitiators] = useState([]);
 
-  console.log(dates);
-
   const router = useRouter();
   const { locale, pathname } = router;
   // %20 is space
@@ -36,7 +34,7 @@ const Table = ({ baseURL }) => {
   const filterDates = dates.map((item) => "&dates%5B%5D=" + item).join("");
 
   const filterDirections = directions
-    .map((item) => "&directions%5B%5D=" + item.id)
+    .map((item) => "&directions%5B%5D=" + item)
     .join("");
 
   const filterInitiator = initiators

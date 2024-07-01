@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useState } from "react";
-import CheckBox from "./CheckBox";
+import CheckBox from "./DirectionCheckBox";
 
 import useSWR from "swr";
 import { fetcher } from "lib/fetcher";
@@ -19,6 +19,7 @@ export default function DirectionsFilter({
       revalidateOnReconnect: false,
     }
   );
+  console.log("directions", directions);
 
   return (
     <div className="flex flex-col gap-2 justify-start items-start">
@@ -33,23 +34,27 @@ export default function DirectionsFilter({
                 setDocTypes={setDirections}
               />
 
-              {directions.includes(item)
+              {directions.includes(item.id)
                 ? item.sub_directions.map((sub, y) => {
-                    if (!directions.includes(sub)) {
-                      directions.push(sub);
-                    }
-
                     return (
                       <div
                         onClick={() =>
                           setDirections(
-                            directions.filter((dir) => dir.id !== sub.id)
+                            directions.filter((dir) => dir !== sub.id)
                           )
                         }
                         key={sub.id}
                         className="flex items-center justify-start gap-2 cursor-pointer"
                       >
-                        <p className="text-gray-500">{sub.name}</p>
+                        <p
+                          className={`${
+                            directions.includes(sub.id)
+                              ? "text-red-600"
+                              : "text-gray-400"
+                          }`}
+                        >
+                          {sub.name}
+                        </p>
                       </div>
                     );
                   })
