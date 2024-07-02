@@ -19,7 +19,6 @@ export default function DirectionsFilter({
       revalidateOnReconnect: false,
     }
   );
-  console.log("directions", directions);
 
   return (
     <div className="flex flex-col gap-2 justify-start items-start">
@@ -38,11 +37,15 @@ export default function DirectionsFilter({
                 ? item.sub_directions.map((sub, y) => {
                     return (
                       <div
-                        onClick={() =>
-                          setDirections(
-                            directions.filter((dir) => dir !== sub.id)
-                          )
-                        }
+                        onClick={() => {
+                          if (directions.includes(sub.id)) {
+                            setDirections(
+                              directions.filter((dir) => dir !== sub.id)
+                            );
+                          } else {
+                            setDirections([...directions, sub.id]);
+                          }
+                        }}
                         key={sub.id}
                         className="flex items-center justify-start gap-2 cursor-pointer"
                       >
