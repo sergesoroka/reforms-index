@@ -64,11 +64,20 @@ export default function TableFilters({
               setDirections([]);
               setDocTypes([]);
             }}
-            className="border border-gray-300 hover:border-gray-600 rounded-full text-xs text-gray-400 hover:text-gray-600 w-32 py-1 px-2"
+            className="mb-4 border border-gray-300 hover:border-gray-600 rounded-full text-xs text-gray-400 hover:text-gray-600 w-32 py-1 px-2"
           >
             Скинути фільтри
           </button>
-          <Labels labels={labels} setLabels={setLabels} />
+          <Labels
+            dates={dates}
+            setDates={setDates}
+            directions={directions}
+            setDirections={setDirections}
+            docTypes={docTypes}
+            setDocTypes={setDocTypes}
+            initiators={initiators}
+            setInitiators={setInitiators}
+          />
           <ul className="flex items-center justify-center gap-6 text-sm ">
             <li
               className={`cursor-pointer  ${
@@ -124,7 +133,7 @@ export default function TableFilters({
             </div>
           )}
           {tab === "type" && (
-            <div className="w-full bg-gray-100 py-4 px-8 rounded-md capitalize">
+            <div className="bg-gray-100 py-4 px-8 rounded-md capitalize">
               <DocTypeFilter
                 baseURL={baseURL}
                 docTypes={docTypes}

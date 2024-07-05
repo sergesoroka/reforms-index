@@ -13,7 +13,6 @@ import Labels from "./TableFilters/Labels";
 
 const Table = ({ baseURL }) => {
   const [tableData, setTableData] = useState(rows);
-  const [category, setCategory] = useState("all");
   const [filtered, setFiltered] = useState([]);
 
   const [sortField, setSortField] = useState([]);
@@ -24,15 +23,9 @@ const Table = ({ baseURL }) => {
   const [docTypes, setDocTypes] = useState([]);
   const [directions, setDirections] = useState([]);
   const [initiators, setInitiators] = useState([]);
-  console.log(initiators);
 
   const router = useRouter();
   const { locale, pathname } = router;
-  // %20 is space
-  // %22 is quotes
-  // %5B is '['
-  // and %5D is ']'
-  // https://vox-imore.ra-devs.tech/api/news?initiators%5B%5D=1
 
   const filterDates = dates.map((item) => "&dates%5B%5D=" + item).join("");
 
@@ -99,16 +92,16 @@ const Table = ({ baseURL }) => {
 
   return (
     <>
-      <Labels
+      {/* <Labels
         dates={dates}
         setDates={setDates}
         directions={directions}
         setDirections={setDirections}
-        docTypes={setDocTypes}
+        docTypes={docTypes}
         setDocTypes={setDocTypes}
         initiators={initiators}
         setInitiators={setInitiators}
-      />
+      /> */}
       <TableFilters
         baseURL={baseURL}
         setLabels={setLabels}

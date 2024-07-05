@@ -22,7 +22,7 @@ export default function DocTypeFilter({
   );
 
   return (
-    <div className="flex gap-6 items-center">
+    <div className="w-[12rem] mb-4" style={{ width: "fitContent" }}>
       {data &&
         data.data.map((item) => (
           <CheckBox
