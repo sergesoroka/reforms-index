@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CheckBox from "./CheckBox";
 
 import useSWR from "swr";
@@ -10,6 +10,7 @@ export default function InitiatorsFilter({
   initiators,
   setInitiators,
 }) {
+  const [selected, setSelected] = useState([]);
   const [letter, setLetter] = useState("");
   const { data, isLoading } = useSWR(
     `${baseURL}/api/filters/initiators`,
@@ -22,6 +23,18 @@ export default function InitiatorsFilter({
   );
 
   const alphabet = ["М", "П", "К", "В", "Н", "Ф", "Д", "А"];
+  useEffect(() => {
+    data &&
+      data.data.map((item) => {
+        // if (!docTypes.includes(item) && selected.includes(item)) {
+        //   docTypes.push(item);
+        // }
+
+        if (!initiators.includes(item)) {
+          setInitiators(initiators.filter((d) => d !== item));
+        }
+      });
+  }, [selected]);
 
   return (
     <div>
@@ -49,6 +62,8 @@ export default function InitiatorsFilter({
                   item={item}
                   docTypes={initiators}
                   setDocTypes={setInitiators}
+                  setSelected={setSelected}
+                  selected={selected}
                 />
               );
             }

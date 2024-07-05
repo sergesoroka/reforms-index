@@ -10,6 +10,11 @@ export default function Labels({
   initiators,
   setInitiators,
 }) {
+  // console.log("dates", dates);
+  // console.log("directions", directions);
+  console.log("docTypes", docTypes);
+  // console.log("initiators", initiators);
+
   return (
     <div>
       <div className="flex flex-wrap gap-3 mb-4">

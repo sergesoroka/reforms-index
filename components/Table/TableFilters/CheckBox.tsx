@@ -8,27 +8,25 @@ export default function CheckBox({
   item,
   setDocTypes,
   docTypes,
-  setResetFilters,
-  resetFilters,
+  setSelected,
+  selected,
 }) {
   const [checked, setChecked] = useState(() =>
     docTypes.includes(item) ? true : false
   );
 
-  if (checked && !docTypes.includes(item)) {
+  useEffect(() => {
+    setChecked(docTypes.includes(item) ? true : false);
+  }, [docTypes]);
+
+  if (checked && !selected.includes(item)) {
+    setSelected([...docTypes, item]);
     setDocTypes([...docTypes, item]);
   }
 
-  // if (resetFilters && docTypes.includes(item)) {
-  //   setDocTypes([]);
-  // }
-
-  if (!checked && docTypes.includes(item)) {
-    setDocTypes(
-      docTypes.filter(
-        (type) => type.id !== item.id && item?.sub_directions?.length < 0
-      )
-    );
+  if (!checked && selected.includes(item)) {
+    setDocTypes(docTypes.filter((d) => d !== item));
+    setSelected(selected.filter((v) => v !== item));
   }
 
   return (
