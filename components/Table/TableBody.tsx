@@ -102,13 +102,17 @@ const TableBody = ({ tableData }) => {
                     {row.title}
                     <div className="flex gap-4 text-[11px] font-medium pt-2 text-gray-500">
                       <Link
-                        href={`https://reforms-index.vercel.app/news/${row?.id}`}
+                        href={
+                          row?.id
+                            ? `https://reforms-index.vercel.app/news/${row?.id}`
+                            : ""
+                        }
                       >
                         <span>Новина</span>
                       </Link>
                       {row.npa_links.map((item, i) => (
                         <p key={item.id}>
-                          <Link href={item.link}>
+                          <Link href={item.link ? item.link : ""}>
                             {row.npa_links.length == 1 &&
                               row.npa_links.length !== 0 &&
                               "Документ"}
@@ -118,7 +122,11 @@ const TableBody = ({ tableData }) => {
                         </p>
                       ))}
                       <Link
-                        href={`https://reforms-index.vercel.app/news/comments/${row?.id}`}
+                        href={
+                          row?.id
+                            ? `https://reforms-index.vercel.app/news/comments/${row?.id}`
+                            : ""
+                        }
                       >
                         <span className="flex gap-1">
                           {row.comments_count > 0 && "Коментарі:"}

@@ -33,17 +33,17 @@ export default function DirectionsFilter({
                 setDocTypes={setDirections}
               />
 
-              {directions.includes(item.id)
+              {directions.includes(item)
                 ? item.sub_directions.map((sub, y) => {
                     return (
                       <div
                         onClick={() => {
-                          if (directions.includes(sub.id)) {
+                          if (directions.includes(sub)) {
                             setDirections(
-                              directions.filter((dir) => dir !== sub.id)
+                              directions.filter((dir) => dir !== sub)
                             );
                           } else {
-                            setDirections([...directions, sub.id]);
+                            setDirections([...directions, sub]);
                           }
                         }}
                         key={sub.id}
@@ -51,7 +51,7 @@ export default function DirectionsFilter({
                       >
                         <p
                           className={`${
-                            directions.includes(sub.id)
+                            directions.includes(sub)
                               ? "text-red-600"
                               : "text-gray-400"
                           }`}

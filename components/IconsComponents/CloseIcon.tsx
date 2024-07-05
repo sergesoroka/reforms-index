@@ -9,8 +9,8 @@ export default function CloseIcon() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M1 10L9.99999 1.00001" stroke="white" strokeWidth="2" />
-      <path d="M1 1L9.99999 9.99999" stroke="white" strokeWidth="2" />
+      <path d="M1 10L9.99999 1.00001" stroke="#dc2626" strokeWidth="1" />
+      <path d="M1 1L9.99999 9.99999" stroke="#dc2626" strokeWidth="1" />
     </svg>
   );
 }

@@ -12,17 +12,17 @@ export default function CheckBox({
   resetFilters,
 }) {
   const [checked, setChecked] = useState(() =>
-    docTypes.includes(item.id) ? true : false
+    docTypes.includes(item) ? true : false
   );
 
-  const subItems = item.sub_directions.map((d) => d.id);
+  const subItems = item.sub_directions.map((d) => d);
 
-  if (checked && !docTypes.includes(item.id)) {
-    setDocTypes([...docTypes, ...subItems, item.id]);
+  if (checked && !docTypes.includes(item)) {
+    setDocTypes([...docTypes, ...subItems, item]);
   }
 
   if (!checked && docTypes.includes(item.id)) {
-    setDocTypes(docTypes.filter((d) => d !== item.id));
+    setDocTypes(docTypes.filter((d) => d !== item));
   }
 
   return (

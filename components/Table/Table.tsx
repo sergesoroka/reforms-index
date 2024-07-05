@@ -9,6 +9,8 @@ import TableBody from "./TableBody";
 import TableFilters from "./TableFilters/TableFilters";
 import TableHead from "./TableHead";
 
+import Labels from "./TableFilters/Labels";
+
 const Table = ({ baseURL }) => {
   const [tableData, setTableData] = useState(rows);
   const [category, setCategory] = useState("all");
@@ -22,6 +24,7 @@ const Table = ({ baseURL }) => {
   const [docTypes, setDocTypes] = useState([]);
   const [directions, setDirections] = useState([]);
   const [initiators, setInitiators] = useState([]);
+  console.log(initiators);
 
   const router = useRouter();
   const { locale, pathname } = router;
@@ -34,7 +37,7 @@ const Table = ({ baseURL }) => {
   const filterDates = dates.map((item) => "&dates%5B%5D=" + item).join("");
 
   const filterDirections = directions
-    .map((item) => "&directions%5B%5D=" + item)
+    .map((item) => "&directions%5B%5D=" + item.id)
     .join("");
 
   const filterInitiator = initiators
@@ -96,6 +99,16 @@ const Table = ({ baseURL }) => {
 
   return (
     <>
+      <Labels
+        dates={dates}
+        setDates={setDates}
+        directions={directions}
+        setDirections={setDirections}
+        docTypes={setDocTypes}
+        setDocTypes={setDocTypes}
+        initiators={initiators}
+        setInitiators={setInitiators}
+      />
       <TableFilters
         baseURL={baseURL}
         setLabels={setLabels}
