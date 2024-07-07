@@ -20,6 +20,8 @@ export default function DirectionsFilter({
     }
   );
 
+  console.log(directions);
+
   return (
     <div className="flex flex-col gap-2 justify-start items-start">
       {data &&
@@ -38,12 +40,12 @@ export default function DirectionsFilter({
                     return (
                       <div
                         onClick={() => {
-                          if (directions.includes(sub)) {
+                          if (!directions.includes(sub)) {
+                            setDirections([...directions, sub]);
+                          } else {
                             setDirections(
                               directions.filter((dir) => dir !== sub)
                             );
-                          } else {
-                            setDirections([...directions, sub]);
                           }
                         }}
                         key={sub.id}

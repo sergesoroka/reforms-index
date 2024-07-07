@@ -21,8 +21,13 @@ export default function CheckBox({
     setDocTypes([...docTypes, ...subItems, item]);
   }
 
-  if (!checked && docTypes.includes(item.id)) {
+  if (!checked && docTypes.includes(item)) {
     setDocTypes(docTypes.filter((d) => d !== item));
+    item.sub_directions.map((v) => {
+      if (docTypes.includes(v)) {
+        setDocTypes(docTypes.filter((d) => d !== v));
+      }
+    });
   }
 
   return (

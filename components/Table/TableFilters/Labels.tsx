@@ -87,14 +87,14 @@ export default function Labels({
               className="flex items-center gap-2 font-medium antialiased bg-white text-[13px] text-red-600 rounded-full border  select-none px-2 py-1"
             >
               <span>{item.name}</span>
-              <span
+              <div
                 onClick={() => {
-                  setDirections(directions.filter((d) => d !== item));
+                  setDirections(directions.filter((d) => d.id !== item.id));
                 }}
-                className="cursor-pointer"
+                className="cursor-pointer block"
               >
                 <CloseIcon />
-              </span>
+              </div>
             </div>
           ))}
       </div>

@@ -16,14 +16,11 @@ export default function CheckBoxComp({
   );
 
   if (checked && !selected.includes(item.slice(0, 4))) {
-    console.log("check");
-
-    // setValues([...values, item]);
     setSelected([...selected, item.slice(0, 4)]);
   }
 
   if (!checked && selected.includes(item.slice(0, 4))) {
-    setValues(values.filter((v) => v !== item));
+    // setValues(values.filter((v) => v !== item));
     setSelected(selected.filter((v) => v !== item.slice(0, 4)));
   }
 

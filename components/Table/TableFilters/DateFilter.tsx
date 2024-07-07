@@ -36,11 +36,11 @@ export default function DateFilter({
 
   const [selected, setSelected] = useState([]);
 
-  console.log("dates:", dates);
-  console.log("select", selected);
+  // console.log("dates:", dates);
+  // console.log("select", selected);
 
   useEffect(() => {
-    console.log("effect");
+    // console.log("effect");
 
     data &&
       data.data.map((item) => {
@@ -57,7 +57,7 @@ export default function DateFilter({
 
         if (selected.length < 1) setDates([]);
       });
-  }, [data, selected]);
+  }, [selected]);
 
   const years = [];
 
