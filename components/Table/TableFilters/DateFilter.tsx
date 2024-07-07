@@ -40,6 +40,8 @@ export default function DateFilter({
   console.log("select", selected);
 
   useEffect(() => {
+    console.log("effect");
+
     data &&
       data.data.map((item) => {
         if (
@@ -55,7 +57,7 @@ export default function DateFilter({
 
         if (selected.length < 1) setDates([]);
       });
-  }, [data, dates, selected, setDates]);
+  }, [data, selected]);
 
   const years = [];
 
@@ -83,7 +85,7 @@ export default function DateFilter({
                       data.data.map((v, y) => {
                         if (
                           item.date.slice(0, 4) === v.date.slice(0, 4) &&
-                          selected.includes(v.date.slice(0, 4))
+                          selected.includes(item.date.slice(0, 4))
                         ) {
                           return (
                             <p
@@ -104,7 +106,7 @@ export default function DateFilter({
                                   : "text-gray-500 cursor-pointer hover:text-gray-700"
                               } capitalize select-none ${
                                 dates.includes(v.date) &&
-                                v.status !== "empty" &&
+                                v.status == "has" &&
                                 "text-red-600"
                               }`}
                             >
