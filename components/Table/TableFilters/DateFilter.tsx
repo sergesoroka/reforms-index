@@ -36,13 +36,16 @@ export default function DateFilter({
 
   const [selected, setSelected] = useState([]);
 
+  console.log("dates:", dates);
+  console.log("select", selected);
+
   useEffect(() => {
     data &&
       data.data.map((item) => {
         if (
           !dates.includes(item.date) &&
           selected.includes(item.date.slice(0, 4)) &&
-          item.status !== "empty"
+          item.status === "has"
         ) {
           // setDates([...dates, item.date]);
           dates.push(item.date);
@@ -52,7 +55,7 @@ export default function DateFilter({
 
         if (selected.length < 1) setDates([]);
       });
-  }, [selected]);
+  }, [data, dates, selected, setDates]);
 
   const years = [];
 
@@ -79,7 +82,7 @@ export default function DateFilter({
                     {data &&
                       data.data.map((v, y) => {
                         if (
-                          item.date.slice(0, 4) == v.date.slice(0, 4) &&
+                          item.date.slice(0, 4) === v.date.slice(0, 4) &&
                           selected.includes(v.date.slice(0, 4))
                         ) {
                           return (

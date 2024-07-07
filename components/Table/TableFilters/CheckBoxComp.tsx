@@ -16,6 +16,9 @@ export default function CheckBoxComp({
   );
 
   if (checked && !selected.includes(item.slice(0, 4))) {
+    console.log("check");
+
+    // setValues([...values, item]);
     setSelected([...selected, item.slice(0, 4)]);
   }
 

@@ -12,7 +12,7 @@ export default function Labels({
 }) {
   // console.log("dates", dates);
   // console.log("directions", directions);
-  console.log("docTypes", docTypes);
+  // console.log("docTypes", docTypes);
   // console.log("initiators", initiators);
 
   return (

@@ -17,17 +17,19 @@ export default function CheckBox({
 
   useEffect(() => {
     setChecked(docTypes.includes(item) ? true : false);
-  }, [docTypes]);
 
-  if (checked && !selected.includes(item)) {
-    setSelected([...docTypes, item]);
-    setDocTypes([...docTypes, item]);
-  }
+    if (checked && !selected.includes(item)) {
+      setSelected([...docTypes, item]);
+      setDocTypes([...docTypes, item]);
+    }
 
-  if (!checked && selected.includes(item)) {
-    setDocTypes(docTypes.filter((d) => d !== item));
-    setSelected(selected.filter((v) => v !== item));
-  }
+    if (!checked && selected.includes(item)) {
+      setDocTypes(docTypes.filter((d) => d !== item));
+      setSelected(selected.filter((v) => v !== item));
+    }
+  }, [checked, docTypes, item, selected, setDocTypes, setSelected]);
+
+  const handleChange = () => console.log("changed!");
 
   return (
     <form>
@@ -35,6 +37,7 @@ export default function CheckBox({
         <Checkbox.Root
           checked={checked}
           onCheckedChange={setChecked}
+          onChange={handleChange}
           className={`${
             checked && "border border-red-500 h-[16px] w-[16px]"
           } hover:bg-gray-100 border border-gray-300 flex h-[16px] w-[16px] appearance-none items-center justify-center rounded-[4px]  bg-white accent-border-red-500 outline-red-500 focus:border-red-400`}
