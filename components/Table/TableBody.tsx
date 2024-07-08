@@ -40,7 +40,11 @@ const TableBody = ({ tableData }) => {
 
               if (accessor == "npa_links[0].initiator") {
                 return (
-                  <td key={accessor} className={styles.tableBodyCell}>
+                  <td
+                    key={accessor}
+                    className={styles.tableBodyCell}
+                    style={{ lineBreak: "anywhere" }}
+                  >
                     {row.npa_links[0]?.initiator}
                   </td>
                 );
