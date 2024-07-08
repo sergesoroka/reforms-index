@@ -15,10 +15,10 @@ const TableBody = ({ tableData }) => {
             {columns.map(({ accessor }) => {
               const tData = row[accessor];
 
-              if (accessor == "id") {
+              if (accessor == "act") {
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
-                    <div>{row.id}</div>
+                    <div>{row.act ? row.act : "—"}</div>
                     <div>{row.flag == 1 ? <Flag /> : null}</div>
 
                     {/* <p className="text-[12px] text-gray-600 mt-1">{row.act}</p> */}
@@ -102,7 +102,11 @@ const TableBody = ({ tableData }) => {
 
               if (accessor == "title") {
                 return (
-                  <td key={accessor} className={styles.tableBodyCell}>
+                  <td
+                    key={accessor}
+                    className={styles.tableBodyCell}
+                    style={{ maxWidth: "500px" }}
+                  >
                     {row.title}
                     <div className="flex gap-4 text-[11px] font-medium pt-2 text-gray-500">
                       <Link
@@ -155,7 +159,10 @@ const TableBody = ({ tableData }) => {
               if (accessor == "code") {
                 return (
                   <td key={accessor} className={styles.tableBodyCell}>
-                    {Object.keys(row.code).map((item, i) => (
+                    {row.code.map((cd, i) => (
+                      <p key={i}>{cd.tag}</p>
+                    ))}
+                    {/* {Object.keys(row.code).map((item, i) => (
                       <p
                         className="cursor-pointer"
                         key={i}
@@ -163,7 +170,7 @@ const TableBody = ({ tableData }) => {
                       >
                         {item}
                       </p>
-                    ))}
+                    ))} */}
                   </td>
                 );
               }

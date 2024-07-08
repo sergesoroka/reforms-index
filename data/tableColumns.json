@@ -1,8 +1,8 @@
 [
   {
-    "accessor": "id",
-    "label": "№",
-    "sortable": true
+    "accessor": "act",
+    "label": "Акт",
+    "sortable": false
   },
   {
     "accessor": "date",
