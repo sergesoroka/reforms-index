@@ -51,7 +51,7 @@ const Divider: FC<divider> = ({
             </h2>
             {openable && <ArrowOpen open={open} />}
           </div>
-          <hr className="mt-2 mb-10" />
+          <hr className="mt-2" />
         </>
       )}
       {!openable ||

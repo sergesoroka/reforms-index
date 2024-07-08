@@ -86,6 +86,10 @@ g.recharts-cartesian-axis-ticks > g > text {
   transform: translateX(-60);
 }
 
+input[type="checkbox"] {
+  width: 16px !important;
+}
+
 /* .recharts-cartesian-grid-horizontal > line:nth-child(4) {
   stroke: #e64e27;
 }

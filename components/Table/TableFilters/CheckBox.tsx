@@ -49,7 +49,7 @@ export default function CheckBox({
           </Checkbox.Indicator>
         </Checkbox.Root>
         <label
-          className="pl-[10px] text-[15px]  text-gray-600 cursor-pointer select-none leading-6"
+          className="pl-[10px] text-[15px] w-fit text-gray-600 cursor-pointer select-none leading-6"
           htmlFor={item.id}
         >
           {label}
