@@ -22,7 +22,12 @@ export default function InitiatorsFilter({
     }
   );
 
-  const alphabet = ["М", "П", "К", "В", "Н", "Ф", "Д", "А"];
+  function onlyUnique(value, index, array) {
+    return array.indexOf(value) === index;
+  }
+  const al = data && data.data.map((l) => l.short_name.slice(0, 1));
+  const alphabet = al.filter(onlyUnique);
+
   useEffect(() => {
     data &&
       data.data.map((item) => {
