@@ -36,25 +36,9 @@ export default function DateFilter({
 
   const [selected, setSelected] = useState([]);
 
-  console.log("dates:", dates);
-  console.log("select", selected);
-
   useEffect(() => {
-    // console.log("effect");
-
     data &&
       data.data.map((item) => {
-        if (
-          !dates.includes(item.date) &&
-          selected.includes(item.date.slice(0, 4)) &&
-          item.status === "has"
-        ) {
-          setDates((dates) => [...dates, item.date]);
-          // dates.push(item.date);
-        }
-        // if (selected.includes("2024") && item.date.slice(0, 4) == "2024") {
-        //   dates.push(item.date);
-        // }
         if (!selected.includes(item.date.slice(0, 4)))
           setDates(dates.filter((d) => d !== item.date));
 
@@ -74,14 +58,29 @@ export default function DateFilter({
 
               return (
                 <div key={i} className="flex items-center justify-start gap-6 ">
-                  <CheckBoxComp
-                    item={item.date}
-                    label={item.date.slice(0, 4)}
-                    values={dates}
-                    setValues={setDates}
-                    setSelected={setSelected}
-                    selected={selected}
-                  />
+                  <div
+                    onClick={() => {
+                      data &&
+                        data.data.map((d) => {
+                          if (
+                            !dates.includes(item.date) &&
+                            item.date.slice(0, 4) == d.date.slice(0, 4) &&
+                            d.status === "has"
+                          ) {
+                            setDates((dates) => [...dates, d.date]);
+                          }
+                        });
+                    }}
+                  >
+                    <CheckBoxComp
+                      item={item.date}
+                      label={item.date.slice(0, 4)}
+                      values={dates}
+                      setValues={setDates}
+                      setSelected={setSelected}
+                      selected={selected}
+                    />
+                  </div>
 
                   <div className="flex justify-start items-center gap-4">
                     {data &&
