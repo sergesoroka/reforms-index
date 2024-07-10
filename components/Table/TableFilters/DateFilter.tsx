@@ -45,21 +45,22 @@ export default function DateFilter({
     data &&
       data.data.map((item) => {
         if (
-          // !dates.includes(item.date) &&
+          !dates.includes(item.date) &&
           selected.includes(item.date.slice(0, 4)) &&
           item.status === "has"
         ) {
           setDates((dates) => [...dates, item.date]);
-
-          console.log(item.date);
+          // dates.push(item.date);
         }
-        if (selected.includes("2024")) dates.push(item.date);
+        // if (selected.includes("2024") && item.date.slice(0, 4) == "2024") {
+        //   dates.push(item.date);
+        // }
         if (!selected.includes(item.date.slice(0, 4)))
           setDates(dates.filter((d) => d !== item.date));
 
         if (selected.length < 1) setDates([]);
       });
-  }, [selected]);
+  }, [data, selected, setDates]);
 
   const years = [];
 
