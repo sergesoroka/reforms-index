@@ -36,8 +36,8 @@ export default function DateFilter({
 
   const [selected, setSelected] = useState([]);
 
-  // console.log("dates:", dates);
-  // console.log("select", selected);
+  console.log("dates:", dates);
+  console.log("select", selected);
 
   useEffect(() => {
     // console.log("effect");
@@ -45,13 +45,15 @@ export default function DateFilter({
     data &&
       data.data.map((item) => {
         if (
-          !dates.includes(item.date) &&
+          // !dates.includes(item.date) &&
           selected.includes(item.date.slice(0, 4)) &&
           item.status === "has"
         ) {
-          // setDates([...dates, item.date]);
-          dates.push(item.date);
+          setDates((dates) => [...dates, item.date]);
+
+          console.log(item.date);
         }
+        if (selected.includes("2024")) dates.push(item.date);
         if (!selected.includes(item.date.slice(0, 4)))
           setDates(dates.filter((d) => d !== item.date));
 
@@ -85,7 +87,7 @@ export default function DateFilter({
                       data.data.map((v, y) => {
                         if (
                           item.date.slice(0, 4) === v.date.slice(0, 4) &&
-                          selected.includes(item.date.slice(0, 4))
+                          selected.includes(v.date.slice(0, 4))
                         ) {
                           return (
                             <p
@@ -94,7 +96,7 @@ export default function DateFilter({
                                   !dates.includes(v.date) &&
                                   v.status !== "empty"
                                 ) {
-                                  setDates([...dates, v.date]);
+                                  setDates((dates) => [...dates, v.date]);
                                 } else {
                                   setDates(dates.filter((d) => d !== v.date));
                                 }

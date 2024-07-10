@@ -16,8 +16,8 @@ export default function Labels({
   // console.log("initiators", initiators);
 
   return (
-    <div>
-      <div className="flex flex-wrap gap-3 mb-4">
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-3">
         {dates &&
           dates.length > 0 &&
           dates.map((item, i) => (
@@ -37,7 +37,7 @@ export default function Labels({
             </div>
           ))}
       </div>
-      <div className="flex flex-wrap gap-3 mb-4">
+      <div className="flex flex-wrap gap-3">
         {docTypes &&
           docTypes.length > 0 &&
           docTypes.map((item, i) => (
@@ -57,7 +57,7 @@ export default function Labels({
             </div>
           ))}
       </div>
-      <div className="flex flex-wrap gap-3 mb-4">
+      <div className="flex flex-wrap gap-3">
         {initiators &&
           initiators.length > 0 &&
           initiators.map((item, i) => (
@@ -78,7 +78,7 @@ export default function Labels({
           ))}
       </div>
 
-      <div className="flex flex-wrap gap-3 mb-4">
+      <div className="flex flex-wrap gap-3">
         {directions &&
           directions.length > 0 &&
           directions.map((item, i) => (
