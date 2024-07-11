@@ -3,8 +3,10 @@ import Head from "next/head";
 import Script from "next/script";
 import Header from "components/Header/Header";
 import Footer from "components/Footer/Footer";
+import TeamExperts from "components/Experts/TeamExperts";
+import HomPartners from "components/HomePageComps/HomPartners";
 
-export default function About({ setting, metadata }) {
+export default function About({ setting, metadata, baseURL }) {
   const pageRender =
     metadata &&
     metadata.data.map((page, i) => {
@@ -62,7 +64,13 @@ export default function About({ setting, metadata }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header data={setting} />
-      <main className={styles.mainAboutPage}>{pageRender}</main>
+      <main className={styles.mainAboutPage}>
+        <>{pageRender}</>
+        <h2 className="mt-12">Команда проекту</h2>
+        <TeamExperts baseURL={baseURL} />
+        <h2>Партнери</h2>
+        <HomPartners baseURL={baseURL} />
+      </main>
       <Footer data={setting} />
     </>
   );

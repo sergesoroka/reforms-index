@@ -31,10 +31,6 @@ export default function InitiatorsFilter({
   useEffect(() => {
     data &&
       data.data.map((item) => {
-        // if (!docTypes.includes(item) && selected.includes(item)) {
-        //   docTypes.push(item);
-        // }
-
         if (!initiators.includes(item)) {
           setInitiators(initiators.filter((d) => d !== item));
         }

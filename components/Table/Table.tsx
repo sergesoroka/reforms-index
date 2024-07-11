@@ -24,6 +24,8 @@ const Table = ({ baseURL }) => {
   const [directions, setDirections] = useState([]);
   const [initiators, setInitiators] = useState([]);
 
+  console.log(directions);
+
   const router = useRouter();
   const { locale, pathname } = router;
 

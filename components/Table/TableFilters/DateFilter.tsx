@@ -36,13 +36,15 @@ export default function DateFilter({
 
   const [selected, setSelected] = useState([]);
 
+  console.log("SELECT", selected);
+
   useEffect(() => {
     data &&
       data.data.map((item) => {
         if (!selected.includes(item.date.slice(0, 4)))
           setDates(dates.filter((d) => d !== item.date));
 
-        if (selected.length < 1) setDates([]);
+        if (dates.length < 1) setSelected([]);
       });
   }, [data, selected, setDates]);
 

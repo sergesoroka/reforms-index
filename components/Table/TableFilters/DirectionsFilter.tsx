@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import CheckBox from "./DirectionCheckBox";
 
 import useSWR from "swr";
@@ -10,6 +10,7 @@ export default function DirectionsFilter({
   setDirections,
   directions,
 }) {
+  const [selected, setSelected] = useState([]);
   const { data, isLoading } = useSWR(
     `${baseURL}/api/filters/directions`,
     fetcher,
@@ -21,6 +22,14 @@ export default function DirectionsFilter({
   );
 
   console.log(directions);
+  useEffect(() => {
+    data &&
+      data.data.map((item) => {
+        if (!directions.includes(item)) {
+          setDirections(directions.filter((d) => d !== item));
+        }
+      });
+  }, [selected]);
 
   return (
     <div className="flex flex-col gap-2 justify-start items-start">
@@ -28,19 +37,31 @@ export default function DirectionsFilter({
         data.data.map((item, i) => {
           return (
             <div key={item.id} className="flex justify-start gap-6">
-              <CheckBox
-                label={item.name}
-                item={item}
-                docTypes={directions}
-                setDocTypes={setDirections}
-              />
+              <div
+                onClick={() => {
+                  if (!directions.includes(item)) {
+                    setDirections([...directions, item]);
+                  } else {
+                    setDirections(directions.filter((d) => d !== item.name));
+                  }
+                }}
+              >
+                <CheckBox
+                  label={item.name}
+                  item={item}
+                  docTypes={directions}
+                  setDocTypes={setDirections}
+                  setSelected={setSelected}
+                  selected={selected}
+                />
+              </div>
 
               {directions.includes(item)
                 ? item.sub_directions.map((sub, y) => {
                     return (
                       <div
                         onClick={() => {
-                          if (!directions.includes(sub)) {
+                          if (directions.includes(item)) {
                             setDirections([...directions, sub]);
                           } else {
                             setDirections(
