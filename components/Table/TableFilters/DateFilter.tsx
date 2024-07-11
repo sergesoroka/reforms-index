@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { useEffect, useState } from "react";
-import NestedCheckBox from "./Shared/NestedCheckBox";
+import NestedCheckBox from "./DateFilter/NestedCheckBox";
 
 import { fetcher } from "lib/fetcher";
 import useSWR from "swr";
