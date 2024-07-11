@@ -1,24 +1,9 @@
 // @ts-nocheck
 import { useEffect, useState } from "react";
-import CheckBoxComp from "./CheckBoxComp";
+import NestedCheckBox from "./Shared/NestedCheckBox";
 
 import { fetcher } from "lib/fetcher";
 import useSWR from "swr";
-
-const monthNames = {
-  "01": "Січень",
-  "02": "лютий",
-  "03": "березень",
-  "04": "квітень",
-  "05": "травень",
-  "06": "червень",
-  "07": "липень",
-  "08": "серпень",
-  "09": "вересень",
-  "10": "жовтень",
-  "11": "листопад",
-  "12": "грудень",
-};
 
 export default function DateFilter({
   baseURL,
@@ -34,9 +19,10 @@ export default function DateFilter({
     revalidateOnReconnect: false,
   });
 
-  const [selected, setSelected] = useState([]);
+  function onlyUnique(value, index, array) {
+      return array.indexOf(value) === index;
+  }
 
-  console.log("SELECT", selected);
 
   useEffect(() => {
     data &&
@@ -48,81 +34,31 @@ export default function DateFilter({
       });
   }, [data, selected, setDates]);
 
-  const years = [];
+  const all_dates=[];
+  data && data.data.map((item, i) => {
+    let year=item.date.slice(0, 4);
+    let tmp=[];
+    if (all_dates[year]){
+     tmp=all_dates[year];
+    }
+    tmp.push(item);
+    all_dates[year]=tmp;
+
+  });
 
   return (
     <div>
       <div className="space-y-2">
-        {data &&
-          data.data.map((item, i) => {
-            if (!years.includes(item.date.slice(0, 4))) {
-              years.push(item.date.slice(0, 4));
-
-              return (
-                <div key={i} className="flex items-center justify-start gap-6 ">
-                  <div
-                    onClick={() => {
-                      data &&
-                        data.data.map((d) => {
-                          if (
-                            !dates.includes(item.date) &&
-                            item.date.slice(0, 4) == d.date.slice(0, 4) &&
-                            d.status === "has"
-                          ) {
-                            setDates((dates) => [...dates, d.date]);
-                          }
-                        });
-                    }}
-                  >
-                    <CheckBoxComp
-                      item={item.date}
-                      label={item.date.slice(0, 4)}
-                      values={dates}
-                      setValues={setDates}
-                      setSelected={setSelected}
-                      selected={selected}
-                    />
-                  </div>
-
-                  <div className="flex justify-start items-center gap-4">
-                    {data &&
-                      data.data.map((v, y) => {
-                        if (
-                          item.date.slice(0, 4) === v.date.slice(0, 4) &&
-                          selected.includes(v.date.slice(0, 4))
-                        ) {
-                          return (
-                            <p
-                              onClick={() => {
-                                if (
-                                  !dates.includes(v.date) &&
-                                  v.status !== "empty"
-                                ) {
-                                  setDates((dates) => [...dates, v.date]);
-                                } else {
-                                  setDates(dates.filter((d) => d !== v.date));
-                                }
-                              }}
-                              key={y}
-                              className={`${
-                                v.status == "empty"
-                                  ? "text-gray-300"
-                                  : "text-gray-500 cursor-pointer hover:text-gray-700"
-                              } capitalize select-none ${
-                                dates.includes(v.date) &&
-                                v.status == "has" &&
-                                "text-red-600"
-                              }`}
-                            >
-                              {monthNames[v.date.slice(5, 7)]}
-                            </p>
-                          );
-                        }
-                      })}
-                  </div>
-                </div>
-              );
-            }
+        {all_dates &&
+            all_dates.map((item, year) => {
+                  return(
+              <NestedCheckBox
+                  label={year}
+                  dataSet={item}
+                  values={dates.filter(onlyUnique)}
+                  setValues={setDates}
+              />
+                )
           })}
       </div>
     </div>
