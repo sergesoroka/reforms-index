@@ -23,17 +23,7 @@ export default function DateFilter({
       return array.indexOf(value) === index;
   }
 
-
-  useEffect(() => {
-    data &&
-      data.data.map((item) => {
-        if (!selected.includes(item.date.slice(0, 4)))
-          setDates(dates.filter((d) => d !== item.date));
-
-        if (dates.length < 1) setSelected([]);
-      });
-  }, [data, selected, setDates]);
-
+  
   const all_dates=[];
   data && data.data.map((item, i) => {
     let year=item.date.slice(0, 4);
