@@ -43,6 +43,7 @@ export default function DateFilter({
             all_dates.map((item, year) => {
                   return(
               <NestedCheckBox
+                  key={year}
                   label={year}
                   dataSet={item}
                   values={dates.filter(onlyUnique)}

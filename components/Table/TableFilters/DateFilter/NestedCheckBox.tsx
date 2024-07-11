@@ -86,6 +86,7 @@ export default function NestedCheckBox({
                 {checked && dataSet.map((item) => {
                     return (
                         <CheckBoxP
+                            key={monthNames[item.date.slice(5, 7)]}
                             label={monthNames[item.date.slice(5, 7)]}
                             checkBoxKey={item.date}
                             active={!!values.includes(item.date)}
