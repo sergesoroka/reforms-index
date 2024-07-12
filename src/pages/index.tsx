@@ -97,7 +97,7 @@ function Home({ setting, metadata, baseURL }) {
           single={false}
         />
         <HomePosts baseURL={baseURL} />
-        <Link
+        {/* <Link
           href="https://voxukraine.org/category/reformi/imore"
           passHref
           target="_blank"
@@ -106,7 +106,7 @@ function Home({ setting, metadata, baseURL }) {
           <p className="mt-8 text-gray-500 hover:text-[#e64e27ed] decoration-[#e64e27ed] underline underline-offset-[6px] text-center">
             Всі матеріали на сайті &laquo;Вокс Україна&raquo;
           </p>
-        </Link>
+        </Link> */}
       </main>
       <Footer data={setting} />
     </>

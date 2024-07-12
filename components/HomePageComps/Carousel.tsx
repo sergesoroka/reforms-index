@@ -22,7 +22,7 @@ export default function Carousel({ data }) {
           <AnimatePresence>
             <div
               //             transition={{ duration: 1 }}
-              className="w-full h-[420px] flex justify-between gap-4 overflow-y-hidden"
+              className="w-full h-[420px] flex justify-between gap-20 overflow-y-hidden"
             >
               {data &&
                 data.data.slice(count, count + 3).map((post, i) => {
@@ -33,10 +33,10 @@ export default function Carousel({ data }) {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ delay: count * 2 }}
-                      className="w-[360px] flex flex-col justify-start items-start"
+                      className="w-[261px] flex flex-col justify-start items-start"
                     >
                       <Link href={post.post_url} passHref target="_blank">
-                        <div className="w-full h-auto  rounded-lg lg:h-[78px] xl:h-[140px] 2xl:h-[160px] overflow-hidden">
+                        <div className="w-full h-auto  rounded-lg lg:h-[78px] xl:h-[134px] 2xl:h-[134px] overflow-hidden">
                           <Image
                             // @ts-ignore
                             src={post.post_img}

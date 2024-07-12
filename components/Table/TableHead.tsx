@@ -58,7 +58,11 @@ const TableHead: FC = ({
             }
           >
             <div
-              onClick={() => setAscOrder(!ascOrder)}
+              onClick={() => {
+                if (sortable) {
+                  setAscOrder(!ascOrder);
+                }
+              }}
               style={{
                 height: "74px",
                 display: "flex",

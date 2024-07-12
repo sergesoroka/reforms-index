@@ -66,7 +66,7 @@ export default function About({ setting, metadata, baseURL }) {
       <Header data={setting} />
       <main className={styles.mainAboutPage}>
         <>{pageRender}</>
-        <h2 className="mt-12">Команда проекту</h2>
+        <h2 className="mt-12">Команда проєкту</h2>
         <TeamExperts baseURL={baseURL} />
         <h2>Партнери</h2>
         <HomPartners baseURL={baseURL} />
