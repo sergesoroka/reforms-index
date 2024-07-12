@@ -39,6 +39,8 @@ function Experts({ baseURL }) {
 
   return (
     <div className="wrap">
+      <h1>Експерти</h1>
+      <hr className="mb-6 mt-4" />
       <Divider heading="Наші експерти" single={false} />
       <TabsComp status={status} setStatus={setStatus} baseURL={baseURL} />
       {dataDesc &&

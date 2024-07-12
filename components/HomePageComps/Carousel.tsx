@@ -20,19 +20,19 @@ export default function Carousel({ data }) {
 
         <div className="h-[420px] overflow-hidden relative">
           <AnimatePresence>
-            <motion.div
-              key={count}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+            <div
               //             transition={{ duration: 1 }}
               className="w-full h-[420px] flex justify-between gap-4 overflow-y-hidden"
             >
               {data &&
                 data.data.slice(count, count + 3).map((post, i) => {
                   return (
-                    <div
+                    <motion.div
                       key={i}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ delay: count * 2 }}
                       className="w-[360px] flex flex-col justify-start items-start"
                     >
                       <Link href={post.post_url} passHref target="_blank">
@@ -67,10 +67,10 @@ export default function Carousel({ data }) {
                           </p>
                         </Link>
                       ))}
-                    </div>
+                    </motion.div>
                   );
                 })}
-            </motion.div>
+            </div>
           </AnimatePresence>
         </div>
         <button onClick={() => setCount(count + 3)} className="w-10">

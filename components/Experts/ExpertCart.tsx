@@ -39,15 +39,21 @@ const ExpertCart: FC<ExpertInfo> = ({
           alt={name}
           width={240}
           height={240}
-          className="rounded-lg h-[240px] md:h-[240px]"
+          className="rounded-2xl h-[240px] md:h-[240px]"
         />
-        <p className="text-[18px] text-red-500 text-center mt-4 ">
+        <div
+          className="text-[18px] text-red-500 text-center mt-4 "
+          style={{ color: "#ef4444" }}
+        >
           {name} {name == "Олександр Жолудь" && <span>*</span>}
-        </p>
+        </div>
 
-        <p className="text-sm text-gray-700 mb-2 text-center">
+        <div
+          className="text-sm text-gray-700 mb-2 mt-0
+         text-center"
+        >
           {company[0].name}
-        </p>
+        </div>
         <p>
           {name == "Олександр Жолудь" && (
             <span className={styles.note}>
