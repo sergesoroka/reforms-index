@@ -39,7 +39,7 @@ const ExpertCart: FC<ExpertInfo> = ({
           alt={name}
           width={240}
           height={240}
-          className="rounded-2xl h-[240px] md:h-[240px]"
+          className="rounded-[40px] h-[240px] md:h-[240px]"
         />
         <div
           className="text-[18px] text-red-500 text-center mt-4 "

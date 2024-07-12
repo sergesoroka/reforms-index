@@ -1,7 +1,7 @@
 import Divider from "components/Divider/Divider";
 import styles from "./Footer.module.css";
-import EmailIcon from "../icons/email_icon.svg";
-import FbIcon from "../icons/fb_icon.svg";
+import EmailIcon from "../icons/MAIL.svg";
+import FbIcon from "../icons/FB.svg";
 import Globus from "components/IconsComponents/Globus";
 import Link from "next/link";
 
@@ -16,18 +16,18 @@ const Footer = ({ data }) => {
             passHref
             target="_blank"
           >
-            <p className="text-sm text-red-500">{data && data.data.logo}</p>
+            <p className="text-sm text-grey-500">{data && data.data.logo}</p>
           </Link>
-          <p className={styles.copyright}>{data && data.data.copyright}</p>
+          {/* <p className={styles.copyright}>{data && data.data.copyright}</p> */}
         </div>
         <div className={styles.social}>
-          <Link
+          {/* <Link
             href={data ? data.data.social_vox : ""}
             passHref
             target="_blank"
           >
             <Globus />
-          </Link>
+          </Link> */}
           <Link
             href={data ? "mailto:" + data.data.social_email : ""}
             passHref
@@ -40,6 +40,7 @@ const Footer = ({ data }) => {
           </Link>
         </div>
       </div>
+      <p className={styles.copyright}>{data && data.data.copyright}</p>
     </footer>
   );
 };
