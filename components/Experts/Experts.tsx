@@ -50,7 +50,7 @@ function Experts({ baseURL }) {
               <div key={item.id}>
                 <p
                   key={item.id}
-                  className="my-10 text-sm text-gray-500"
+                  className="my-10 text-[18px] text-gray-500"
                   dangerouslySetInnerHTML={{ __html: item.content }}
                 />
               </div>
@@ -61,7 +61,7 @@ function Experts({ baseURL }) {
               <div key={item.id}>
                 <p
                   key={item.id}
-                  className="my-10 text-sm text-gray-500"
+                  className="my-10 text-[18px] text-gray-500"
                   dangerouslySetInnerHTML={{ __html: item.content }}
                 />
               </div>
@@ -72,7 +72,7 @@ function Experts({ baseURL }) {
               <div key={item.id}>
                 <p
                   key={item.id}
-                  className="my-10 text-sm text-gray-500"
+                  className="my-10 text-[18px] text-gray-500"
                   dangerouslySetInnerHTML={{ __html: item.content }}
                 />
               </div>

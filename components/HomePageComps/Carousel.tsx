@@ -14,9 +14,9 @@ export default function Carousel({ data }) {
   return (
     <div>
       <div className="flex justify-between items-center gap-12 mb-4">
-        <button onClick={() => setCount(count - 3)} className="w-10">
+        {/* <button onClick={() => setCount(count - 3)} className="w-10">
           <ChevronLeft />
-        </button>
+        </button> */}
 
         <div className="h-[420px] overflow-hidden relative">
           <AnimatePresence>

@@ -74,7 +74,13 @@ export default function ExpertProfile({ data, baseURL }) {
           <ExpertArticles baseURL={baseURL} data={data} />
         </>
       )}
-      {data && expert.comments.length !== 0 && <h2>Коментарі</h2>};
+      {data && expert.comments.length !== 0 && (
+        <>
+          <h3>Коментарі експерта</h3>
+          <hr />
+        </>
+      )}
+
       {data &&
         expert.comments.length !== 0 &&
         expert.comments.map((item) => (

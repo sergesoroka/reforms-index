@@ -21,9 +21,7 @@ function TabsComp({ status, setStatus, baseURL }) {
       <li
         key={stat.id}
         className={
-          status == stat.id
-            ? "underline decoration-red-600 decoration-4 underline-offset-[14px] text-gray-600"
-            : "cursor-pointer text-gray-400"
+          status == stat.id ? " text-red-600" : "cursor-pointer text-gray-400"
         }
         onClick={() => setStatus(stat.id)}
       >
