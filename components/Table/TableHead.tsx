@@ -22,32 +22,30 @@ const TableHead: FC = ({
             style={{ position: "sticky", top: 0 }}
             key={accessor}
             onClick={() => {
-              // setResetSorting(false);
-
-              if (sortField.length !== 0) {
-                let uniq = true;
-                sortField.forEach(function (key, index) {
-                  let sort_key = Object.keys(key)[0];
-                  if (sort_key == accessor) {
-                    uniq = false;
-                    if (key[sort_key] == "DESC") {
-                      key[sort_key] = "ASC";
-                    } else {
-                      key[sort_key] = "DESC";
+              if (sortable) {
+                if (sortField.length !== 0) {
+                  let uniq = true;
+                  sortField.forEach(function (key, index) {
+                    let sort_key = Object.keys(key)[0];
+                    if (sort_key == accessor) {
+                      uniq = false;
+                      if (key[sort_key] == "DESC") {
+                        key[sort_key] = "ASC";
+                      } else {
+                        key[sort_key] = "DESC";
+                      }
+                      activeColumn[accessor] = key[sort_key];
                     }
-                    activeColumn[accessor] = key[sort_key];
+                  });
+                  if (uniq) {
+                    sortField.push({ [accessor]: "DESC" });
+                    activeColumn[accessor] = "DESC";
                   }
-                });
-                if (uniq) {
+                } else {
                   sortField.push({ [accessor]: "DESC" });
                   activeColumn[accessor] = "DESC";
                 }
-              } else {
-                sortField.push({ [accessor]: "DESC" });
-                activeColumn[accessor] = "DESC";
               }
-
-              // if (resetSorting) setResetSorting(true);
             }}
             className={
               sortField.includes(accessor)
